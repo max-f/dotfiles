@@ -1,0 +1,25 @@
+shell bash
+
+#256colors stuff
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+term screen-256color
+
+defutf8 on
+startup_message off
+autodetach on
+altscreen on
+vbell off
+bell_msg "bell in window %n "
+vbell_msg "bell in window %n "
+hardstatus alwayslastline 
+#hardstatus string "%?%{rk}%-Lw%?%{Ck}%n*%f %t%?(%u)%?%?%{rk}%+Lw%?%{Yk} | %{mk}%1` %{yk}%=%2` %-= %{bk}%H %{yk}%c"
+hardstatus string "%{.kW}%-w%{.bW}%n %t%{-}%+w%{Y} |  %-=%{..B} %H %{Y} %c"
+# screen escapes: http://aperiodic.net/screen/man:string_escapes
+bindkey -k k1 prev
+bindkey -k k2 next
+
+screen -t bash		1
+screen -t htop		2	htop
+screen -t fnode 	3	irssi 
+screen -t qnet		4	irssi
+#screen -t mcabber   5   mcabber
