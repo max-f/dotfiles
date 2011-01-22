@@ -1,8 +1,9 @@
-
+"---------------------------------
 " file:             .vimrc
 " author:           keks
-" last modified:    2010/12/12  
-"
+" last modified:    January 2011  
+"---------------------------------
+
 " usefull settings
 set nocompatible
 " intending
@@ -82,7 +83,7 @@ map <F3> <Esc>:NERDTreeToggle<CR>
 " look
 syntax on
 set t_Co=256
-colorscheme morning
+colorscheme neverland-ansi_bg
 set cul
 set foldmethod=marker
-hi Cursorline term=none cterm=none ctermbg=15 "17
+hi Cursorline term=none cterm=none ctermbg=17 "17
