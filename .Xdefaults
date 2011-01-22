@@ -1,0 +1,111 @@
+!---------------------------------
+! file:             .vimrc
+! author:           keks
+! last modified:    January 2011  
+!---------------------------------
+
+! Black       = color0 + DarkGray = color8
+! DarkRed     = color1 + Red      = color9
+! DarkGreen   = color2 + Green    = color10
+! DarkYellow  = color3 + Yellow   = color11
+! DarkBlue    = color4 + Blue     = color12
+! DarkMagenta = color5 + Magenta  = color13
+! DarkCyan    = color6 + Cyan     = color14
+! LightGrey   = color7 + White    = color15
+
+!dmz colors & stuff
+/* colors */
+URxvt.cursorColor:          #EB122E
+URxvt.cursorColor2:         #252525
+URxvt.colorIT:              #FFFFFF
+URxvt.colorBD:              #FFFFFF
+URxvt.colorUL:              #FF8F00
+URxvt.colorRV:              #333333
+!URxvt.underlineColor:       #0E0E0E
+URxvt.underlineColor: 		#FF4747
+URxvt.borderColor:          #0E0E0E
+URxvt.pointerColor:         #252525
+URxvt.pointerColor2:        #0092FF
+URxvt.termName: 			rxvt-256color
+
+/* matches */
+URxvt.underlineURLs:        false
+URxvt.urlLauncher:          /usr/bin/firefox
+URxvt.matcher.button:       1
+URxvt.cutchars:             "()*,<>[]{}|'"
+URxvt.matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.launcher.1:   /usr/bin/firefox
+URxvt.matcher.pattern.2:    \\B(/\\S+?):(\\d+)(?=:|$)
+URxvt.matcher.launcher.2:   gvim +$2 $1
+
+/* libs */
+URxvt.perl-lib:             /usr/lib/urxvt/perl
+URxvt.perl-ext-common:      default,matcher
+URxvt.perl-eval:            $^O
+
+/* perl magic */
+URxvt.selection.pattern-0:        ( at .*? line \\d+[,.])
+URxvt.selection-autotransform.0:  s/^ at (.*?) line (\\d+)[,.]$/:e \\Q$1\E\\x0d:$2\\x0d/
+
+/* terminal stuff */
+URxvt.scrollKey:            true
+URxvt.scrollWithBuffer:     true
+URxvt.scrollBack:           true
+URxvt.scrollTtyOutput:      false
+URxvt.scrollTtyKeypress:    true
+URxvt.jumpScroll:           true
+URxvt.skipScroll:           true
+URxvt.loginShell:           true
+URxvt.urgentOnBell:         true
+URxvt.saveLines:            1024
+URxvt.trippleclickwords:    true
+!URxvt.modifier:            (alt,meta,hyper,super,mod1,mod2,mod3,mod4,mod5)
+!URxvt.secondaryScreen:     true
+!URxvt.secondaryScroll:     true
+URxvt.scrollstyle:          next
+URxvt.pasteableTabs:        true
+!URxvt.pointerBlank:         true
+!URxvt.pointerBlankDelay:    2
+URxvt.scrollBar: 			false
+URxvt.depth:                24
+
+/* colors */
+#include "/home/keks/.xcolors/dmz"
+
+/* font */
+!urxvt*font:				-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+!urxvt*boldFont:				-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+!urxvt*font:				-*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt*boldFont:				-*-proggytiny-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*font:			-*-dina-medium-r-normal--*-*-*-*-*-*-*-*
+urxvt*boldFont:		-*-dina-medium-r-normal--*-*-*-*-*-*-*-*
+
+!urxvt.perl-ext-common: mark-urls
+!rxvt.urlLauncher: firefox
+!urxvt*font:             xft:Dejavu Sans Mono:pixelsize=12
+!urxvt*boldFont:         xft:Dejavu Sans Mono:pixelsize=12
+
+!urxvt*font: xft:envy code r:pixelsize=13:normal
+!urxvt*boldFont: xft:envy code r:pixelsize=13:normal
+
+!urxvt.font: xft:montecarlo:size=11
+!urxvt*boldFont: xft:montecarlo:bold:size=11
+
+!URxvt.*font: -windows-montecarlo-medium-r-normal-*-12-110-72-72-c-60-microsoft-cp1252
+!URxvt.*boldFont: -windows-montecarlo-bold-r-normal-*-12-110-72-72-c-60-microsoft-cp1252
+
+
+
+/* leaving urxvt country */
+
+! some more appearance settings:
+!Xcursor*theme: dmz-aa
+Xcursor*theme: Vanilla-DMZ
+Xcursor*size: 24
+Xft*dpi: 96
+Xft*antialias: true
+Xft*rgba: rgb
+Xft*hinting: true
+Xft*hinstyle: hintslight
+
+urxvt*boldMode: off 
