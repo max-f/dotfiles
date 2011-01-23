@@ -6,6 +6,7 @@
 
 " usefull settings
 set nocompatible
+
 " intending
 set ai
 set smartindent
@@ -17,7 +18,6 @@ set tenc=utf-8
 filetype on
 filetype indent on
 filetype plugin on
-set ignorecase
 
 " show line numbers
 set nu
@@ -33,6 +33,17 @@ set textwidth=79
 
 " searching
 set incsearch hlsearch
+set ignorecase
+
+"{{{ Folding test
+if has("folding")
+    set foldenable
+    set foldmethod=marker
+    set foldmarker={{{,}}}
+    set foldcolumn=0
+    set foldlevel=100
+endif
+"}}}
 
 " au foo
 " python stuff
@@ -82,8 +93,23 @@ map <F3> <Esc>:NERDTreeToggle<CR>
 
 " look
 syntax on
-set t_Co=256
-colorscheme neverland-ansi_bg
+if has('gui_running')
+    set guioptions+=a
+    set guioptions+=c
+    if has('gui_win32')
+        set guifont=Inconsolata:h12:cANSI
+    else 
+        set guifont=envy\ code\ r
+    endif
+    colorscheme darkerdesert
+else
+    if (&term =~ "-256color")
+        set t_Co=256
+        colorscheme neverland-ansi_bg
+    else 
+        colorscheme darkerdesert
+    endif
+endif
+
 set cul
-set foldmethod=marker
 hi Cursorline term=none cterm=none ctermbg=17 "17
