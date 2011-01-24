@@ -1,9 +1,11 @@
 #!/bin/sh
 
+#---------------------------------
 # file:             .xinitrc
-# author:           keks
-# last modified:    2010/11/18
-#
+# author:           keks_
+# last modified:    January 2011  
+#---------------------------------
+
 # keyboard stuff
 setxkbmap -option terminate:ctrl_alt_bksp &
 xrdb -merge $HOME/.Xdefaults &
@@ -19,13 +21,8 @@ sh $HOME/.fehbg
 (sleep 60 && /usr/bin/dropboxd) &
 
 # dwm
-while true
-do 
-		#battery=$(acpi -b | awk '{ print $3, $4 }' | tr -d ',')
-		battery=$(sh $HOME/devel/bash/battery.sh `acpi -b`)
-		volume=$(amixer get Master | sed -n 's/ Front Right: Playback [0-9]\+ \[\([0-9%]\+\)\].*/\1/p')
-		dat=$(date '+%a %d.%m.%y - %H:%M')
-		xsetroot -name "$battery | vol $volume | $dat"
-		sleep 1
+while true; do 
+    $HOME/devel/bash/dwm_status.sh
+    sleep 2s
 done &
 exec $HOME/bin/dwm
