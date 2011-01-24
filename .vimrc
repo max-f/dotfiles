@@ -1,6 +1,6 @@
 "---------------------------------
 " file:             .vimrc
-" author:           keks
+" author:           keks_
 " last modified:    January 2011  
 "---------------------------------
 
