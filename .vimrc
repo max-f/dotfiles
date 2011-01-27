@@ -4,11 +4,11 @@
 " last modified:    January 2011  
 "---------------------------------
 
-" usefull settings
+" vim > vi settings 
 set nocompatible
 
 " intending
-set ai
+set autoindent
 set smartindent
 
 " encoding
@@ -26,16 +26,17 @@ set nu
 set noswapfile
 
 " text layout
-set tabstop=4
-set backspace=2
-set expandtab "for discussion
-set textwidth=79
+set tabstop=4       " tabs have 4 spaces
+set backspace=2     " backspace 2 spaces
+set shiftwidth=4    " intending 4 spaces
+set expandtab       " for discussion
+set textwidth=79    " readable line length
 
 " searching
 set incsearch hlsearch
 set ignorecase
 
-"{{{ Folding test
+" {{{ Folding test
 if has("folding")
     set foldenable
     set foldmethod=marker
@@ -44,6 +45,18 @@ if has("folding")
     set foldlevel=100
 endif
 "}}}
+
+" status bar info and appearance
+set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]\ 
+set laststatus=2
+set cmdheight=1
+let g:loaded_matchparen=1
+
+" space bar un-highligts search
+:noremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+" Allows writing to files with root privileges
+cmap w!! %!sudo tee > /dev/null %  
 
 " au foo
 " python stuff
