@@ -47,7 +47,7 @@ endif
 "}}}
 
 " status bar info and appearance
-set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%p%%:\ %l/%L]\ 
+set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%04v]\ [%p%%:\ %l/%L]\ 
 set laststatus=2
 set cmdheight=1
 let g:loaded_matchparen=1
@@ -114,7 +114,7 @@ if has('gui_running')
     else 
         set guifont=envy\ code\ r
     endif
-    colorscheme darkerdesert
+    colorscheme desert
 else
     if (&term =~ "-256color")
         set t_Co=256
@@ -123,6 +123,5 @@ else
         colorscheme darkerdesert
     endif
 endif
-
 set cul
-hi Cursorline term=none cterm=none ctermbg=17 "17
+hi Cursorline term=none cterm=none ctermbg=17
