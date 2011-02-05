@@ -1,8 +1,8 @@
-"---------------------------------
+"-----------------------------------
 " file:             .vimrc
-" author:           keks_
-" last modified:    January 2011  
-"---------------------------------
+" author:           keks
+" last modified:    February 2011 
+"-----------------------------------
 
 " vim > vi settings 
 set nocompatible
@@ -57,6 +57,9 @@ let g:loaded_matchparen=1
 
 " Allows writing to files with root privileges
 cmap w!! %!sudo tee > /dev/null %  
+
+" Printer
+set printdevice=HP_LaserJet_1022
 
 " au foo
 " python stuff
@@ -124,4 +127,4 @@ else
     endif
 endif
 set cul
-hi Cursorline term=none cterm=none ctermbg=17
+    hi Cursorline term=none cterm=none ctermbg=17

@@ -1,13 +1,9 @@
 #!/usr/bin/env zsh
-##############################################################################
-# FILE INFO								     #
-##############################################################################
-
-#---------------------------------
-# file:             .vimrc
+#-----------------------------------
+# file:             .zshrc
 # author:           keks
-# last modified:    January 2011  
-#---------------------------------
+# last modified:    February 2011 
+#-----------------------------------
 #
 # edited version, original file from:
 #
@@ -17,9 +13,10 @@
 # Author:   Ã˜yvind "Mr.Elendig" Heggstad <mrelendig@har-ikkje.net> #
 #------------------------------------------------------------------#
 
-##############################################################################
-# Colors								     #
-##############################################################################
+#-----------------------------------
+# Colors
+#-----------------------------------
+
 
 export CLICOLORS=1
 if [ -e /bin/dircolors ]; then
@@ -49,9 +46,9 @@ if [ "$TERM" = "linux" ]; then
     clear #hmm, yeah we need this or else we get funky background collisions
 fi
 
-##############################################################################
-# Alias									     #
-##############################################################################
+#-----------------------------------
+# Aliases
+#-----------------------------------
 
 #alias startx='startx > ~/.startx.log 2>&1'
 alias ..='cd ..'
@@ -106,17 +103,17 @@ alias -s pls=audacious
 alias -g L='|less'
 alias -g G='|grep'
 
-##############################################################################
-# History								     #
-##############################################################################
+#-----------------------------------
+# History
+#-----------------------------------
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-##############################################################################
-# Variables								     #
-##############################################################################
+#-----------------------------------
+# Variables
+#-----------------------------------
 
 setopt extendedglob appendhistory autocd nomatch
 unsetopt beep
@@ -127,7 +124,7 @@ export BROWSER='firefox'
 export OOO_FORCE_DESKTOP=gnome
 export MAIL=~/mail
 export ECLIM_ECLIPSE_HOME="/usr/share/eclipse"
-export PAGER='most'
+export PAGER='vimpager'
 
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -137,10 +134,10 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-
-#------------------------------
+#-----------------------------------
 # Keybindings
-#------------------------------
+#-----------------------------------
+
 bindkey -v
 typeset -g -A key
 #bindkey '\e[3~' delete-char
@@ -164,9 +161,9 @@ bindkey "\e[7~" beginning-of-line
 bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
 
-##############################################################################
-# Completion								     #
-##############################################################################
+#-----------------------------------
+# Completion
+#-----------------------------------
 
 zmodload zsh/complist 
 autoload -Uz compinit
@@ -182,70 +179,60 @@ zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
-##############################################################################
-# Window Title                  			     #
-##############################################################################
+#-----------------------------------
+# Window title
+#-----------------------------------
+
 
 if [ $TERM = xterm ] || [ $TERM = rxvt-unicode ] || [ $TERM = rxvt-256color ]; then
         precmd () { print -Pn "\e]0;%~\a" }
         preexec () { print -Pn "\e]0;$1\a" } 
 fi
 
-##############################################################################
-# Prompt									     #
-##############################################################################
+#-----------------------------------
+# Prompt
+#-----------------------------------
 
 setprompt () {
-	# load some modules
-	autoload -U colors zsh/terminfo # Used in the colour alias below
-	colors
-	setopt prompt_subst
+    # load some modules
+    autoload -U colors zsh/terminfo # Used in the colour alias below
+    colors
+    setopt prompt_subst
 
-	# make some aliases for the colors: (coud use normal escap.seq's too)
-	for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE GRAY; do
-		eval PR_$color='%{$fg[${(L)color}]%}'
-	done
-	PR_NO_COLOR="%{$terminfo[sgr0]%}"
+    # make some aliases for the colours: (coud use normal escap.seq's too)
+    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+        eval PR_$color='%{$fg[${(L)color}]%}'
+    done
+    PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
-#	# Check the UID
-#	if [[ $UID -ge 1000 ]]; then # normal user
-#		eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
-#		eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
-#	elif [[ $UID -eq 0 ]]; then # root
-#		eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-#		eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
-#	fi	
+    # Check the UID
+    if [[ $UID -ge 1000 ]]; then # normal user
+        eval PR_USER='${PR_MAGENTA}%n${PR_NO_COLOR}'
+        eval PR_USER_OP='${PR_MAGENTA}\$${PR_NO_COLOR}'
+    elif [[ $UID -eq 0 ]]; then # root
+        eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
+        eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
+    fi  
 
-	# Check the UID
-	if [[ $UID -ge 1000 ]]; then # normal user
-		eval PR_USRCOL='${PR_GREEN}'
-		eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
-	elif [[ $UID -eq 0 ]]; then # root
-		eval PR_USRCOL='${PR_RED}'
-		eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
-	fi	
+    # Check if we are on SSH or not
+    if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
+        eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
+        eval PR_HOSTCOL='${PR_YELLOW}'
+    else 
+        eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
+        eval PR_HOSTCOL='${PR_GREEN}'
+    fi
 
-	# Check if we are on SSH or not  --{FIXME}--  always goes to |no SSH| --{ FIXED? with && instead of || }--
-	if [[ -z "$SSH_CLIENT" && -z "$SSH2_CLIENT" ]]; then
-		eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
-		eval PR_HOSTCOL='${PR_USRCOL}'
-	else 
-		eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
-		eval PR_HOSTCOL='${PR_YELLOW}'
-	fi
-
-	#PS1=$'${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}%~${PR_CYAN}]${PR_USER_OP} '
-
-	PS1="${PR_HOSTCOL}______________________________________________${PR_USRCOL}%n${PR_GREEN}@${PR_HOST}${PR_GREEN}-%y-%D{%R}
-${PR_USRCOL}[${PR_CYAN}%d${PR_USRCOL}]${PR_USER_OP} "
-#	PS1=${PR_GREEN}______________________________________________________________________________________$prompt_newline"[ZSH ${ZSH_VERSION} @ TTY %l on ${MACHTYPE}/${OSTYPE}/$(uname -r) | %D{%a %d.%m.%Y %R:%S %Z}]$prompt_newline${PR_GREEN}[${PR_USRCOL}%n${PR_GREEN}@${PR_HOST}${PR_GREEN}]${PR_WHITE}[${PR_WHITE}%~${PR_WHITE}]${PR_USER_OP} "
-	PS2=$'%_>'
+    # set the prompt
+    PS1="${PR_HOSTCOL}______________________________________________
+${PR_USER}${PR_CYAN}@${PR_HOST} ${PR_BLUE}%~ ${PR_USER_OP} "
+    PS2=$'%_>'
 }
 setprompt
 
-##############################################################################
-# Functions									     #
-##############################################################################
+#-----------------------------------
+# Functions
+#-----------------------------------
 
 # Usage: simple-extract <file>
 # Description: extracts archived files (maybe)
