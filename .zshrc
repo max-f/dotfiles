@@ -224,8 +224,8 @@ setprompt () {
     fi
 
     # set the prompt
-    PS1="${PR_HOSTCOL}______________________________________________
-${PR_USER}${PR_CYAN}@${PR_HOST} ${PR_BLUE}%~ ${PR_USER_OP} "
+    PS1="${PR_HOSTCOL}______________________________________________${PR_USER}${PR_CYAN}@${PR_HOST}
+${PR_BLUE}%~ ${PR_USER_OP} "
     PS2=$'%_>'
 }
 setprompt
