@@ -1,10 +1,10 @@
 "-----------------------------------
 " file:             .vimrc
 " author:           keks
-" last modified:    February 2011 
+" last modified:    February 2011
 "-----------------------------------
 
-" vim > vi settings 
+" vim > vi settings
 set nocompatible
 
 " intending
@@ -22,7 +22,7 @@ filetype plugin on
 " show line numbers
 set nu
 
-" no backup 
+" no backup
 set noswapfile
 
 " text layout
@@ -30,7 +30,10 @@ set tabstop=4       " tabs have 4 spaces
 set backspace=2     " backspace 2 spaces
 set shiftwidth=4    " intending 4 spaces
 set expandtab       " for discussion
-set textwidth=79    " readable line length
+set textwidth=80    " readable line length
+set list            " show useless spaces
+set listchars=tab:\-\ ,trail:-
+
 
 " searching
 set incsearch hlsearch
@@ -69,7 +72,7 @@ au Filetype python setlocal smarttab
 au Filetype python setlocal expandtab
 au Filetype python setlocal softtabstop=4
 au Filetype python setlocal autoindent
-au Filetype python setlocal tw=79
+au Filetype python setlocal tw=80
 au Filetype python let g:pydiction_location  = '~/.vim/ftplugin/pydiction/complete-dict'
 au Filetype python highlight BadWhitespace ctermbg=red guibg=red
 au Filetype python match BadWhitespace /^\t\+/
@@ -104,27 +107,41 @@ au Filetype html,css setlocal softtabstop=2 " (sts) makes spaces feel like tabs 
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
+"delete cursor mappings
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+noremap <Up> <NOP>
+
+
+let mapleader                    = ','
 "nerdtree
 map <F3> <Esc>:NERDTreeToggle<CR> 
 
 " look
 syntax on
+set colorcolumn=81
+
 if has('gui_running')
-    set guioptions+=a
-    set guioptions+=c
+    set guioptions-=m
+    set guioptions-=T
     if has('gui_win32')
         set guifont=Inconsolata:h12:cANSI
     else 
-        set guifont=envy\ code\ r
+        set guifont=dina
     endif
-    colorscheme desert
+    colorscheme molokai
+    let g:molokai_original = 1
 else
     if (&term =~ "-256color")
         set t_Co=256
         colorscheme neverland-ansi_bg
     else 
-        colorscheme darkerdesert
+        colorscheme desert
     endif
 endif
 set cul
-    hi Cursorline term=none cterm=none ctermbg=17
+hi Cursorline term=none cterm=none ctermbg=17
+
+" necessary for indent_guides
+set background=dark
