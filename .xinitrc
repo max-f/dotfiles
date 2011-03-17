@@ -1,17 +1,21 @@
 #!/bin/sh
 
-#---------------------------------
+#-----------------------------------
 # file:             .xinitrc
-# author:           keks_
-# last modified:    January 2011  
-#---------------------------------
+# author:           keks
+# last modified:    February 2011
+#-----------------------------------
+
+# mouse stuff
+xset m 1 1 &
+unclutter -idle 4 &
 
 # keyboard stuff
 setxkbmap -option terminate:ctrl_alt_bksp &
 xrdb -merge $HOME/.Xdefaults &
-(sleep 3 && xmodmap $HOME/.xmodmap) &
+(sleep 3 && xmodmap $HOME/.xmodmaprc) &
 
-# wallpaper 
+# wallpaper
 sh $HOME/.fehbg
 
 # terminal emulator daemon
@@ -21,7 +25,7 @@ sh $HOME/.fehbg
 (sleep 60 && /usr/bin/dropboxd) &
 
 # dwm
-while true; do 
+while true; do
     $HOME/devel/bash/dwm_status.sh
     sleep 2s
 done &
