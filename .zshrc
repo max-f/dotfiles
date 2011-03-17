@@ -242,7 +242,7 @@ if [[ -f "$1" ]]
 then
 	case "$1" in
 #		*.tar.bz2)  bzip2 -v -d "$1" ;;
-		*.tar.bz2)  tar xvjf "$1" 	 ;;
+		*.tar.bz2)  tar xvjf "$1"    ;;
 		*.tar.gz)   tar -xvzf "$1"   ;;
 		*.ace)      unace e "$1"     ;;
 		*.rar)      unrar x "$1"     ;;
@@ -255,6 +255,7 @@ then
 		*.tbz2)     tar -jxvf "$1"   ;;
 		*.zip)      unzip "$1"       ;;
 		*.Z)        uncompress "$1"  ;;
+        *.7z)       7z e "$1"        ;;
 		*.shar)     sh "$1"          ;;
 		*)          echo "'"$1"' Error. Please go away" ;;
 	esac
@@ -296,6 +297,7 @@ then
 		*.tgz)         tar -ztf $1 ;;
 		*.zip)         unzip -l $1 ;;
 		*.bz2)         bzless $1 ;;
+        *.7z)          7z l $1 ;;
 		*)             echo "'$1' Error. Please go away" ;;
 	esac
 else
