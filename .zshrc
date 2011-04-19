@@ -105,7 +105,7 @@ bindkey "\eOF" end-of-line
 #-----------------------------------
 # {{{
 
-zmodload zsh/complist 
+zmodload zsh/complist
 autoload -Uz compinit
 compinit
 zstyle :compinstall filename '${HOME}/.zshrc'
@@ -113,8 +113,9 @@ zstyle :compinstall filename '${HOME}/.zshrc'
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*'   force-list always
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
@@ -185,8 +186,9 @@ setprompt() {
     fi
 
     # set the prompt
-    PS1="${PR_USER}${PR_CYAN}@${PR_HOST} ${PR_WHITE}[${PR_BLUE}%B%~%b${PR_WHITE}]"'$(prompt_git_info)'" ${PR_USER_OP} "
-    PS2=$'%_>'
+    PROMPT="${PR_USER}${PR_CYAN}@${PR_HOST} ${PR_WHITE}[${PR_BLUE}%B%~%b${PR_WHITE}]"'$(prompt_git_info)'" ${PR_USER_OP} "
+    RPROMPT="${PR_WHITE}[${PR_YELLOW}%?${PR_WHITE}]${PR_NO_COLOR}"
+    #PS2=$'%_>'
 }
 setprompt
 
