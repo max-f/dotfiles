@@ -1,0 +1,66 @@
+! dark
+!urxvt.color0 :  #252525
+!urxvt.color1 :  #ba7373
+!urxvt.color2 :  #739456
+!urxvt.color3 :  #a4712e
+!urxvt.color4 :  #25414f
+!urxvt.color5 :  #6f4f70
+!urxvt.color6 :  #3c6f69
+!urxvt.color7 :  #ffffff
+!urxvt.color8 :  #666666
+!urxvt.color9 :  #c14b4b
+!urxvt.color10:  #6ca318
+!urxvt.color11:  #7f672e
+!urxvt.color12:  #537595
+!urxvt.color13:  #a971a7
+!urxvt.color14:  #70999a
+!urxvt.color15:  #cacaca
+
+urxvt*background:  black
+urxvt*foreground:  grey
+urxvt*cursorColor: yellow
+urxvt*color0:      black
+urxvt*color1:      #9e1828
+urxvt*color2:      #aece92
+urxvt*color3:      #968a38
+urxvt*color4:      #414171
+urxvt*color5:      #963c59
+urxvt*color6:      #418179
+urxvt*color7:      gray
+urxvt*color8:      gray40
+urxvt*color9:      #cf6171
+urxvt*color10:     #c5f779
+urxvt*color11:     #fff796
+urxvt*color12:     #4186be
+urxvt*color13:     #cf9ebe
+urxvt*color14:     #71bebe
+urxvt*color15:     white
+
+! bright
+!urxvt.background: #ffffff
+!urxvt.foreground: #000000
+
+!black
+!urxvt.color0 :  #000000
+!urxvt.color8 :  #222222
+!red
+!urxvt.color1 :  #cc1111
+!urxvt.color9 :  #c14b4b
+!green
+!urxvt.color2 :  #00aa00
+!urxvt.color10:  #11aa11
+!yellow
+!urxvt.color3 :  #aaaa00
+!urxvt.color11:  #aaaa11
+!blue
+!urxvt.color4 :  #1111cc
+!urxvt.color12:  #537595
+!magenta
+!urxvt.color5 :  #6f4f70
+!urxvt.color13:  #a971a7
+!cyan
+!urxvt.color6 :  #48bcb0
+!urxvt.color14:  #70999a
+!white
+!urxvt.color7 :  #ffffff
+!urxvt.color15:  #cacaca
