@@ -148,20 +148,8 @@ setprompt() {
     # Allow for functions in the prompt.
     setopt PROMPT_SUBST
 
-    # Autoload zsh functions.
-    fpath=(~/.zsh/git_prompt_functions $fpath)
-    autoload -U ~/.zsh/git_prompt_functions/*(:t)
-
-    # Enable auto-execution of functions.
-    typeset -ga preexec_functions
-    typeset -ga precmd_functions
-    typeset -ga chpwd_functions
-
-    # Append git functions needed for prompt.
-    preexec_functions+='preexec_update_git_vars'
-    precmd_functions+='precmd_update_git_vars'
-    chpwd_functions+='chpwd_update_git_vars'
-
+    # Load git-status related functions
+    source $HOME/.zsh/git_prompt_functions.zsh
 
     # make some aliases for the colours: (coud use normal escap.seq's too)
     for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
@@ -185,9 +173,25 @@ setprompt() {
         eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
     fi
 
+    # git theming
+    ZSH_THEME_GIT_PROMPT_PREFIX="${PR_YELLOW}("
+    ZSH_THEME_GIT_PROMPT_SUFFIX="${PR_YELLOW})${PR_NO_COLOR}"
+    ZSH_THEME_GIT_PROMPT_DIRTY="${PR_CYAN}✗"
+    ZSH_THEME_GIT_PROMPT_CLEAN="${PR_GREEN}✔"
+
+
+    ZSH_THEME_GIT_PROMPT_ADDED="${PR_GREEN} ✚"
+    ZSH_THEME_GIT_PROMPT_MODIFIED="${PR_BLUE} ✹"
+    ZSH_THEME_GIT_PROMPT_DELETED="${PR_RED} ✖"
+    ZSH_THEME_GIT_PROMPT_RENAMED="${PR_MAGENTA} ➜"
+    ZSH_THEME_GIT_PROMPT_UNMERGED="${PR_YELLOW} ═"
+    ZSH_THEME_GIT_PROMPT_UNTRACKED="${PR_CYAN} ✭"
+
+
+
     # set the prompt
-    PROMPT="${PR_USER}${PR_CYAN}@${PR_HOST} ${PR_WHITE}[${PR_BLUE}%B%~%b${PR_WHITE}]"'$(prompt_git_info)'" ${PR_USER_OP} "
-    RPROMPT="${PR_WHITE}[${PR_YELLOW}%?${PR_WHITE}]${PR_NO_COLOR}"
+    PROMPT="${PR_USER}${PR_CYAN}@${PR_HOST} ${PR_WHITE}[${PR_BLUE}%B%~%b${PR_WHITE}]"'$(git_prompt_info)'" ${PR_USER_OP} "
+    RPROMPT=""'$(git_prompt_status)'" ${PR_WHITE}[${PR_YELLOW}%?${PR_WHITE}]${PR_NO_COLOR}"
     #PS2=$'%_>'
 }
 setprompt

@@ -87,4 +87,3 @@ alias -s pls=audacious
 
 alias -g L='|less'
 alias -g G='|grep'
-
