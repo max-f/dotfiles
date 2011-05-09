@@ -57,7 +57,11 @@ let g:loaded_matchparen=1
 " gui options
 set guioptions-=m
 set guioptions-=T
-set guifont=montecarlo
+if has("gui_win32")
+    set guifont=Inconsolata:h12:cANSI
+else
+    set guifont=montecarlo
+endif
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
@@ -126,10 +130,6 @@ map <F3> <Esc>:NERDTreeToggle<CR>
 syntax on
 set colorcolumn=81
 
-" optional
-if has('gui_win32')
-        set guifont=Inconsolata:h12:cANSI
- endif
 
 if $TERM == 'linux'
     let &t_Co = 8
@@ -139,11 +139,10 @@ if $TERM == 'linux'
     hi ColorColumn term=none cterm=none ctermbg=3
     hi CursorLine term=none cterm=none ctermbg=none
 else
-    color neverland
+    set cul
+    hi Cursorline term=none cterm=none ctermbg=17
+    colorscheme neverland
 endif
-
-set cul
-hi Cursorline term=none cterm=none ctermbg=17
 
 " necessary for indent_guides
 set background=dark
