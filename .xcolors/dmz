@@ -1,9 +1,9 @@
 URxvt.color0: #121212
-URxvt.color1: #262626
+URxvt.color1: #404040
 URxvt.color2: #4d4c4c
 URxvt.color3: #ff8f00
 URxvt.color4: #1165e9
-URxvt.color5: #89005a
+URxvt.color5: #f73574
 URxvt.color6: #ff3500
 URxvt.color7: #ffffff
 URxvt.color8: #484848
@@ -192,7 +192,7 @@ URxvt.color182: #d7afd7
 URxvt.color183: #d7afff
 URxvt.color184: #d7d700
 ! start mutt
-URxvt.color185: #ffff00 
+URxvt.color185: #ffff00
 URxvt.color186: #d7d787
 URxvt.color187: #d7d7af
 URxvt.color188: #d7d7d7
