@@ -1,7 +1,7 @@
 "-----------------------------------
 " file:             .vimrc
 " author:           keks
-" last modified:    February 2011
+" last modified:    May 2011
 "-----------------------------------
 
 " vim > vi settings
@@ -19,8 +19,8 @@ filetype on
 filetype indent on
 filetype plugin on
 
-" show line numbers
-set nu
+set nu              " show line numbers
+set relativenumber  " relative to current line
 
 " no backup
 set noswapfile
@@ -31,9 +31,8 @@ set backspace=2     " backspace 2 spaces
 set shiftwidth=4    " intending 4 spaces
 set expandtab       " for discussion
 set textwidth=80    " readable line length
-set list            " show useless spaces
-set listchars=tab:\-\ ,trail:-
-
+set list            " show these 'invisible' chars
+set listchars=tab:»­,trail:·,eol:¶,nbsp:⎵,precedes:←,extends:→ sbr=↪
 
 " searching
 set incsearch hlsearch
@@ -54,6 +53,11 @@ set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%04v]\ [%p%%:\ %l/%L]\
 set laststatus=2
 set cmdheight=1
 let g:loaded_matchparen=1
+
+" gui options
+set guioptions-=m
+set guioptions-=T
+set guifont=montecarlo
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
@@ -122,24 +126,22 @@ map <F3> <Esc>:NERDTreeToggle<CR>
 syntax on
 set colorcolumn=81
 
-if has('gui_running')
-    set guioptions-=m
-    set guioptions-=T
-    if has('gui_win32')
+" optional
+if has('gui_win32')
         set guifont=Inconsolata:h12:cANSI
-    else 
-        set guifont=dina
-    endif
-    colorscheme molokai
-    let g:molokai_original = 1
+ endif
+
+if $TERM == 'linux'
+    let &t_Co = 8
+    color peachpuff
+    set nolist
+    set colorcolumn+=81
+    hi ColorColumn term=none cterm=none ctermbg=3
+    hi CursorLine term=none cterm=none ctermbg=none
 else
-    if (&term =~ "-256color")
-        set t_Co=256
-        colorscheme neverland-ansi_bg
-    else 
-        colorscheme desert
-    endif
+    color neverland
 endif
+
 set cul
 hi Cursorline term=none cterm=none ctermbg=17
 
