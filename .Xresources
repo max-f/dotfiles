@@ -13,21 +13,39 @@
 ! DarkCyan    = color6 + Cyan     = color14
 ! LightGrey   = color7 + White    = color15
 
+/* fonts */
+#if WIDTH < 60
+#define FONT -xos4-terminus-medium-r-normal--22-220-72-72-c-110-koi8-u
+#else
+#define FONT -windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252
+#endif
+
+#define FONT_B -windows-montecarlo-bold-r-normal--11-110-72-72-c-60-microsoft-cp1252
+#define FONT_I -nil-profont-medium-r-normal--10-100-72-72-c-50-iso8859-1
+#define FONT_I_B -windows-montecarlo-bold-r-normal--11-110-72-72-c-60-microsoft-cp1252
+
+#define PROFONT_HUGE -nil-profont-medium-r-normal--29-290-72-72-c-160-iso8859-1
+#define TERMINUS_HUGE -xos4-terminus-medium-r-normal--28-280-72-72-c-140-koi8-u
+
 /* colors */
 #include "/home/keks/.xcolors/dmz"
-URxvt.background:           #121212
-URxvt.foreground:           #CACACA
-URxvt.cursorColor:          #EB122E
-URxvt.cursorColor2:         #252525
-URxvt.colorIT:              #FFFFFF
-URxvt.colorBD:              #FFFFFF
-URxvt.colorUL:              #FF8F00
-URxvt.colorRV:              #333333
-!URxvt.underlineColor:       #0E0E0E
-URxvt.underlineColor: 		#FF4747
-URxvt.borderColor:          #0E0E0E
-URxvt.pointerColor:         #252525
-URxvt.pointerColor2:        #0092FF
+URxvt.background: #121212
+URxvt.borderColor: #0E0E0E
+URxvt.colorBD: #FFFFFF
+URxvt.colorIT: #FFFFFF
+URxvt.colorRV: #333333
+URxvt.colorUL: #FF8F00
+URxvt.cursorColor2: #252525
+URxvt.cursorColor: #EB122E
+URxvt.foreground: #cacaca
+URxvt.pointerColor2: #0092FF
+URxvt.pointerColor: #252525
+URxvt.underlineColor: #0E0E0E
+
+URxvt*font: FONT
+URxvt*boldFont: FONT_B
+URxvt.italicFont: FONT_I
+URxvt*boldItalicFont: FONT_I_B
 URxvt.termName: 			rxvt-256color
 
 /* matches */
@@ -51,48 +69,30 @@ URxvt.selection.pattern-0:        ( at .*? line \\d+[,.])
 URxvt.selection-autotransform.0:  s/^ at (.*?) line (\\d+)[,.]$/:e \\Q$1\E\\x0d:$2\\x0d/
 
 /* terminal stuff */
-URxvt.scrollKey:            true
-URxvt.scrollWithBuffer:     true
-URxvt.scrollBack:           true
-URxvt.scrollTtyOutput:      false
-URxvt.scrollTtyKeypress:    true
-URxvt.jumpScroll:           true
-URxvt.skipScroll:           true
-URxvt.loginShell:           true
-URxvt.urgentOnBell:         true
-URxvt.saveLines:            1024
-URxvt.trippleclickwords:    true
-!URxvt.modifier:            (alt,meta,hyper,super,mod1,mod2,mod3,mod4,mod5)
-!URxvt.secondaryScreen:     true
-!URxvt.secondaryScroll:     true
-URxvt.scrollstyle:          next
-URxvt.pasteableTabs:        true
-!URxvt.pointerBlank:         true
-!URxvt.pointerBlankDelay:    2
-URxvt.scrollBar: 			false
-URxvt.depth:                32
+URxvt.jumpScroll: true
+URxvt.loginShell: true
+URxvt.saveLines: 1048586
+URxvt.scrollBack: true
+URxvt.scrollKey: true
+URxvt.scrollTtyKeypress: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.skipScroll: true
+URxvt.trippleclickwords: true
+URxvt.urgentOnBell: true
 
-/* font */
-!urxvt*font:				-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-!urxvt*boldFont:				-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-urxvt*font:			-*-dina-medium-r-normal--*-*-*-*-*-*-*-*
-urxvt*boldFont:		-*-dina-medium-r-normal--*-*-*-*-*-*-*-*
+URxvt.chdir: /home/keks
+URxvt.pasteableTabs: true
+URxvt.pointerBlank: true
+URxvt.pointerBlankDelay: 2
+URxvt.scrollstyle: next
 
-!urxvt.perl-ext-common: mark-urls
-!rxvt.urlLauncher: firefox
-!urxvt*font:             xft:Dejavu Sans Mono:pixelsize=12
-!urxvt*boldFont:         xft:Dejavu Sans Mono:pixelsize=12
-
-!urxvt*font: xft:envy code r:pixelsize=13:normal
-!urxvt*boldFont: xft:envy code r:pixelsize=13:normal
+/* eyecandy */
+URxvt.scrollBar: false
+URxvt.depth: 32
 
 !urxvt.font: xft:montecarlo:size=11
 !urxvt*boldFont: xft:montecarlo:bold:size=11
-
-!URxvt.*font: -windows-montecarlo-medium-r-normal-*-12-110-72-72-c-60-microsoft-cp1252
-!URxvt.*boldFont: -windows-montecarlo-bold-r-normal-*-12-110-72-72-c-60-microsoft-cp1252
-
-
 
 /* leaving urxvt country */
 
@@ -105,5 +105,3 @@ Xft*antialias: true
 Xft*rgba: rgb
 Xft*hinting: true
 Xft*hinstyle: hintslight
-
-urxvt*boldMode: off
