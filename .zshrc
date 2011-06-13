@@ -2,8 +2,36 @@
 #-----------------------------------
 # file:             .zshrc
 # author:           keks
-# last modified:    April 2011
+# last modified:    June 2011
+# usage with oh-my-zshell
 #-----------------------------------
+
+# Path to your oh-my-zsh configuration.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+export ZSH_THEME="trapd00r"
+
+# Set to this to use case-sensitive completion
+# export CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# export DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# export DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# export DISABLE_AUTO_TITLE="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 #-----------------------------------
 # Colors
@@ -29,18 +57,29 @@ export LS_COLORS GREP_COLORS
 #-----------------------------------
 # {{{
 
-source $HOME/.zsh/alias.zsh
+source $HOME/.zsh/aliases.zsh
 
 # }}}
 
 #-----------------------------------
-# History
+# Completion
 #-----------------------------------
 # {{{
 
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+zmodload zsh/complist
+autoload -Uz compinit
+compinit
+zstyle :compinstall filename '${HOME}/.zshrc'
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
+
+zstyle ':completion:*:*:killall:*' menu yes select
+zstyle ':completion:*:killall:*'   force-list always
 
 # }}}
 
@@ -52,7 +91,7 @@ SAVEHIST=10000
 setopt extendedglob appendhistory autocd nomatch
 unsetopt beep
 
-export PATH=$PATH:~/bin:/usr/local/bin:
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/keks/bin:/usr/local/bin:
 export EDITOR='vim'
 export BROWSER='firefox'
 export OOO_FORCE_DESKTOP=gnome
@@ -101,100 +140,11 @@ bindkey "\eOF" end-of-line
 # }}}
 
 #-----------------------------------
-# Completion
+# Syntax highlighting
 #-----------------------------------
 # {{{
 
-zmodload zsh/complist
-autoload -Uz compinit
-compinit
-zstyle :compinstall filename '${HOME}/.zshrc'
-
-zstyle ':completion:*' menu select
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
-
-zstyle ':completion:*:*:killall:*' menu yes select
-zstyle ':completion:*:killall:*'   force-list always
-
-# }}}
-
-#-----------------------------------
-# Window title
-#-----------------------------------
-# {{{
-
-if [ $TERM = xterm ] || [ $TERM = rxvt-unicode ] || [ $TERM = rxvt-256color ]; then
-        precmd () { print -Pn "\e]0;%~\a" }
-        preexec () { print -Pn "\e]0;$1\a" } 
-fi
-
-# }}}
-
-#-----------------------------------
-# Prompt
-#-----------------------------------
-# {{{
-
-# Set the prompt.
-setprompt() {
-    # Initialize colors.
-    autoload -U colors
-    colors
-
-    # Allow for functions in the prompt.
-    setopt PROMPT_SUBST
-
-    # Load git-status related functions
-    source $HOME/.zsh/git_prompt_functions.zsh
-
-    # make some aliases for the colours: (coud use normal escap.seq's too)
-    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-        eval PR_$color='%{$fg[${(L)color}]%}'
-    done
-    PR_NO_COLOR="%{$terminfo[sgr0]%}"
-
-    # Check the UID
-    if [[ $UID -ge 1000 ]]; then # normal user
-        eval PR_USER='${PR_MAGENTA}%n${PR_NO_COLOR}'
-        eval PR_USER_OP='${PR_MAGENTA}➜${PR_NO_COLOR}'
-    elif [[ $UID -eq 0 ]]; then # root
-        eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-        eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
-    fi  
-
-    # Check if we are on SSH or not
-    if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
-        eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
-    else 
-        eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
-    fi
-
-    # git theming
-    ZSH_THEME_GIT_PROMPT_PREFIX="${PR_YELLOW}("
-    ZSH_THEME_GIT_PROMPT_SUFFIX="${PR_YELLOW})${PR_NO_COLOR}"
-    ZSH_THEME_GIT_PROMPT_DIRTY="${PR_CYAN}✗"
-    ZSH_THEME_GIT_PROMPT_CLEAN="${PR_GREEN}✔"
-
-
-    ZSH_THEME_GIT_PROMPT_ADDED="${PR_GREEN} ✚"
-    ZSH_THEME_GIT_PROMPT_MODIFIED="${PR_BLUE} ✹"
-    ZSH_THEME_GIT_PROMPT_DELETED="${PR_RED} ✖"
-    ZSH_THEME_GIT_PROMPT_RENAMED="${PR_MAGENTA} ➜"
-    ZSH_THEME_GIT_PROMPT_UNMERGED="${PR_YELLOW} ═"
-    ZSH_THEME_GIT_PROMPT_UNTRACKED="${PR_CYAN} ✭"
-
-
-
-    # set the prompt
-    PROMPT="${PR_USER}${PR_CYAN}@${PR_HOST} ${PR_WHITE}[${PR_BLUE}%B%~%b${PR_WHITE}]"'$(git_prompt_info)'" ${PR_USER_OP} "
-    RPROMPT=""'$(git_prompt_status)'" ${PR_WHITE}[${PR_YELLOW}%?${PR_WHITE}]${PR_NO_COLOR}"
-    #PS2=$'%_>'
-}
-setprompt
+source $HOME/.zsh/syntax.zsh
 
 # }}}
 
@@ -206,3 +156,4 @@ setprompt
 source $HOME/.zsh/functions.zsh
 
 # }}}
+
