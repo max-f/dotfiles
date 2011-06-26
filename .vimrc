@@ -43,8 +43,8 @@ if has("folding")
     set foldenable
     set foldmethod=marker
     set foldmarker={{{,}}}
-    set foldcolumn=0
-    set foldlevel=100
+    set foldcolumn=2
+    "set foldlevel=100
 endif
 "}}}
 
@@ -87,11 +87,7 @@ au Filetype python match BadWhitespace /^\t\+/
 au Filetype python match BadWhitespace /\s\+$/
 "au FileType python setlocal sw=4 sts=4 et tw=79
 
-" ctag plugin required:
-let g:ctags_statusline=1 
-
 " C stuff
-au Filetype c setlocal expandtab
 au Filetype c setlocal shiftwidth=4
 au Filetype c setlocal showmatch
 au Filetype c setlocal tw=79
@@ -102,7 +98,6 @@ set grepprg=grep\ -nH\ $*
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 au Filetype tex setlocal shiftwidth=2
 au Filetype tex setlocal tabstop=2
-au Filetype tex setlocal expandtab
 au Filetype tex setlocal iskeyword+=:
 
 " web stuff
@@ -125,6 +120,9 @@ noremap <Up> <NOP>
 let mapleader                    = ','
 "nerdtree
 map <F3> <Esc>:NERDTreeToggle<CR> 
+
+"taglist
+map <F4> <Esc>:TlistToggle<CR>
 
 " look
 syntax on

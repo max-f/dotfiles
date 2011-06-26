@@ -1,3 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/home/keks/.quakelive/quakelive/home/baseq3'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/boot/grub'
+let g:netrw_dirhist_2='/tmp/TriangleTess/CMakeFiles'
+let g:netrw_dirhist_3='/home/keks/.quakelive/quakelive/home/baseq3'
+let g:netrw_dirhist_4='/home/keks/.quakelive/quakelive/home/baseq3/ui'
+let g:netrw_dirhist_5='/home/keks/.pentadactyl'
+let g:netrw_dirhist_6='/home/keks/uni'
