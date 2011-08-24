@@ -1,8 +1,8 @@
-!-----------------------------------
-! file:             .Xresources
-! author:           keks
-! last modified:    April 2011
-!-----------------------------------
+!----------------------------------------------------
+! Author:       Max "keks" Fischer
+!
+! File:         .Xresources
+!----------------------------------------------------
 
 ! Black       = color0 + DarkGray = color8
 ! DarkRed     = color1 + Red      = color9
@@ -13,7 +13,8 @@
 ! DarkCyan    = color6 + Cyan     = color14
 ! LightGrey   = color7 + White    = color15
 
-/* fonts */
+! fonts {{{
+# defines
 #if WIDTH < 60
 #define FONT -xos4-terminus-medium-r-normal--22-220-72-72-c-110-koi8-u
 #else
@@ -26,8 +27,18 @@
 
 #define PROFONT_HUGE -nil-profont-medium-r-normal--29-290-72-72-c-160-iso8859-1
 #define TERMINUS_HUGE -xos4-terminus-medium-r-normal--28-280-72-72-c-140-koi8-u
+!}}}
 
-/* colors */
+! vim {{{
+vim*background: #121212
+vim*boldFont: FONT_B
+vim*font: -xos4-terminus-medium-r-normal--0-0-72-72-c-0-koi8-u, FONT
+vim*foreground: #d6d6d6
+vim*italicFont: FONT_I
+vim*scrollBar: false
+!}}}
+
+! colors {{{
 #include "/home/keks/.xcolors/dmz"
 URxvt.background: #121212
 URxvt.borderColor: #0E0E0E
@@ -41,6 +52,7 @@ URxvt.foreground: #cacaca
 URxvt.pointerColor2: #0092FF
 URxvt.pointerColor: #252525
 URxvt.underlineColor: #0E0E0E
+!}}}
 
 URxvt*font: FONT
 URxvt*boldFont: FONT_B
@@ -65,6 +77,7 @@ URxvt.perl-ext-common:      default,matcher
 URxvt.perl-eval:            $^O
 
 /* perl magic */
+URxvt.letterSpace: 0
 URxvt.selection.pattern-0:        ( at .*? line \\d+[,.])
 URxvt.selection-autotransform.0:  s/^ at (.*?) line (\\d+)[,.]$/:e \\Q$1\E\\x0d:$2\\x0d/
 
@@ -91,14 +104,14 @@ URxvt.scrollstyle: next
 URxvt.scrollBar: false
 URxvt.depth: 32
 
-!urxvt.font: xft:montecarlo:size=11
-!urxvt*boldFont: xft:montecarlo:bold:size=11
+!*font: xft:Dina:size=11
+!*boldFont: xft:Dina:size=11:bold
 
 /* leaving urxvt country */
 
 ! some more appearance settings:
-!Xcursor*theme: dmz-aa
-Xcursor*theme: Vanilla-DMZ
+Xcursor*theme: dmz-aa
+!Xcursor*theme: Vanilla-DMZ
 Xcursor*size: 24
 Xft*dpi: 96
 Xft*antialias: true

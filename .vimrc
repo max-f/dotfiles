@@ -1,8 +1,8 @@
-"-----------------------------------
-" file:             .vimrc
-" author:           keks
-" last modified:    May 2011
-"-----------------------------------
+"----------------------------------------------------
+" Author:       Max "keks" Fischer
+"
+" File:         .vimrc
+"----------------------------------------------------
 
 " vim > vi settings
 set nocompatible
@@ -29,7 +29,7 @@ set noswapfile
 set tabstop=4       " tabs have 4 spaces
 set backspace=2     " backspace 2 spaces
 set shiftwidth=4    " intending 4 spaces
-set expandtab       " for discussion
+set noexpandtab     " for discussion
 set textwidth=80    " readable line length
 set list            " show these 'invisible' chars
 set listchars=tab:»­,trail:·,eol:¶,nbsp:⎵,precedes:←,extends:→ sbr=↪
@@ -49,7 +49,7 @@ endif
 "}}}
 
 " status bar info and appearance
-set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%04v]\ [%p%%:\ %l/%L]\ 
+"set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%04v]\ [%p%%:\ %l/%L]\ 
 set laststatus=2
 set cmdheight=1
 let g:loaded_matchparen=1
@@ -65,9 +65,6 @@ endif
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
-
-" Allows writing to files with root privileges
-cmap w!! %!sudo tee > /dev/null %  
 
 " Printer
 set printdevice=HP_LaserJet_1022
@@ -127,7 +124,18 @@ map <F4> <Esc>:TlistToggle<CR>
 " look
 syntax on
 set colorcolumn=81
-
+" necessary for statusline.vim
+func! FileSize()
+    let bytes = getfsize(expand("%:p"))
+    if bytes <= 0
+        return "0"
+    endif
+    if bytes < 1024
+        return bytes
+    else
+        return (bytes / 1024) . "K"
+    endif
+endfunc
 
 if $TERM == 'linux'
     let &t_Co = 8
@@ -141,6 +149,3 @@ else
     hi Cursorline term=none cterm=none ctermbg=17
     colorscheme neverland
 endif
-
-" necessary for indent_guides
-set background=dark
