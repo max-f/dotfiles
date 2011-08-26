@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #----------------------------------------------------
 # Author:       Max "keks" Fischer
 #
@@ -9,6 +9,10 @@
 if [[ $HOSTNAME == 'mehl' ]]; then
 	# unclutter -idle 4 &
 	xset m 1 1 &
+elif [[ $HOSTNAME == 'brei' ]]; then
+	# unclutter -idle 4 &
+	xset m 7 1 &
+	xset fp+ /usr/share/fonts/local
 fi
 
 # keyboard stuff
