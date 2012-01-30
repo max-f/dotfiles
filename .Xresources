@@ -18,10 +18,10 @@
 #if WIDTH < 60
 #define FONT -xos4-terminus-medium-r-normal--22-220-72-72-c-110-koi8-u
 #else
-#define FONT -windows-montecarlo-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252
+#define FONT -*-erusfont-medium-r-*-*-*-*-*-*-*-*-*-*
 #endif
 
-#define FONT_B -windows-montecarlo-bold-r-normal--11-110-72-72-c-60-microsoft-cp1252
+#define FONT_B -*-erusfont-bold-r-*-*-*-*-*-*-*-*-*-*
 #define FONT_I -nil-profont-medium-r-normal--10-100-72-72-c-50-iso8859-1
 #define FONT_I_B -windows-montecarlo-bold-r-normal--11-110-72-72-c-60-microsoft-cp1252
 
@@ -80,7 +80,7 @@ URxvt.matcher.rend.0: Uline Bold fg8 bg1
 URxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
 URxvt.perl-ext: selection,mark-yank-urls
 URxvt.perl-lib:             /usr/lib/urxvt/perl
-URxvt.perl-ext-common:      default,matcher
+URxvt.perl-ext-common:      default,matcher,autocomplete-ALL-the-things
 URxvt.perl-eval:            $^O
 
 /* perl magic */
@@ -116,12 +116,15 @@ URxvt.depth: 32
 
 /* leaving urxvt country */
 
-! some more appearance settings:
+/* cursor settings */
 Xcursor*theme: Vanilla-DMZ-AA
 !Xcursor*theme: Vanilla-DMZ
 Xcursor*size: 24
-Xft*dpi: 96
-Xft*antialias: true
+
+/* Xft settings */
+Xft*dpi: 96x96
+! Xft*antialias: true
 Xft*rgba: rgb
 Xft*hinting: true
-Xft*hinstyle: hintslight
+Xft*hinstyle: hintsfull
+Xft.autohint: false

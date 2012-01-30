@@ -26,13 +26,24 @@ set relativenumber  " relative to current line
 set noswapfile
 
 " text layout
+set cursorline      " highlight cursor line
+set colorcolumn=+1,+2
+set showmatch       " jump briefly to matching brace
+set showmode        " show current mode
 set tabstop=4       " tabs have 4 spaces
 set backspace=2     " backspace 2 spaces
 set shiftwidth=4    " intending 4 spaces
 set noexpandtab     " for discussion
 set textwidth=80    " readable line length
 set list            " show these 'invisible' chars
-set listchars=tab:»­,trail:·,eol:¶,nbsp:⎵,precedes:←,extends:→ sbr=↪
+set listchars=tab:»\ ,trail:·,eol:¶,nbsp:⎵,precedes:←,extends:→ sbr=↪
+
+" window layout
+set winfixwidth
+set winfixheight
+set winwidth=80
+set winminwidth=80
+
 
 " searching
 set incsearch hlsearch
@@ -47,6 +58,12 @@ if has("folding")
     "set foldlevel=100
 endif
 "}}}
+
+" matching
+set matchtime=2
+set matchpairs+==:;
+set matchpairs+=<:>
+set matchtime=10
 
 " status bar info and appearance
 "set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%04v]\ [%p%%:\ %l/%L]\ 
@@ -71,36 +88,35 @@ set printdevice=HP_LaserJet_1022
 
 " au foo
 " python stuff
-au Filetype python setlocal tabstop=4
-au Filetype python setlocal shiftwidth=4
-au Filetype python setlocal smarttab
-au Filetype python setlocal expandtab
-au Filetype python setlocal softtabstop=4
-au Filetype python setlocal autoindent
-au Filetype python setlocal tw=80
-au Filetype python let g:pydiction_location  = '~/.vim/ftplugin/pydiction/complete-dict'
-au Filetype python highlight BadWhitespace ctermbg=red guibg=red
-au Filetype python match BadWhitespace /^\t\+/
-au Filetype python match BadWhitespace /\s\+$/
-"au FileType python setlocal sw=4 sts=4 et tw=79
+au BufRead,BufNewFile *.py setlocal tabstop=4
+au BufRead,BufNewFile *.py setlocal shiftwidth=4
+au BufRead,BufNewFile *.py setlocal smarttab
+au BufRead,BufNewFile *.py setlocal expandtab
+au BufRead,BufNewFile *.py setlocal softtabstop=4
+au BufRead,BufNewFile *.py setlocal autoindent
+au BufRead,BufNewFile *.py setlocal tw=80
+au BufRead,BufNewFile *.py let g:pydiction_location  = '~/.vim/ftplugin/pydiction/complete-dict'
+au BufRead,BufNewFile *.py highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
 
 " C stuff
-au Filetype c setlocal shiftwidth=4
-au Filetype c setlocal showmatch
-au Filetype c setlocal tw=79
+au BufRead,BufNewFile *.c setlocal shiftwidth=4
+au BufRead,BufNewFile *.c setlocal showmatch
+au BufRead,BufNewFile *.c setlocal tw=79
 
 " tex stuff(vim-latexsuite)
-au Filetype tex let g:tex_flavor = "latex"
+au BufRead,BufNewFile *.tex let g:tex_flavor = "latex"
 set grepprg=grep\ -nH\ $*
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-au Filetype tex setlocal shiftwidth=2
-au Filetype tex setlocal tabstop=2
-au Filetype tex setlocal iskeyword+=:
+au BufRead,BufNewFile *.tex setlocal shiftwidth=2
+au BufRead,BufNewFile *.tex setlocal tabstop=2
+au BufRead,BufNewFile *.tex setlocal iskeyword+=:
 
 " web stuff
-au Filetype html,css setlocal tabstop=2
-au Filetype html,css setlocal shiftwidth=2
-au Filetype html,css setlocal softtabstop=2 " (sts) makes spaces feel like tabs (like deleting)
+au BufRead,BufNewFile *.html,*.css setlocal tabstop=2
+au BufRead,BufNewFile *.html,*.css setlocal shiftwidth=2
+au BufRead,BufNewFile *.html,*.css setlocal softtabstop=2 " (sts) makes spaces feel like tabs (like deleting)
 
 "keymappings
 "paste
@@ -121,9 +137,8 @@ map <F3> <Esc>:NERDTreeToggle<CR>
 "taglist
 map <F4> <Esc>:TlistToggle<CR>
 
-" look
-syntax on
-set colorcolumn=81
+set nomore
+
 " necessary for statusline.vim
 func! FileSize()
     let bytes = getfsize(expand("%:p"))
@@ -137,6 +152,9 @@ func! FileSize()
     endif
 endfunc
 
+runtime macros/matchit.vim
+syntax on
+
 if $TERM == 'linux'
     let &t_Co = 8
     color peachpuff
@@ -145,7 +163,6 @@ if $TERM == 'linux'
     hi ColorColumn term=none cterm=none ctermbg=3
     hi CursorLine term=none cterm=none ctermbg=none
 else
-    set cul
-    hi Cursorline term=none cterm=none ctermbg=17
+"    hi Cursorline term=none cterm=none ctermbg=17
     colorscheme neverland
 endif
