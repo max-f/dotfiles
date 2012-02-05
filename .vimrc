@@ -139,18 +139,8 @@ map <F4> <Esc>:TlistToggle<CR>
 
 set nomore
 
-" necessary for statusline.vim
-func! FileSize()
-    let bytes = getfsize(expand("%:p"))
-    if bytes <= 0
-        return "0"
-    endif
-    if bytes < 1024
-        return bytes
-    else
-        return (bytes / 1024) . "K"
-    endif
-endfunc
+source ~/.vim/functions.vim
+source ~/.vim/abbreviations.vim
 
 runtime macros/matchit.vim
 syntax on
@@ -166,3 +156,4 @@ else
 "    hi Cursorline term=none cterm=none ctermbg=17
     colorscheme neverland
 endif
+highlight MatchParen cterm=bold ctermfg=cyan

@@ -4,7 +4,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias ls='ls -lh --color=auto'
+alias ls='ls -lh --group-directories-first --color=auto'
 alias lsd='ls -d *(-/N)'      # list visible directories
 alias lsf='ls *(-.N)'         # list visible files
 
@@ -36,6 +36,7 @@ alias pacy='pacman -Sy'
 alias pacu='pacman -Syu'
  
 alias S='sudo'
+alias v='vim'
 
 # dropbox
 alias dropup="sh $HOME/devel/bash/dropbox.sh up"
@@ -43,13 +44,13 @@ alias dropdown="sh $HOME/devel/bash/dropbox.sh down"
 
 # handling certain filetypes
 alias -s {mp3,avi,mpeg,mpg,ogg}=mplayer
+alias -s pls='mplayer -playlist'
 alias -s {htm,html}=$BROWSER
 alias -s {c,cpp,py,java,cfg}=$EDITOR
 #alias -s h=$EDITOR
 #alias -s hs=$EDITOR
 alias -s pdf=evince
 alias -s {png,jpg,JPG,JPEG,PNG}='feh -dF'
-alias -s pls=audacious
 
 alias -g L='|less'
 alias -g G='|grep'
