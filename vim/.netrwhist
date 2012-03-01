@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/keks/.quakelive/quakelive/home/baseq3'
+let g:netrw_dirhist_2='/home/keks/work_tmp/ba_setup/examples'
+let g:netrw_dirhist_3='/home/keks/Videos/Fabric Live 50'

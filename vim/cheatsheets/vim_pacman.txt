@@ -1,0 +1,10 @@
+local/gvim 7.3.434-1
+    Vi Improved, a highly configurable, improved version of the vi text editor (with advanced features, such as a GUI)
+local/vim-latexsuite 20110214-1 (vim-plugins)
+    vim-latexsuite attempts to provide a comprehensive set of tools to view, edit and compile LaTeX documents in Vim. Together, they provide tools starting from macros to speed up editing LaTeX documents to functions for forward searching .dvi documents.
+local/vim-runtime 7.3.434-1
+    Runtime for vim and gvim
+local/vimpager 1.6.7-1
+    A vim-based script to use as a PAGER.
+local/flake8 108-1
+    Flake8
