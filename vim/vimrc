@@ -42,7 +42,9 @@ set listchars=tab:»\ ,trail:·,eol:¶,nbsp:⎵,precedes:←,extends:→ sbr=↪
 set winfixwidth
 set winfixheight
 set winwidth=80
-set winminwidth=80
+set winminwidth=40
+" NerdTree speficif
+let g:NERDTreeWinSize = 40
 
 
 " searching
@@ -65,11 +67,10 @@ set matchpairs+==:;
 set matchpairs+=<:>
 set matchtime=10
 
-" status bar info and appearance
-"set statusline=\ \%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [%04v]\ [%p%%:\ %l/%L]\ 
+" status bar info and appearance - rest done by statusbar.vim
+set cmdheight=2
 set laststatus=2
-set cmdheight=1
-let g:loaded_matchparen=1
+set showcmd
 
 " gui options
 set guioptions-=m
@@ -79,9 +80,6 @@ if has("gui_win32")
 else
     set guifont=montecarlo
 endif
-
-" space bar un-highligts search
-:noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 " Printer
 set printdevice=HP_LaserJet_1022
@@ -95,7 +93,6 @@ au BufRead,BufNewFile *.py setlocal expandtab
 au BufRead,BufNewFile *.py setlocal softtabstop=4
 au BufRead,BufNewFile *.py setlocal autoindent
 au BufRead,BufNewFile *.py setlocal tw=80
-au BufRead,BufNewFile *.py let g:pydiction_location  = '~/.vim/ftplugin/pydiction/complete-dict'
 au BufRead,BufNewFile *.py highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
@@ -145,7 +142,6 @@ set nomore
 source ~/.vim/functions.vim
 source ~/.vim/abbreviations.vim
 
-runtime macros/matchit.vim
 syntax on
 
 if $TERM == 'linux'
