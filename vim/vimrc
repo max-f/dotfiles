@@ -75,6 +75,9 @@ set showcmd
 " gui options
 set guioptions-=m
 set guioptions-=T
+set guioptions-=r
+set guioptions-=l
+
 if has("gui_win32")
     set guifont=Inconsolata:h12:cANSI
 else
