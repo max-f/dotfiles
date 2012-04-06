@@ -1,5 +1,24 @@
 #!/usr/bin/env zsh
 
+# use these in functions/shell scripts
+export NC='\e[0m'
+export white='\e[0;30m'
+export WHITE='\e[1;30m'
+export red='\e[0;31m'
+export RED='\e[1;31m'
+export green='\e[0;32m'
+export GREEN='\e[1;32m'
+export yellow='\e[0;33m'
+export YELLOW='\e[1;33m'
+export blue='\e[0;34m'
+export BLUE='\e[1;34m'
+export magenta='\e[0;35m'
+export MAGENTA='\e[1;35m'
+export cyan='\e[0;36m'
+export CYAN='\e[1;36m'
+export black='\e[0;37m'
+export BLACK='\e[1;37m'
+
 # Usage: simple-extract <file>
 # Description: extracts archived files (maybe)
 x() {
@@ -73,7 +92,24 @@ q3demo () {
 	rm ~/.q3a/cpma/demos/demoplay.dm_68
 }
 
-# Help for zsh's extglob
+# Usage: password <length>
+# Description: generates random string of specific length
+password() {
+  if [[ -z $1 ]]; then
+    count=8
+  else
+    count="$1"
+  fi
+  echo $(< /dev/urandom tr -dc A-Za-z0-9 | head -c$count)
+}
+
+# idea by Gigamo http://bbs.archlinux.org/viewtopic.php?pid=478094#p478094
+ls () {
+  /bin/ls -rhbtF --color=auto $@ &&
+  echo "${MAGENTA}Files: ${BLUE}$(/bin/ls -l $@ | grep -v "^[l|d|total]" | wc -l) ${GREEN}--- ${MAGENTA}Directories: ${BLUE}$(/bin/ls -l $@ | grep "^d" | wc -l)${NC}"
+}
+
+# Help for zsh's extglob, probably from grml zshrc
 hglob () {
 	echo -e "
       /      directories
