@@ -1,0 +1,43 @@
+[default]
+# Write your default config options here!
+alang = en
+af = stats
+#ao = oss
+double = 1
+ffactor = 10
+embeddedfonts = 1
+font = 'Dejavu Sans Mono'
+fs = 1
+mixer = /dev/mixer
+monitoraspect = 16:9
+msgcolor = 1
+msgmodule = 1
+noborder = 1
+nograbpointer = 1
+nokeepaspect = 1
+nolirc = 1
+osd-duration = 5000
+osdlevel = 1
+prefer-ipv4 = 1
+sid = 0
+slang = en
+spuaa = 4
+spualign = -1
+sub-bg-alpha = 0
+sub-bg-color = 0
+subfont-autoscale = 3
+subfont-encoding = unicode
+subfont-osd-scale = 2
+subfont-text-scale = 4
+sub-bg-color = 0
+sub-bg-alpha = 0
+unicode = 1
+unrarexec = /usr/bin/unrar
+use-filename-title = 1
+vo = gl
+volume = 80
+utf8 = 1
+
+# video output
+#vo=gl2
+#va=vaapi
