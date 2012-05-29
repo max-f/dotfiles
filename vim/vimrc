@@ -19,8 +19,7 @@ filetype on
 filetype indent on
 filetype plugin on
 
-set nu              " show line numbers
-set relativenumber  " relative to current line
+set relativenumber  "show numbers  relative to current line
 
 " no backup
 set noswapfile
@@ -113,7 +112,7 @@ au BufRead,BufNewFile *.tex setlocal shiftwidth=2
 au BufRead,BufNewFile *.tex setlocal tabstop=2
 au BufRead,BufNewFile *.tex setlocal iskeyword+=:
 " work against slow down
-au BufRead,BufNewfile *.tex setlocal norelativenumber
+au BufRead,BufNewfile *.tex setlocal number
 au BufRead,BufNewFile *.tex setlocal nocursorline
 
 " web stuff
