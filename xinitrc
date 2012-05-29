@@ -9,7 +9,11 @@
 if [[ $HOSTNAME == 'mehl' ]]; then
 	# unclutter -idle 4 &
 	xset m 1 1 &
+<<<<<<< HEAD
 #	/usr/bin/redshift &
+=======
+	#/usr/bin/redshift &
+>>>>>>> 36b38dd94d48023da79b81221ac73723096a4f8b
 elif [[ $HOSTNAME == 'brei' ]]; then
 	# unclutter -idle 4 &
 	xset m 7 1 &
