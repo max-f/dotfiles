@@ -81,7 +81,7 @@ set guioptions-=l
 if has("gui_win32")
     set guifont=Inconsolata:h12:cANSI
 else
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+    set guifont=envy\ code\ r
 endif
 
 " Printer
