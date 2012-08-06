@@ -39,8 +39,8 @@ hi Error guifg=#ffafff guibg=#121212
 hi ErrorMsg guifg=#ff00af guibg=#121212 gui=bold
 hi Exception guifg=#87ff00 gui=bold
 hi Float guifg=#af5fff
-hi FoldColumn guifg=#5f87af guibg=#000000
-hi Folded guifg=#5f87af guibg=#000000
+hi FoldColumn guifg=#5f87af guibg=#121212 gui=none
+hi Folded guifg=#585858 guibg=#262626 gui=bold
 hi Function guifg=#ff005f " sub..
 hi Identifier guifg=#d75f00 " ..foo
 hi Ignore guifg=#808080 guibg=#080808
@@ -57,10 +57,10 @@ hi MoreMsg guifg=#ffaf5f
 hi Operator guifg=#00ff00
 
 " complete menu
-hi Pmenu guifg=#5fd7ff guibg=#121212
-hi PmenuSel guibg=#262626
-hi PmenuSbar guibg=#080808
-hi PmenuThumb guifg=#5fd7ff
+hi Pmenu guifg=#af875f guibg=#000000 gui=none
+hi PmenuSel guifg=#ff0000 guibg=#262626 gui=bold
+hi PmenuSbar guifg=#000000 guibg=#121212 gui=none
+hi PmenuThumb guifg=#af875f guibg=#000000 gui=none
 
 hi PreCondit guifg=#87ff00 gui=bold
 hi PreProc guifg=#ffafd7
@@ -75,10 +75,10 @@ hi SpecialComment guifg=#8a8a8a gui=bold
 hi Special guifg=#5fd7ff guibg=#080808
 hi SpecialKey guifg=#8a8a8a
 
-hi SpellBad guifg=#ff0000 guibg=#080808 gui=bold
-hi SpellCap guifg=#ff0000 guibg=#080808 gui=bold
-hi SpellRare guifg=#ff0000 guibg=#080808 gui=bold
-hi SpellLocal guifg=#ff0000 guibg=#141414 gui=bold
+hi SpellBad guifg=#ff0000 guibg=#121212 gui=bold
+hi SpellCap guifg=#875f00 guibg=#121212 gui=bold
+hi SpellRare guifg=#875f87 guibg=#121212 gui=bold
+hi SpellLocal guifg=#af0000 guibg=#121212 gui=bold
 
 hi Statement guifg=#ffff87 gui=bold " my...
 hi StatusLine guifg=#1c1c1c guibg=#af8700
@@ -100,7 +100,7 @@ hi WarningMsg guifg=#0000ff guibg=#444444 gui=bold
 hi WildMenu guifg=#5fd7ff guibg=#000000
 
 hi Comment guifg=#87875f
-hi ColorColumn guibg=#202020
+hi ColorColumn guibg=#262626
 hi CursorLine guibg=#1c1c1c gui=none
 hi CursorColumn guibg=#1c1c1c
 hi LineNr guifg=#626262 guibg=#121212
@@ -136,8 +136,8 @@ if &t_Co > 255
    hi ErrorMsg ctermfg=199 ctermbg=233 cterm=bold
    hi Exception ctermfg=118 cterm=bold
    hi Float ctermfg=135
-   hi FoldColumn ctermfg=67 ctermbg=16
-   hi Folded ctermfg=67 ctermbg=16
+   hi FoldColumn ctermfg=67 ctermbg=233 cterm=none
+   hi Folded ctermfg=240 ctermbg=235 cterm=bold
    hi Function ctermfg=197 " sub..
    hi Identifier ctermfg=166 " ..foo
    hi Ignore ctermfg=244 ctermbg=232
@@ -154,10 +154,10 @@ if &t_Co > 255
    hi Operator ctermfg=46
 
 " complete menu
-   hi Pmenu ctermfg=81 ctermbg=233
-   hi PmenuSel ctermbg=235
-   hi PmenuSbar ctermbg=232
-   hi PmenuThumb ctermfg=81
+   hi Pmenu ctermfg=137 ctermbg=233 cterm=none
+   hi PmenuSel ctermfg=196 ctermbg=234 cterm=bold
+   hi PmenuSbar ctermfg=000 ctermbg=233 cterm=none
+   hi PmenuThumb ctermfg=137 ctermbg=235 cterm=none
 
    hi PreCondit ctermfg=118 cterm=bold
    hi PreProc ctermfg=218
@@ -173,9 +173,9 @@ if &t_Co > 255
    hi SpecialKey ctermfg=245
 
    hi SpellBad ctermfg=196 ctermbg=233 cterm=bold
-   hi SpellCap ctermfg=196 ctermbg=233 cterm=bold
-   hi SpellRare ctermfg=196 ctermbg=233 cterm=bold
-   hi SpellLocal ctermfg=196 ctermbg=235 cterm=bold
+   hi SpellCap ctermfg=094 ctermbg=233 cterm=bold
+   hi SpellRare ctermfg=096 ctermbg=233 cterm=bold
+   hi SpellLocal ctermfg=124 ctermbg=233 cterm=bold
 
    hi Statement ctermfg=228 cterm=bold " my...
    hi StatusLine ctermfg=234 ctermbg=136
