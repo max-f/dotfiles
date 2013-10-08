@@ -27,7 +27,7 @@ xrdb -merge $HOME/.Xresources &
 sh $HOME/.fehbg &
 
 # terminal emulator daemon
-(sleep 2 && /usr/bin/urxvtd -q -o -f) &
+#(sleep 2 && /usr/bin/urxvtd -q -o -f) &
 
 # dropbox
 (sleep 60 && /usr/bin/dropboxd) &
@@ -38,3 +38,4 @@ while true; do
 	sleep 2s
 done &
 exec $HOME/bin/dwm
+#exec i3

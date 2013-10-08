@@ -1,5 +1,7 @@
+" vim: ft:=pentadactyl:
+
 "set! browser.tabs.closeWindowWithLastTab=false
-source /home/keks/.pentadactyl/colors/neverland_tweaked.penta
+silent source /home/keks/.pentadactyl/colors/neverland_tweaked.penta
 
 " ==================== plugins ==================== "
 
@@ -10,8 +12,8 @@ loadplugins
 
 set guioptions=CcMs
 
-"dont show tab bar
-set showtabline=never
+"dont show tab bar(use buftab plugin):  '=never'
+set showtabline=always
 
 " ==================== more options ==================== "
 
@@ -82,5 +84,3 @@ nmap X :noscript toggleperm<CR>
 " faster scrolling
 nnoremap j 10j
 nnoremap k 10k
-
-" vim: set ft=vim:
