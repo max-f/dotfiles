@@ -14,73 +14,78 @@
 ! LightGrey   = color7 + White    = color15
 
 ! fonts {{{
-# defines
-#if WIDTH < 60
-#define FONT -xos4-terminus-medium-r-normal--22-220-72-72-c-110-koi8-u
-#else
-#define FONT -*-erusfont-medium-r-*-*-*-*-*-*-*-*-*-*
-#endif
+! # defines
+!#define FONT_NORMAL -*-erusfont-medium-r-*-*-*-*-*-*-*-*-*-*
+!#define FONT_BOLD -*-erusfont-bold-r-*-*-*-*-*-*-*-*-*-*
+!#define FONT_NORMAL -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
+!#define FONT_NORMAL -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
+!#define FONT_NORMAL xft:terminus:pixelsize=11
+!#define FONT_BOLD xft:terminus:pixelsize=11:bold
+!#define FONT_NORMAL xft:proggyclean:pixelsize=11
+!#define FONT_BOLD xft:proggyclean:pixelsize=11
+!#define FONT_ITALIC -nil-profont-medium-r-normal--10-100-72-72-c-50-iso8859-1
+!#define FONT_BOLDITALIC -windows-montecarlo-bold-r-normal--11-110-72-72-c-60-microsoft-cp1252
+!#define FONT_NORMAL xft:DejaVu Sans Mono:pixelsize=11
+!#define FONT_BOLD xft:DejaVU Sans Mono:pixelsize=11:bold
+#define FONT_NORMAL xft:Termsyn:pixelsize=14
+#define FONT_BOLD xft:Termsyn:pixelsize=14:bold
 
-#define FONT_B -*-erusfont-bold-r-*-*-*-*-*-*-*-*-*-*
-#define FONT_I -nil-profont-medium-r-normal--10-100-72-72-c-50-iso8859-1
-#define FONT_I_B -windows-montecarlo-bold-r-normal--11-110-72-72-c-60-microsoft-cp1252
 
-#define PROFONT_HUGE -nil-profont-medium-r-normal--29-290-72-72-c-160-iso8859-1
-#define TERMINUS_HUGE -xos4-terminus-medium-r-normal--28-280-72-72-c-140-koi8-u
 !}}}
-
+! vte {{{
+  vte*font: FONT_NORMAL
+  vte*boldFont: FONT_BOLD
+  vte*italicFont: FONT_ITALIC
+  vte*background: #121212
+  vte*foreground: #d6d6d6
+  vte*scrollBar: false
+!}}}
 ! vim {{{
+vim*font: FONT_NORMAL
+vim*boldFont: FONT_BOLD
+vim*italicFont: FONT_ITALIC
+vim*boldItalicFont: FONT_BOLDITALIC
 vim*background: #121212
-vim*boldFont: FONT_B
-vim*font: -xos4-terminus-medium-r-normal--0-0-72-72-c-0-koi8-u, FONT
 vim*foreground: #d6d6d6
-vim*italicFont: FONT_I
 vim*scrollBar: false
 !}}}
 
 ! colors {{{
-#include "/home/keks/.xcolors/dmz"
-URxvt.background: #121212
-URxvt.borderColor: #0E0E0E
-URxvt.colorBD: #FFFFFF
-URxvt.colorIT: #FFFFFF
-URxvt.colorRV: #333333
-URxvt.colorUL: #FF8F00
-URxvt.cursorColor2: #252525
-URxvt.cursorColor: #EB122E
-URxvt.foreground: #cacaca
-URxvt.pointerColor2: #0092FF
-URxvt.pointerColor: #252525
-URxvt.underlineColor: #0E0E0E
+!#include "/home/keks/.config/xcolors/nancy.Xresources"
+#include "/home/keks/.config/xcolors/muennich"
+!URxvt.background: #030303
+!URxvt.cursorColor2: #252525
+!URxvt.cursorColor: #eb122e
+!URxvt.foreground: #ffffff
 !}}}
 
-URxvt*font: FONT
-URxvt*boldFont: FONT_B
-URxvt.italicFont: FONT_I
+URxvt.font: FONT_NORMAL
+URxvt.boldFont: FONT_BOLD
+URxvt.italicFont: FONT_ITALIC
+URxvt.boldItalicFont: FONT_BOLDITALIC
 URxvt*boldItalicFont: xft:fixed:antialias=true:hinting=true:hintstyle=hintslight
 URxvt.termName: 			rxvt-256color
 
-!URxvt*font: -schumacher-clean-medium-r-normal--10-100-75-75-c-50-iso646.1991-irv
-!URxvt*boldFont: -fontforge-proggytinysz-bold-r-normal--10-80-96-96-c-60-iso8859-1
-
-!URxvt*italicFont: -nil-profont-medium-r-normal--10-100-72-72-c-50-iso8859-1
-
 /* matches */
 URxvt.underlineURLs:        false
-URxvt.urlLauncher:          /usr/bin/firefox
-URxvt.matcher.button:       1
+!URxvt.urlLauncher:          /usr/bin/firefox
+URxvt.urlLauncher: urxvt-link.sh
+URxvt.url-select.launcher: urxvt-link.sh
+URxvt.url-select.underline: true
+!URxvt.matcher.button:       1
 URxvt.cutchars:             "()*,<>[]{}|'"
-URxvt.matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
-URxvt.matcher.launcher.1:   /usr/bin/firefox
+!URxvt.matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+!URxvt.matcher.launcher.1:   /usr/bin/firefox
+Urxvt.matcher.launcher.1:    urxvt-link.sh
 URxvt.matcher.pattern.2:    \\B(/\\S+?):(\\d+)(?=:|$)
 URxvt.matcher.launcher.2:   gvim +$2 $1
 URxvt.matcher.rend.0: Uline Bold fg8 bg1
 
 /* libs */
-URxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
-URxvt.perl-ext: selection,mark-yank-urls
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.perl-ext:             default,url-select
 URxvt.perl-lib:             /usr/lib/urxvt/perl
-URxvt.perl-ext-common:      default,matcher,autocomplete-ALL-the-things
+URxvt.perl-ext-common:      default,matcher
 URxvt.perl-eval:            $^O
 
 /* perl magic */
@@ -111,6 +116,8 @@ URxvt.scrollstyle: next
 URxvt.scrollBar: false
 URxvt.depth: 32
 
+UXTerm*font: 9x15
+
 !*font: xft:Dina:size=11
 !*boldFont: xft:Dina:size=11:bold
 
@@ -122,9 +129,18 @@ Xcursor*theme: Vanilla-DMZ-AA
 Xcursor*size: 24
 
 /* Xft settings */
-Xft*dpi: 96x96
+!Xft*dpi: 96x96
 ! Xft*antialias: true
-Xft*rgba: rgb
-Xft*hinting: true
-Xft*hinstyle: hintsfull
-Xft.autohint: false
+!Xft*rgba: rgb
+!Xft*hinting: true
+!Xft*hinstyle: hintsfull
+!Xft.autohint: false
+!
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: none
+Xft.rgba: rgb
+
+! vim: set fdm=marker et sw=2 tw=0:
