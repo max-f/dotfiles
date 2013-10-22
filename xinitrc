@@ -32,6 +32,9 @@ sh $HOME/.fehbg &
 # dropbox
 (sleep 60 && /usr/bin/dropboxd) &
 
+# java programs should behave sane
+wmname LG3D
+
 # dwm
 while true; do
 	$HOME/devel/bash/dwm_status.sh
