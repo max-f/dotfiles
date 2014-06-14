@@ -12,7 +12,7 @@ set autoindent
 set smartindent
 
 " encoding
-set fileencoding=utf-8
+"set fileencoding=utf-8
 set tenc=utf-8
 
 filetype on
