@@ -36,9 +36,11 @@ sh $HOME/.fehbg &
 wmname LG3D
 
 # dwm
-while true; do
-	$HOME/devel/bash/dwm_status.sh
-	sleep 2s
-done &
-exec $HOME/bin/dwm
-#exec i3
+#while true; do
+#	$HOME/devel/bash/dwm_status.sh
+#	sleep 2s
+#done &
+#exec $HOME/bin/dwm
+
+# i3
+exec i3
