@@ -12,8 +12,8 @@ set autoindent
 set smartindent
 
 " encoding
-set fileencoding=utf-8
-set tenc=utf-8
+"set tenc=utf-8
+let &termencoding = &encoding
 
 filetype on
 filetype indent on
@@ -23,6 +23,7 @@ set relativenumber  "show numbers  relative to current line
 
 " no backup
 set noswapfile
+"set backupdir=/tmp
 
 " text layout
 set cursorline      " highlight cursor line
@@ -35,7 +36,7 @@ set shiftwidth=4    " intending 4 spaces
 set noexpandtab     " for discussion
 set textwidth=80    " readable line length
 set list            " show these 'invisible' chars
-set listchars=tab:»\ ,trail:·,eol:¶,nbsp:⎵,precedes:←,extends:→ sbr=↪
+set listchars=eol:$,tab:>-
 
 " window layout
 set winfixwidth
