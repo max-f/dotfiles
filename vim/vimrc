@@ -12,8 +12,7 @@ set autoindent
 set smartindent
 
 " encoding
-"set tenc=utf-8
-let &termencoding = &encoding
+set enc=utf-8
 
 filetype on
 filetype indent on
