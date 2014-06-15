@@ -51,7 +51,7 @@ alias -s {htm,html}=$BROWSER
 alias -s {c,cpp,py,java,cfg}=$EDITOR
 #alias -s h=$EDITOR
 #alias -s hs=$EDITOR
-alias -s pdf=evince
+alias -s {djvu,pdf}=evince
 alias -s {png,jpg,JPG,JPEG,PNG}='feh -dF'
 
 alias -g L='|less'
