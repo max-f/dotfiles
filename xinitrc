@@ -12,8 +12,10 @@ if [[ $HOSTNAME == 'mehl' ]]; then
 	#/usr/bin/redshift &
 elif [[ $HOSTNAME == 'brei' ]]; then
 	# unclutter -idle 4 &
-	xset m 7 1 &
-	xset fp+ /usr/share/fonts/local
+	# xset m 7 1 &
+	# xset fp+ /usr/share/fonts/local
+	(sleep 2 && /usr/bin/urxvtd -q -o -f) &
+
 fi
 
 # keyboard stuff
@@ -25,9 +27,6 @@ xrdb -merge $HOME/.Xresources &
 
 # wallpaper
 sh $HOME/.fehbg &
-
-# terminal emulator daemon
-#(sleep 2 && /usr/bin/urxvtd -q -o -f) &
 
 # dropbox
 (sleep 60 && /usr/bin/dropboxd) &
