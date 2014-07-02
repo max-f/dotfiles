@@ -1,48 +1,52 @@
 " Vim color file
-" Maintainer: Bert Muennich <be.muennich at googlemail.com>
-" Last Change: 2012 Feb 05
+" Maintainer: Bert Muennich <ber.t at posteo.de>
+" Last Change: 2014 Mar 10
 
-" This color scheme uses a light background.
+" This color scheme uses a dark background.
 
-set background=light
+set background=dark
 highlight clear
 if exists("syntax_on")
   syntax reset
-endif
+endif	
 let g:colors_name = "bored"
 
-hi Normal guifg=black guibg=grey95
-hi Comment guifg=grey45 gui=none ctermfg=darkblue cterm=none
-hi Constant guifg=#AA2222 gui=none ctermfg=darkred cterm=none
-hi Identifier guifg=#557777 gui=none ctermfg=darkcyan cterm=none
-hi Statement guifg=#887700 gui=none ctermfg=darkyellow cterm=none
-hi PreProc guifg=#992288 gui=none ctermfg=darkmagenta cterm=none
-hi Type guifg=#118811 gui=none ctermfg=darkgreen cterm=none
-hi Special guifg=#115599 gui=none ctermfg=darkblue cterm=none
-hi MatchParen guifg=black guibg=#557777 gui=none ctermfg=black ctermbg=darkcyan cterm=none
-hi Error guifg=white guibg=#AA2222 gui=none ctermfg=white ctermbg=darkred cterm=none
-hi Todo guifg=white guibg=#992288 gui=none ctermfg=white ctermbg=darkmagenta cterm=none
-hi Directory guifg=#115599 ctermfg=darkblue
-hi LineNr guifg=grey60 gui=none ctermfg=darkyellow cterm=none
-hi StatusLine guifg=white guibg=#115599 gui=bold ctermfg=white ctermbg=darkblue cterm=bold
-hi StatusLineNC guifg=grey70 guibg=black gui=none ctermfg=none ctermbg=none cterm=reverse
-hi VertSplit guifg=grey70 guibg=black gui=none ctermfg=none ctermbg=none cterm=reverse
-hi Search guifg=white guibg=#887700 ctermfg=white ctermbg=darkyellow
-hi Visual guifg=black guibg=grey65 gui=none ctermbg=none cterm=reverse
-hi Pmenu guifg=black guibg=grey70 gui=none ctermfg=white ctermbg=darkblue cterm=none
-hi PmenuSel guifg=white guibg=#115599 gui=none ctermfg=black ctermbg=darkyellow
-hi PmenuSbar guibg=grey50 ctermbg=white
-hi PmenuThumb guifg=grey20 ctermfg=black
-hi ModeMsg guifg=black gui=none ctermfg=blue cterm=bold
-hi ErrorMsg guifg=white guibg=#AA2222 gui=none ctermfg=white ctermbg=darkred cterm=none
-hi WarningMsg guifg=#AA2222 gui=none ctermfg=darkred cterm=none
-hi Question guifg=#118811 ctermfg=darkgreen
-hi TabLine guifg=grey70 guibg=grey40 gui=none cterm=underline
-hi TabLineFill guifg=black guibg=black gui=none cterm=reverse
-hi TabLineSel guifg=black guibg=grey90 gui=bold cterm=bold
-hi FoldColumn guifg=#115599 guibg=grey80 gui=none ctermfg=darkyellow ctermbg=none cterm=none
-hi Folded guifg=#115599 guibg=grey80 gui=none ctermfg=darkyellow ctermbg=none cterm=none
-hi DiffAdd guifg=black guibg=#99CCCC gui=none ctermfg=black ctermbg=darkcyan cterm=none
-hi DiffChange guifg=black guibg=#CCCC77 gui=none ctermfg=black ctermbg=darkyellow cterm=none
-hi DiffDelete guifg=black guibg=#CC8888 gui=none ctermfg=black ctermbg=darkred cterm=none
-hi DiffText guifg=white guibg=#AA55AA gui=none ctermfg=white ctermbg=darkmagenta cterm=none
+hi clear Directory
+hi clear FoldColumn
+hi clear Folded
+hi clear LineNr
+hi clear MatchParen
+
+hi Normal guifg=#EEEEEE guibg=#111111 gui=none
+hi NonText guifg=#5D90C9 guibg=bg gui=bold ctermfg=blue ctermbg=none cterm=bold
+hi SpecialKey guifg=#5D90C9 guibg=bg gui=bold ctermfg=blue ctermbg=none cterm=bold
+hi IncSearch guifg=black guibg=#D2B459 ctermfg=black ctermbg=darkyellow cterm=none
+hi Search guifg=black guibg=#D2B459 ctermfg=black ctermbg=darkyellow cterm=none
+hi Visual guifg=black guibg=#999999 gui=none ctermfg=none ctermbg=none cterm=reverse
+hi Title guifg=fg guibg=bg gui=bold ctermfg=none ctermbg=none cterm=bold
+hi ColorColumn guifg=fg guibg=#555555 ctermfg=black ctermbg=gray
+
+hi StatusLine guifg=white guibg=#5D90C9 gui=bold ctermfg=white ctermbg=darkblue cterm=bold
+hi StatusLineNC guifg=#111111 guibg=#CCCCCC gui=none ctermfg=none ctermbg=none cterm=reverse
+hi VertSplit guifg=#111111 guibg=#CCCCCC gui=none ctermfg=none ctermbg=none cterm=reverse
+
+hi Pmenu guifg=#EEEEEE guibg=#555555 gui=none ctermfg=none ctermbg=none cterm=reverse
+hi PmenuSel guifg=white guibg=#5D90C9 gui=bold ctermfg=white ctermbg=darkblue cterm=bold
+hi PmenuSbar guifg=#333333 guibg=#333333 ctermfg=black ctermbg=black
+hi PmenuThumb guifg=#999999 guibg=#999999 ctermfg=white ctermbg=white
+
+hi ModeMsg guifg=fg guibg=bg gui=bold ctermfg=none ctermbg=none cterm=bold
+hi MoreMsg guifg=fg guibg=bg gui=bold ctermfg=none ctermbg=none cterm=bold
+hi ErrorMsg guifg=fg guibg=bg gui=reverse ctermfg=none ctermbg=none cterm=reverse
+hi WarningMsg guifg=fg guibg=bg gui=reverse ctermfg=none ctermbg=none cterm=reverse
+hi Question guifg=fg guibg=bg gui=bold ctermfg=none ctermbg=none cterm=bold
+
+hi TabLine guifg=#444444 guibg=#DDDDDD gui=none ctermfg=none ctermbg=none cterm=reverse
+hi TabLineFill guifg=#444444 guibg=#DDDDDD gui=none ctermfg=none ctermbg=none cterm=reverse
+hi TabLineSel guifg=fg guibg=bg gui=bold ctermfg=none ctermbg=none cterm=bold
+
+hi DiffAdd guifg=#EEEEEE guibg=#116666 gui=none ctermfg=black ctermbg=darkcyan cterm=none
+hi DiffChange guifg=#EEEEEE guibg=#666611 gui=none ctermfg=black ctermbg=darkyellow cterm=none
+hi DiffDelete guifg=#EEEEEE guibg=#662222 gui=none ctermfg=black ctermbg=darkred cterm=none
+hi DiffText guifg=#111111 guibg=#A672BF gui=none ctermfg=black ctermbg=darkmagenta cterm=none
+
