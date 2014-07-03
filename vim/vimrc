@@ -148,7 +148,6 @@ source ~/.vim/functions.vim
 source ~/.vim/abbreviations.vim
 
 syntax on
-set background=dark
 
 if $TERM == 'linux'
     let &t_Co = 8
@@ -159,7 +158,7 @@ if $TERM == 'linux'
     hi CursorLine term=none cterm=none ctermbg=none
 else
 "    hi Cursorline term=none cterm=none ctermbg=17
-    colorscheme neverland2
+    colorscheme neverland
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 
