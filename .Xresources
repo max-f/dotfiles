@@ -29,6 +29,8 @@
 !#define FONT_BOLD xft:DejaVU Sans Mono:pixelsize=11:bold
 #define FONT_NORMAL xft:Termsyn:pixelsize=14
 #define FONT_BOLD xft:Termsyn:pixelsize=14:bold
+!#define FONT_NORMAL xft:Source Code Pro:pixelsize=12
+!#define FONT_BOLD xft:Source Code Pro:pixelsize=12:bold
 
 
 !}}}
@@ -51,12 +53,13 @@ vim*scrollBar: false
 !}}}
 
 ! colors {{{
-!#include "/home/keks/.config/xcolors/nancy.Xresources"
-#include "/home/keks/.config/xcolors/muennich"
+#include "/home/keks/.config/xcolors/tango"
+!#include "/home/keks/.config/xcolors/solarized"
 !URxvt.background: #030303
 !URxvt.cursorColor2: #252525
 !URxvt.cursorColor: #eb122e
 !URxvt.foreground: #ffffff
+URxvt.fading: 0
 !}}}
 
 URxvt.font: FONT_NORMAL
