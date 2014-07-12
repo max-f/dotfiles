@@ -121,9 +121,12 @@ bindkey "\eOF" end-of-line
 #-----------------------------------
 # Syntax highlighting
 #-----------------------------------
+
 # {{{
 
-source $HOME/.zsh/syntax.zsh
+#source $HOME/.zsh/syntax.zsh
+# now done by package community/zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # }}}
 
