@@ -33,7 +33,7 @@ set tabstop=4       " tabs have 4 spaces
 set backspace=2     " backspace 2 spaces
 set shiftwidth=4    " intending 4 spaces
 set noexpandtab     " for discussion
-set textwidth=80    " readable line length
+set textwidth=79    " readable line length
 set list            " show these 'invisible' chars
 set listchars=eol:$,tab:>-
 
@@ -94,7 +94,7 @@ au BufRead,BufNewFile *.py setlocal smarttab
 au BufRead,BufNewFile *.py setlocal expandtab
 au BufRead,BufNewFile *.py setlocal softtabstop=4
 au BufRead,BufNewFile *.py setlocal autoindent
-au BufRead,BufNewFile *.py setlocal tw=80
+au BufRead,BufNewFile *.py setlocal tw=79
 au BufRead,BufNewFile *.py highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
@@ -158,7 +158,7 @@ if $TERM == 'linux'
     hi CursorLine term=none cterm=none ctermbg=none
 else
 "    hi Cursorline term=none cterm=none ctermbg=17
-    colorscheme neverland
+    colorscheme neverland-darker
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 
