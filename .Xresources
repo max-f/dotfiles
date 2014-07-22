@@ -53,7 +53,7 @@ vim*scrollBar: false
 !}}}
 
 ! colors {{{
-#include "/home/keks/.config/xcolors/tango"
+#include "/home/keks/.config/xcolors/judd"
 !#include "/home/keks/.config/xcolors/solarized"
 !URxvt.background: #030303
 !URxvt.cursorColor2: #252525
