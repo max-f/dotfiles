@@ -36,6 +36,7 @@ set noexpandtab     " for discussion
 set textwidth=79    " readable line length
 set list            " show these 'invisible' chars
 set listchars=eol:$,tab:>-
+set wrap
 
 " window layout
 set winfixwidth
@@ -119,6 +120,8 @@ au BufRead,BufNewFile *.tex setlocal nocursorline
 au BufRead,BufNewFile *.html,*.css setlocal tabstop=2
 au BufRead,BufNewFile *.html,*.css setlocal shiftwidth=2
 au BufRead,BufNewFile *.html,*.css setlocal softtabstop=2 " (sts) makes spaces feel like tabs (like deleting)
+au BufRead,BufNewFile *.html,*.css setlocal textwidth=0
+au BufRead,BufNewFile *.html,*.css setlocal wrapmargin=0
 
 "keymappings
 "paste
