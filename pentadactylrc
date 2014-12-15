@@ -1,5 +1,3 @@
-" vim: ft:=pentadactyl:
-
 "set! browser.tabs.closeWindowWithLastTab=false
 silent source /home/keks/.pentadactyl/colors/neverland_tweaked.penta
 
@@ -19,7 +17,6 @@ set showtabline=always
 
 set autocomplete=/ex/(bmarks),^(/|/ex/?)$
 set complete='bookmark'
-set defsearch=d
 set downloadsort='-time'
 set followhints=0
 set hlfind
