@@ -114,6 +114,7 @@ au BufRead,BufNewFile *.tex setlocal tabstop=2
 au BufRead,BufNewFile *.tex setlocal iskeyword+=:
 " no slowing down pls
 au Filetype tex :set norelativenumber
+au Filetype tex :set number
 au FileType tex :NoMatchParen
 au FileType tex setlocal nocursorline
 
