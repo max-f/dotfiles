@@ -81,7 +81,7 @@ set guioptions-=l
 if has("gui_win32")
     set guifont=Inconsolata:h12:cANSI
 else
-    set guifont=envy\ code\ r
+    set guifont=Termsyn
 endif
 
 " Printer
