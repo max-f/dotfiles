@@ -173,4 +173,4 @@ highlight MatchParen cterm=bold ctermfg=cyan
 
 " I'm using pathogen
 call pathogen#infect()
-let Powerline_symbols = 'compatible'
+"let Powerline_symbols = 'compatible'
