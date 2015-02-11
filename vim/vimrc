@@ -135,11 +135,11 @@ set pastetoggle=<F2>
 vnoremap < <gv
 vnoremap > >gv
 
-"delete cursor mappings
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-noremap <Up> <NOP>
+" Remap arrows to split navigation
+nnoremap <Right> <C-w>l
+nnoremap <Left> <C-w>h
+nnoremap <Up> <C-w>k
+nnoremap <Down> <C-w>j
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
