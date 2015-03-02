@@ -56,7 +56,6 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab move container to workspace back_and_forth
 
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exit
 bindsym $mod+Shift+r restart
 
 bindsym $mod+Pause $exec i3lock -c 232323
