@@ -139,3 +139,12 @@ source $HOME/.zsh/functions.zsh
 
 # }}}
 
+#-----------------------------------
+# History
+#-----------------------------------
+# {{{
+HOSTNAME="$(hostname)"
+HOSTNAME_SHORT="${HOSTNAME%%.*}"
+HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
+# }}}
+
