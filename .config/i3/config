@@ -78,8 +78,8 @@ font pango:DejaVu Sans Mono 8
 
 assign [class="Firefox"] 1
 assign [class="Pentadactyl"] 1
-assign [class="pidgin"] 2
-assign [class="Pidgin"] 2
+assign [class="pidgin"] 9
+assign [class="Pidgin"] 9
 
 assign [instance="tmux"] 2
 
