@@ -147,3 +147,9 @@ hglob () {
    print **/*(g:users:)  # Alle Dateien/Verzeichnisse der Gruppe >users<
    echo /proc/*/cwd(:h:t:s/self//) # Analog zu >ps ax | awk '{print $1}'<"
 }
+
+# grep zsh history in ~/.history
+histgrep () {
+	grep -r "$@" ~/.history
+	history | grep "$@"
+}

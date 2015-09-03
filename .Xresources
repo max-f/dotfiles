@@ -27,10 +27,10 @@
 !#define FONT_BOLDITALIC -windows-montecarlo-bold-r-normal--11-110-72-72-c-60-microsoft-cp1252
 !#define FONT_NORMAL xft:DejaVu Sans Mono:pixelsize=11
 !#define FONT_BOLD xft:DejaVU Sans Mono:pixelsize=11:bold
-!#define FONT_NORMAL xft:Termsyn:pixelsize=14
-!#define FONT_BOLD xft:Termsyn:pixelsize=14:bold
-#define FONT_NORMAL xft:Tamsyn:pixelsize=14:autohint=true
-#define FONT_BOLD xft:Tamsyn:pixelsize=14:authint=true:bold
+#define FONT_NORMAL xft:Termsyn:pixelsize=14
+#define FONT_BOLD xft:Termsyn:pixelsize=14:bold
+!#define FONT_NORMAL xft:Tamsyn:pixelsize=14:autohint=true
+!#define FONT_BOLD xft:Tamsyn:pixelsize=14:authint=true:bold
 !#define FONT_NORMAL xft:Terminess Powerline:pixelsize=14
 !#define FONT_BOLD xft:Terminess Powerline:pixelsize=14:bold
 !#define FONT_NORMAL xft:Source Code Pro:pixelsize=12
