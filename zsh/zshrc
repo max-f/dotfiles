@@ -7,9 +7,6 @@
 # NOTE:
 # Usage with grml-zsh-config.
 
-# No autocorrect pls!
-unsetopt correct
-
 #-----------------------------------
 # Colors
 #-----------------------------------
@@ -67,8 +64,23 @@ zstyle ':completion:*:killall:*'   force-list always
 #-----------------------------------
 # {{{
 
-setopt extendedglob appendhistory autocd nomatch
+## No autocorrect pls!
+#unsetopt correct
+setopt correctall
+
+setopt extendedglob autocd nomatch
 unsetopt beep
+
+setopt inc_append_history
+setopt no_bg_nice
+setopt share_history
+setopt extended_history
+setopt hist_ignore_space
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
+setopt nohistverify
+setopt prompt_subst
+setopt always_to_end
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/keks/bin:/usr/local/bin:
 export EDITOR='vim'
@@ -143,8 +155,10 @@ source $HOME/.zsh/functions.zsh
 # History
 #-----------------------------------
 # {{{
-HOSTNAME="$(hostname)"
-HOSTNAME_SHORT="${HOSTNAME%%.*}"
-HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
+#export HOSTNAME_SHORT="${HOSTNAME%%.*}"
+#export HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=5000000
 # }}}
 
