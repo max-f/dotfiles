@@ -65,8 +65,8 @@ zstyle ':completion:*:killall:*'   force-list always
 # {{{
 
 ## No autocorrect pls!
-#unsetopt correct
-setopt correctall
+unsetopt correct
+#setopt correctall
 
 setopt extendedglob autocd nomatch
 unsetopt beep
