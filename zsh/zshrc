@@ -128,6 +128,9 @@ bindkey "\e[7~" beginning-of-line
 bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
 
+# search through history by using up and down arrows
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 # }}}
 
 #-----------------------------------
@@ -157,7 +160,7 @@ source $HOME/.zsh/functions.zsh
 # {{{
 #export HOSTNAME_SHORT="${HOSTNAME%%.*}"
 #export HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
-HISTFILE=~/.zsh_history
+HISTFILE="$HOME"/.zsh_history
 HISTSIZE=10000
 SAVEHIST=5000000
 # }}}
