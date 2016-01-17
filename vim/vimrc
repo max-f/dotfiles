@@ -101,7 +101,9 @@ nnoremap <Down> <C-w>j
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
-let mapleader                    = ','
+"'\' is a bit far away for <leader>
+let mapleader = ','
+
 "nerdtree
 map <F3> <Esc>:NERDTreeToggle<CR> 
 
@@ -121,7 +123,6 @@ map <F12> mz:-1r !xclip -o -sel clip<CR>`z
 set nomore
 
 source ~/.vim/functions.vim
-source ~/.vim/abbreviations.vim
 
 syntax on
 
@@ -140,6 +141,9 @@ highlight MatchParen cterm=bold ctermfg=cyan
 
 " {{{ plugin stuff
 "
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$']
+
 " pathogen
 call pathogen#infect()
 "let Powerline_symbols = 'compatible'
