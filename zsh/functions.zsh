@@ -150,6 +150,6 @@ hglob () {
 
 # grep zsh history in ~/.history
 histgrep () {
-	grep -r "$@" ~/.history
+	grep -r "$@" ~/.zsh_history
 	history | grep "$@"
 }

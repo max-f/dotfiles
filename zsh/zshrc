@@ -4,8 +4,6 @@
 #
 # File:         .zshrc
 #----------------------------------------------------
-# NOTE:
-# Usage with grml-zsh-config.
 
 #-----------------------------------
 # Colors
@@ -136,7 +134,6 @@ bindkey "^[[B" history-beginning-search-forward
 #-----------------------------------
 # Syntax highlighting
 #-----------------------------------
-
 # {{{
 
 #source $HOME/.zsh/syntax.zsh
@@ -165,3 +162,11 @@ HISTSIZE=10000
 SAVEHIST=5000000
 # }}}
 
+#-----------------------------------
+# Prompt
+#-----------------------------------
+# {{{
+
+source $HOME/.zsh/prompt.zsh
+
+# }}}
