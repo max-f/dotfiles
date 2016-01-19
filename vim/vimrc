@@ -7,16 +7,11 @@
 " vim > vi settings
 set nocompatible
 
-" intending
-set autoindent
-set smartindent
-
 " encoding
 set enc=utf-8
 
-filetype on
-filetype indent on
-filetype plugin on
+" intending as necessary
+filetype plugin indent on
 
 set relativenumber  "show numbers  relative to current line
 
@@ -29,10 +24,10 @@ set cursorline      " highlight cursor line
 set colorcolumn=+1,+2
 set showmatch       " jump briefly to matching brace
 set showmode        " show current mode
-set tabstop=4       " tabs have 4 spaces
-set backspace=2     " backspace 2 spaces
-set shiftwidth=4    " intending 4 spaces
-set noexpandtab     " for discussion
+set tabstop=2       " tabs have 2 spaces
+set backspace=indent,eol,start     " backspace is able to erase newlines & stuff
+set shiftwidth=2    " intending 2 spaces
+set expandtab       " for discussion
 set textwidth=79    " readable line length
 set list            " show these 'invisible' chars
 set listchars=eol:$,tab:>-
@@ -65,7 +60,6 @@ endif
 set matchtime=2
 set matchpairs+==:;
 set matchpairs+=<:>
-set matchtime=10
 
 " status bar info and appearance - rest done by statusbar.vim
 set cmdheight=2
@@ -87,45 +81,8 @@ endif
 " Printer
 set printdevice=HP_LaserJet_1022
 
-" au foo
-" python stuff
-au BufRead,BufNewFile *.py setlocal tabstop=4
-au BufRead,BufNewFile *.py setlocal shiftwidth=4
-au BufRead,BufNewFile *.py setlocal smarttab
-au BufRead,BufNewFile *.py setlocal expandtab
-au BufRead,BufNewFile *.py setlocal softtabstop=4
-au BufRead,BufNewFile *.py setlocal autoindent
-au BufRead,BufNewFile *.py setlocal tw=79
-au BufRead,BufNewFile *.py highlight BadWhitespace ctermbg=red guibg=red
-au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
-au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
+" {{{ keymappings
 
-" C stuff
-au BufRead,BufNewFile *.c setlocal shiftwidth=4
-au BufRead,BufNewFile *.c setlocal showmatch
-au BufRead,BufNewFile *.c setlocal tw=79
-
-" tex stuff(vim-latexsuite)
-au BufRead,BufNewFile *.tex let g:tex_flavor = "latex"
-set grepprg=grep\ -nH\ $*
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-au BufRead,BufNewFile *.tex setlocal shiftwidth=2
-au BufRead,BufNewFile *.tex setlocal tabstop=2
-au BufRead,BufNewFile *.tex setlocal iskeyword+=:
-" no slowing down pls
-au Filetype tex :set norelativenumber
-au Filetype tex :set number
-au FileType tex :NoMatchParen
-au FileType tex setlocal nocursorline
-
-" web stuff
-au BufRead,BufNewFile *.html,*.css setlocal tabstop=2
-au BufRead,BufNewFile *.html,*.css setlocal shiftwidth=2
-au BufRead,BufNewFile *.html,*.css setlocal softtabstop=2 " (sts) makes spaces feel like tabs (like deleting)
-au BufRead,BufNewFile *.html,*.css setlocal textwidth=0
-au BufRead,BufNewFile *.html,*.css setlocal wrapmargin=0
-
-"keymappings
 "paste
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
@@ -144,17 +101,28 @@ nnoremap <Down> <C-w>j
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
-let mapleader                    = ','
+"'\' is a bit far away for <leader>
+let mapleader = ','
+
 "nerdtree
 map <F3> <Esc>:NERDTreeToggle<CR> 
 
 "taglist
 map <F4> <Esc>:TlistToggle<CR>
 
+" copy or paste from X11 clipboard
+" http://vim.wikia.com/wiki/GNU/Linux_clipboard_copy/paste_with_xclip
+" requires: xclip
+" usage: visual mode select then hit F11 to copy
+" hit F12 to paste from GUI to vim without formating issues
+vmap <F11> :!xclip -f -sel clip<CR>
+map <F12> mz:-1r !xclip -o -sel clip<CR>`z
+
+" }}}
+
 set nomore
 
 source ~/.vim/functions.vim
-source ~/.vim/abbreviations.vim
 
 syntax on
 
@@ -172,6 +140,23 @@ else
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 
-" I'm using pathogen
+" {{{ plugin stuff
+"
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$']
+
+" pathogen
 call pathogen#infect()
 "let Powerline_symbols = 'compatible'
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" }}}

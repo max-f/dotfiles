@@ -47,7 +47,7 @@ map -ex <F9> :toolbartoggle Bookmarks Toolbar
 map <F11>  :sidebar Bookmarks<CR>
 
 map a :tabprevious<CR>
-map s  :tabnext<CR>
+map s :tabnext<CR>
 
 map <A-i> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
 

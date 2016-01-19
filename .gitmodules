@@ -1,0 +1,33 @@
+[submodule "vim/bundle/sudo.vim"]
+	path = vim/bundle/sudo.vim
+	url = https://github.com/vim-scripts/sudo.vim.git
+[submodule "vim/bundle/jedi-vim"]
+	path = vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "vim/bundle/vim-python-combined"]
+	path = vim/bundle/vim-python-combined
+	url = https://github.com/mitsuhiko/vim-python-combined.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/vim-gnupg"]
+	path = vim/bundle/vim-gnupg
+	url = https://github.com/jamessan/vim-gnupg.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/vim-latex-suite"]
+	path = vim/bundle/vim-latex-suite
+	url = https://github.com/gerw/vim-latex-suite.git
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
+[submodule "vim/bundle/taglist.vim"]
+	path = vim/bundle/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
