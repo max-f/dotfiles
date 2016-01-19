@@ -19,9 +19,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "vim/bundle/vim-latex-suite"]
-	path = vim/bundle/vim-latex-suite
-	url = https://github.com/gerw/vim-latex-suite.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
