@@ -14,6 +14,7 @@ elif [[ $HOSTNAME == 'brei' ]]; then
 	# unclutter -idle 4 &
 	# xset m 7 1 &
 	# xset fp+ /usr/share/fonts/local
+	synclient TouchpadOff=1
 	(sleep 2 && /usr/bin/urxvtd -q -o -f) &
 
 fi
@@ -29,7 +30,7 @@ xrdb -merge $HOME/.Xresources &
 sh $HOME/.fehbg &
 
 # dropbox
-(sleep 60 && /usr/bin/dropboxd) &
+(sleep 60 && /usr/bin/dropbox) &
 
 # java programs should behave sane
 wmname LG3D

@@ -167,7 +167,8 @@ if $TERM == 'linux'
     hi CursorLine term=none cterm=none ctermbg=none
 else
 "    hi Cursorline term=none cterm=none ctermbg=17
-    colorscheme neverland-darker
+    " colorscheme neverland-darker
+	colorscheme monochrome
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 
