@@ -9,4 +9,3 @@ setlocal noshowmatch
 
 au BufRead,BufNewFile *.tex let g:tex_flavor = "latex"
 setlocal grepprg=grep\ -nH\ $*
-setlocal runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
