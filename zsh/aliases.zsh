@@ -5,8 +5,15 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias ls='ls -lh --group-directories-first --color=auto'
-alias lsd='ls -d *(-/N)'      # list visible directories
-alias lsf='ls *(-.N)'         # list visible files
+# list visible directories
+alias lsd='ls -d *(-/N)'
+# list visible files
+alias lsf='ls *(-.N)'
+# list symlinks
+alias lsl='ls -l *(@)'
+# list the ten newest files
+alias lsnew='ls -rtlh *(D.om[1,10])' 
+
 
 alias df='df -H'
 alias zshrc='. ~/.zshrc && echo "reload ~/.zshrc								${txtblu}[${txtwht}DONE${txtblu}]"'
