@@ -29,6 +29,8 @@
 !#define FONT_BOLD xft:DejaVU Sans Mono:pixelsize=11:bold
 #define FONT_NORMAL xft:Termsyn:pixelsize=14
 #define FONT_BOLD xft:Termsyn:pixelsize=14:bold
+!#define FONT_NORMAL xft:Meslo LG S DZ:pixelsize=11
+!#define FONT_BOLD xft:Meslo LG S DZ:pixelsize=11:bold
 !#define FONT_NORMAL xft:Tamsyn:pixelsize=14:autohint=true
 !#define FONT_BOLD xft:Tamsyn:pixelsize=14:authint=true:bold
 !#define FONT_NORMAL xft:Terminess Powerline:pixelsize=14
@@ -57,7 +59,7 @@ vim*scrollBar: false
 !}}}
 
 ! colors {{{
-#include "/home/keks/.config/xcolors/judd"
+#include "/home/keks/.config/xcolors/base16"
 !#include "/home/keks/.config/xcolors/solarized"
 !URxvt.background: #030303
 !URxvt.cursorColor2: #252525
