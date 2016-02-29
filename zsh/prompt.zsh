@@ -14,9 +14,9 @@ zstyle ':vcs_info:*' unstagedstr "?"
 zstyle ':vcs_info:*' formats " on %s:%b%u%c"
 zstyle ':vcs_info:*' actionformats " on %s:%b%u%c %a"
 
-# update vcs_info
+# nice prompt pls
 function precmd() {
-  # nice prompt pls
+  # update vcs_info
   vcs_info
   BASEPROMPT="%{$fg_bold[blue]%}%n%{$reset_color%} at %{$fg[cyan]%}%m%{$reset_color%} in %{$fg_bold[green]%}%~%{$fg[red]%}${vcs_info_msg_0_}%{$reset_color%}"
   if [ "${VIRTUAL_ENV}" != "" ]
@@ -26,6 +26,7 @@ function precmd() {
   PROMPT="
 ${BASEPROMPT}
 $ "
+  # root prompt:
   RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
   # set the cwd as terminal title
   print -Pn "\e]2;%n@%M | %~\a"
