@@ -1,0 +1,45 @@
+remove Lock         = Caps_Lock
+keysym Caps_Lock    = Escape
+
+!keycode 234            = Alt_L
+!keycode 113         = Mode_switch
+keysym Alt_R        = Mode_switch
+
+keysym grave        = grave        asciitilde   U2248
+keysym 1            = 1            exclam       onesuperior
+keysym 2            = 2            at           twosuperior    onehalf
+keysym 3            = 3            numbersign   threesuperior  onethird
+keysym 4            = 4            dollar       foursuperior   onequarter
+keysym 5            = 5            percent      U2030
+keysym 6            = 6            asciicircum  U22BB
+keysym 7            = 7            ampersand    logicaland     U22BC
+keysym 8            = 8            asterisk     U2219          multiply
+keysym 9            = 9            parenleft    guillemotleft  U2039
+keysym 0            = 0            parenright   guillemotright U203A
+keysym minus        = minus        underscore   endash         emdash
+keysym equal        = equal        plus         notequal       plusminus
+
+keysym e            = e            E            EuroSign       U2203
+keysym r            = r            R            registered     U267B
+keysym t            = t            T            trademark
+keysym u            = u            U            udiaeresis     Udiaeresis
+keysym i            = i            I            U21D2          ifonlyif
+keysym o            = o            O            odiaeresis     Odiaeresis
+keysym p            = p            P            U03C0          paragraph
+keysym bracketleft  = bracketleft  braceleft    U201E          U201A
+keysym bracketright = bracketright braceright   U201D          U2019
+
+keysym a           = a             A            adiaeresis      Adiaeresis
+keysym s           = s             S            ssharp          section
+keysym d           = d             D            degree
+keysym f           = f             F            U2200
+keysym apostrophe  = apostrophe    quotedbl     U2019
+keysym backslash   = backslash     bar          logicalor       U22BD
+
+keysym c            = c             C           copyright       cent
+keysym n            = n             N           notsign         U266B
+keysym m            = m             M           mu              U262D
+keysym k            = k             K           U534D           U5350
+keysym comma        = comma         less        lessthanequal   lessthanequal
+keysym period       = period        greater     ellipsis        greaterthanequal
+keysym slash        = slash         question    division
