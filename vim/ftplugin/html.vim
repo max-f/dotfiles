@@ -3,5 +3,5 @@
 setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 " endless..
-setlocal textwidth=0
-setlocal wrapmargin=0
+"setlocal textwidth=0
+"setlocal wrapmargin=0
