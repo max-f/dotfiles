@@ -31,6 +31,7 @@ alias cpma='/opt/quake3/ioquake3.x86_64 +sef fs_game cpma'
 #alias bp='sshfs keks@brechpunkt.de:/home/keks -o nonempty ~/brechpunkt/'
 alias qldelay-on='S tc qdisc add dev eth0 root netem delay 15ms'
 alias qldelay-off='S tc qdisc del dev eth0 root'
+alias ipython='ipython3'
 
 # pacman
 alias pacman='sudo pacman'
