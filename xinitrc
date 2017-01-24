@@ -35,6 +35,9 @@ sh $HOME/.fehbg &
 # java programs should behave sane
 wmname LG3D
 
+# compositing
+compton -bf --fade-delta=4 --inactive-dim 0.1 --sw-opti
+
 # dwm
 #while true; do
 #	$HOME/devel/bash/dwm_status.sh
