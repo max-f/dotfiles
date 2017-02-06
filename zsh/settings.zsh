@@ -73,7 +73,7 @@ export PATH=/home/mfischer/bin:$PATH
 export PYTHONPATH=/home/mfischer/.local/lib
 export EDITOR='vim'
 export BROWSER='firefox'
-export TERM='rxvt-unicode'
+#export TERM='rxvt-unicode'
 export OOO_FORCE_DESKTOP=gnome
 export MAIL=~/mail
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
