@@ -22,7 +22,8 @@
 !#define FONT_BOLD -misc-termsyn-bold-r-normal--14-101-100-100-c-70-iso8859-1*
 !#define FONT_NORMAL -gohu-gohufont-medium-r-normal--14-100-100-100-c-80-iso8859-1
 !#define FONT_BOLD -gohu-gohufont-bold-r-normal--14-100-100-100-c-80-iso8859-1
-#define FONT_NORMAL -misc-tamzen-medium-r-normal--15-108-100-100-c-80-iso8859-1
+!#define FONT_NORMAL -misc-tamzen-medium-r-normal--15-108-100-100-c-80-iso8859-1
+#define FONT_NORMAL -nil-profont-medium-r-normal--15-150-72-72-c-70-iso8859-1
 #define FONT_BOLD -misc-tamzen-bold-r-normal--15-108-100-100-c-80-iso8859-1
 !#define FONT_NORMAL xft:terminus:pixelsize=14
 !#define FONT_BOLD xft:terminus:pixelsize=14:bold
