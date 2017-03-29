@@ -69,8 +69,8 @@ setopt nohistverify
 setopt prompt_subst
 setopt always_to_end
 
-export PATH=/home/mfischer/bin:$PATH
-export PYTHONPATH=/home/mfischer/.local/lib
+export PATH=/home/${USER}/bin:$PATH
+export PYTHONPATH=/home/${USER}/.local/lib
 export EDITOR='vim'
 export BROWSER='firefox'
 #export TERM='rxvt-unicode'
@@ -134,4 +134,11 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 HISTFILE="$HOME"/.zsh_history
 HISTSIZE=10000
 SAVEHIST=5000000
+# }}}
+
+#-----------------------------------
+# z to jump around
+#-----------------------------------
+# {{{
+. /usr/bin/z.sh
 # }}}
