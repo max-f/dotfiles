@@ -3,6 +3,7 @@ set $exec exec --no-startup-id
 
 bindsym $mod+Return $exec urxvt
 bindsym $mod+p $exec dmenu_run -fn 'iosevka heavy-11'
+bindsym Mod1+Tab $exec rofi -show window
 
 bindsym $mod+BackSpace kill
 
