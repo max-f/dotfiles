@@ -15,6 +15,9 @@ filetype plugin indent on
 
 set relativenumber  "show numbers  relative to current line
 
+" The PC is fast enough, do syntax highlight syncing from start
+autocmd BufEnter * :syntax sync fromstart
+
 " no backup
 set noswapfile
 "set backupdir=/tmp
@@ -75,7 +78,7 @@ set guioptions-=l
 if has("gui_win32")
     set guifont=Inconsolata:h12:cANSI
 else
-    set guifont=Termsyn
+    set guifont=Iosevka
 endif
 
 " Printer
@@ -136,10 +139,11 @@ if $TERM == 'linux'
 else
 "    hi Cursorline term=none cterm=none ctermbg=17
     " colorscheme neverland-darker
-  "set t_Co=256
-  let base16colorspace=256
-  set background=dark
-  colorscheme base16-default
+  set t_Co=256
+  "let base16colorspace=256
+  "set background=dark
+  "colorscheme base16-default
+  colorscheme gruvbox
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 
@@ -154,6 +158,39 @@ let NERDTreeIgnore = ['\.pyc$']
 
 call pathogen#infect()
 "let Powerline_symbols = 'compatible'
+
+" Airline
+if has("gui_running")
+  "let g:airline_theme='solarized'
+  let g:airline_theme='tomorrow'
+  let g:airline_powerline_fonts=1
+  "let g:airline_right_alt_sep = ''
+  "let g:airline_right_sep = ''
+  "let g:airline_left_alt_sep= ''
+  "let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_left_sep = ''
+else
+  let g:airline_powerline_fonts=1
+endif
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n' : 'N',
+  \ 'i' : 'I',
+  \ 'R' : 'R',
+  \ 'c' : 'C',
+  \ 'v' : 'V',
+  \ 'V' : 'V',
+  \ '' : 'V',
+  \ 's' : 'S',
+  \ 'S' : 'S',
+  \ '' : 'S',
+  \ }
+let g:airline#extensions#whitespace#checks = []
+let g:airline_section_y = airline#section#create_right(['%{printf("%s%s",&fenc,&ff!="unix"?":".&ff:"")}'])
+let g:airline_section_z = airline#section#create_right(['%3l:%2c'])
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#ctrlp#color_template = 'replace'
 
 " syntastic
 set statusline+=%#warningmsg#
