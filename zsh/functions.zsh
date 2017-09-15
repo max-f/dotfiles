@@ -165,3 +165,8 @@ any() {
         ps xauwww | grep -i "${grep_options[@]}" "[${1[1]}]${1[2,-1]}"
     fi
 }
+
+# Use curl with some default options to receive file
+cget() {
+    curl -fJOL --compressed "$@"
+}
