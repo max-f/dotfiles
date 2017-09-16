@@ -110,6 +110,16 @@ for_window [title="^Steam Keyboard$"] floating enable
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    colors {
+        background #000000
+        statusline #ffffff
+        separator #666666
+        # colorclass        <border>    <background> <text>
+        focused_workspace   #33aadd     #265e7a     #e3e3e3
+        active_workspace    #333333     #5f676a     #101010
+        inactive_workspace  #333333     #222222     #949494
+        urgent_workspace    #222222     #990000     #e3e3e3
+    }
     mode dock
-	status_command i3status --config ~/.config/i3/i3status.conf
+		status_command i3status --config ~/.config/i3/i3status.conf
 	}

@@ -71,7 +71,9 @@ vim*scrollBar: false
 
 ! colors {{{
 !#include "/home/keks/.config/xcolors/base16"
-#include "/home/keks/.config/xcolors/gruvbox-dark"
+#include "/home/keks/.config/xcolors/base16-ocean-256"
+!#include "/home/keks/.config/xcolors/gruvbox-dark"
+!#include "/home/keks/.config/xcolors/badwolf"
 !#include "/home/keks/.config/xcolors/solarized"
 !URxvt.background: #030303
 !URxvt.cursorColor2: #252525

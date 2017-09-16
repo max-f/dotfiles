@@ -140,10 +140,9 @@ else
 "    hi Cursorline term=none cterm=none ctermbg=17
     " colorscheme neverland-darker
   set t_Co=256
-  "let base16colorspace=256
+  let base16colorspace=256
+  colorscheme base16-ocean
   "set background=dark
-  "colorscheme base16-default
-  colorscheme gruvbox
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 
