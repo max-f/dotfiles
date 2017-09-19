@@ -110,8 +110,8 @@ let mapleader = ','
 "nerdtree
 map <F3> <Esc>:NERDTreeToggle<CR> 
 
-"taglist
-map <F4> <Esc>:TlistToggle<CR>
+"tagbar
+map <F4> <Esc>:TagbarToggle<CR>
 
 " copy or paste from X11 clipboard
 " http://vim.wikia.com/wiki/GNU/Linux_clipboard_copy/paste_with_xclip
@@ -146,6 +146,28 @@ else
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 
+" {{{ Specify plugins
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/sudo.vim'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'nvie/vim-flake8'
+Plug 'tpope/vim-fugitive'
+Plug 'mitsuhiko/vim-python-combined'
+Plug 'vimwiki/vimwiki'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+call plug#end()
+
+" }}}
+
 " {{{ plugin stuff
 "
 " NERDTree
@@ -154,9 +176,6 @@ let NERDTreeIgnore = ['\.pyc$']
 " pathogen
 "let g:pathogen_disabled = []
 "call add(g:pathogen_disabled, 'supertab')
-
-call pathogen#infect()
-"let Powerline_symbols = 'compatible'
 
 " Airline
 if has("gui_running")
