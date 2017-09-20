@@ -152,11 +152,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'klen/python-mode'
 Plug 'vim-scripts/sudo.vim'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
-Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-fugitive'
 Plug 'mitsuhiko/vim-python-combined'
 Plug 'vimwiki/vimwiki'
