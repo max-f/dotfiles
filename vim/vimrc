@@ -158,6 +158,9 @@ Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'mitsuhiko/vim-python-combined'
 Plug 'vimwiki/vimwiki'
 
@@ -168,14 +171,14 @@ call plug#end()
 
 " }}}
 
-" {{{ plugin stuff
-"
+" {{{ Plugin stuff
+
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$']
 
-" pathogen
-"let g:pathogen_disabled = []
-"call add(g:pathogen_disabled, 'supertab')
+" python-mode
+" Enable python 3 syntax checking:
+let g:pymode_python = 'python3'
 
 " Airline
 if has("gui_running")
