@@ -179,6 +179,10 @@ let NERDTreeIgnore = ['\.pyc$']
 " python-mode
 " Enable python 3 syntax checking:
 let g:pymode_python = 'python3'
+" just use syntastic linting
+let g:pymode_lint = 0
+" Disable doc popup for autocompletion
+set completeopt=menu
 
 " Airline
 if has("gui_running")
