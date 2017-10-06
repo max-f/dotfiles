@@ -27,9 +27,9 @@ set cursorline      " highlight cursor line
 set colorcolumn=+1,+2
 set showmatch       " jump briefly to matching brace
 set showmode        " show current mode
-set tabstop=2       " tabs have 2 spaces
+set tabstop=4       " tabs have 4 spaces
 set backspace=indent,eol,start     " backspace is able to erase newlines & stuff
-set shiftwidth=2    " intending 2 spaces
+set shiftwidth=4    " intending 4 spaces
 set expandtab       " for discussion
 set textwidth=79    " readable line length
 set list            " show these 'invisible' chars
@@ -118,8 +118,8 @@ map <F4> <Esc>:TagbarToggle<CR>
 " requires: xclip
 " usage: visual mode select then hit F11 to copy
 " hit F12 to paste from GUI to vim without formating issues
-vmap <F11> :!xclip -f -sel clip<CR>
-map <F12> mz:-1r !xclip -o -sel clip<CR>`z
+vmap <F5> :!xclip -f -sel clip<CR>
+map <F6> mz:-1r !xclip -o -sel clip<CR>`z
 
 " }}}
 
