@@ -183,10 +183,12 @@ let NERDTreeIgnore = ['\.pyc$']
 " python-mode
 " Enable python 3 syntax checking:
 let g:pymode_python = 'python3'
-" just use syntastic linting
+" just use ALE linting
 let g:pymode_lint = 0
 " Disable doc popup for autocompletion
 set completeopt=menu
+" Try to solve hang-up with rope when saving
+let g:pymode_rope_regenerate_on_write = 0
 
 " Airline
 if has("gui_running")
@@ -217,10 +219,17 @@ let g:airline#extensions#whitespace#checks = []
 "let g:airline_section_z = airline#section#create_right(['%3l:%2c'])
 "let g:airline#extensions#hunks#non_zero_only = 1
 "let g:airline#extensions#ctrlp#color_template = 'replace'
+" Smart tab line
+let g:airline#extensions#tabline#enabled = 1
 " For combination with ALE
-"let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " ALE
+" Lint when opening a file
+let g:ale_lint_on_enter = 1
+" Just lint on file save, not when changing
+let g:ale_lint_on_text_changed = 'never'
+
 " Restrict tex checkers to chktex?
 " Restrict python checkers to flake8 + python?
 "let g:ale_list_window_size = 4
@@ -229,5 +238,8 @@ let g:ale_sign_warning = '∙'
 let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " }}}

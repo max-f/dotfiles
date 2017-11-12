@@ -30,16 +30,16 @@
 !#define FONT_BOLD xft:terminus:pixelsize=14:bold
 !#define FONT_NORMAL xft:proggyclean:pixelsize=11
 !#define FONT_BOLD xft:proggyclean:pixelsize=11:bold
-!#define FONT_NORMAL xft:iosevka medium:pixelsize=13
-!#define FONT_BOLD xft:iosevka medium:pixelsize=13
+!#define FONT_NORMAL xft:xos4 Terminess Powerline:pixelsize=14
+!#define FONT_BOLD xft:xos4 Terminess Powerline:pixelsize=14
 !#define FONT_NORMAL xft:Envy Code R:pixelsize=13
 !#define FONT_BOLD xft:Envy Code R:pixelsize=13:bold
 !#define FONT_NORMAL xft:ProggySquare:pixelsize=14
 !#define FONT_BOLD xft:ProggySquare:pixelsize=14:bold
 !#define FONT_NORMAL xft:ProggyCleanTT:pixelsize=16
 !#define FONT_BOLD xft:ProggyCleanTTP:pixelsize=16
-!#define FONT_NORMAL xft:Iosevka Heavy:pixelsize=13
-!#define FONT_BOLD xft:Iosevka Heavy:pixelsize=13
+!#define FONT_NORMAL xft:Iosevka Medium:pixelsize=13
+!#define FONT_BOLD xft:Iosevka Medium:pixelsize=13
 !#define FONT_NORMAL xft:DejaVu Sans Mono:pixelsize=10
 !#define FONT_BOLD xft:DejaVU Sans Mono:pixelsize=10:bold
 !#define FONT_NORMAL xft:Operator Mono Medium:pixelsize=13:antialias=true:hinting=true:hintstyle=hintslight
