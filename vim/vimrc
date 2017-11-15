@@ -116,8 +116,8 @@ map <F4> <Esc>:TagbarToggle<CR>
 " copy or paste from X11 clipboard
 " http://vim.wikia.com/wiki/GNU/Linux_clipboard_copy/paste_with_xclip
 " requires: xclip
-" usage: visual mode select then hit F11 to copy
-" hit F12 to paste from GUI to vim without formating issues
+" usage: visual mode select then hit F5 to copy
+" hit F6 to paste from GUI to vim without formating issues
 vmap <F5> :!xclip -f -sel clip<CR>
 map <F6> mz:-1r !xclip -o -sel clip<CR>`z
 
