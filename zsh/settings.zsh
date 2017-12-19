@@ -25,7 +25,7 @@ elif [[ "$TERM" = "linux" ]]; then
 fi
 
 # Base16 stuff
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-ocean.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 # }}}
 
@@ -78,6 +78,8 @@ export OOO_FORCE_DESKTOP=gnome
 export MAIL=~/mail
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 export PAGER='less'
+# JRebel
+export REBEL_HOME=/home/mfischer/.IntelliJIdea2017.3/config/plugins/jr-ide-idea/lib/jrebel
 
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -140,5 +142,18 @@ SAVEHIST=5000000
 # z to jump around
 #-----------------------------------
 # {{{
-. /usr/bin/z.sh
+#. /usr/bin/z.sh
 # }}}
+
+#-----------------------------------
+# fzf stuff
+# from: http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
+# fd: https://mike.place/2017/fzf-fd/
+#-----------------------------------
+# {{{
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+bindkey -s "^P" 'vim $(fzf)\n'
+export FZF_ALT_C_COMMAND="cd ~/; bfs -type d -nohidden | sed s/^\./~/"  
+# }}}
+
