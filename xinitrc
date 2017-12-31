@@ -36,7 +36,11 @@ sh $HOME/.fehbg &
 wmname LG3D
 
 # compositing
-compton -bf --fade-delta=4 --inactive-dim 0.1 --sw-opti
+compton -bf --fade-delta=4 --sw-opti
+
+# clipboard syncing
+autocutsel &
+autocutsel -s PRIMARY & 
 
 # dwm
 #while true; do
