@@ -141,7 +141,7 @@ else
     " colorscheme neverland-darker
   set t_Co=256
   let base16colorspace=256
-  colorscheme base16-ocean
+  colorscheme base16-solarized-dark
   "set background=dark
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
