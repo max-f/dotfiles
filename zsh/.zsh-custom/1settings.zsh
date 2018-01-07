@@ -25,7 +25,7 @@ elif [[ "$TERM" = "linux" ]]; then
 fi
 
 # Base16 stuff
-BASE16_SHELL="$HOME/.config/base16-shell/base16-ocean.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-solarized-dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 # }}}
 
@@ -69,8 +69,8 @@ setopt nohistverify
 setopt prompt_subst
 setopt always_to_end
 
-export PATH=/home/${USER}/bin:$PATH
-export PYTHONPATH=/home/${USER}/.local/lib
+export PATH=${HOME}/.local/bin:${HOME}/bin:$PATH
+export PYTHONPATH=${HOME}/.local/lib
 export EDITOR='vim'
 export BROWSER='firefox'
 #export TERM='rxvt-unicode'
@@ -151,6 +151,7 @@ SAVEHIST=5000000
 # fd: https://mike.place/2017/fzf-fd/
 #-----------------------------------
 # {{{
+export FZF_DEFAULT_OPTS='--color dark --no-height --reverse'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bindkey -s "^P" 'vim $(fzf)\n'

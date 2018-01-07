@@ -53,14 +53,16 @@ alias dropup="sh $HOME/devel/bash/dropbox.sh up"
 alias dropdown="sh $HOME/devel/bash/dropbox.sh down"
 
 # handling certain filetypes
-alias -s {mp3,avi,mpeg,mpg,ogg}=mplayer
-alias -s pls='mplayer -playlist'
+alias -s {mp3,avi,mpeg,mpg,ogg}=mpv
+alias -s pls='mpv --playlist'
 alias -s {htm,html}=$BROWSER
 alias -s {c,cpp,py,java,cfg}=$EDITOR
 #alias -s h=$EDITOR
 #alias -s hs=$EDITOR
 alias -s {djvu,pdf}=evince
-alias -s {png,jpg,JPG,JPEG,PNG}='feh -dF'
+alias -s {png,jpg,JPG,JPEG,PNG}='feh -dF --auto-rotate'
 
 alias -g L='|less'
-alias -g G='|grep'
+alias -g G='|rg'
+
+eval $(thefuck --alias wut) 
