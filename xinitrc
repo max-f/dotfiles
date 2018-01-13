@@ -9,6 +9,9 @@
 if [[ $HOSTNAME == 'mehl' ]]; then
 	# unclutter -idle 4 &
 	xset m 1 1 &
+    # pulseaudio control
+    pasystray &
+    # adjust light spectrum for better sleeping
 	#/usr/bin/redshift &
 elif [[ $HOSTNAME == 'brei' ]]; then
 	# unclutter -idle 4 &
@@ -16,7 +19,6 @@ elif [[ $HOSTNAME == 'brei' ]]; then
 	# xset fp+ /usr/share/fonts/local
 	synclient TouchpadOff=1
 	(sleep 2 && /usr/bin/urxvtd -q -o -f) &
-
 fi
 
 # keyboard stuff
@@ -36,7 +38,7 @@ sh $HOME/.fehbg &
 wmname LG3D
 
 # compositing
-compton -bf --fade-delta=4 --sw-opti
+#compton -bf --fade-delta=4 --sw-opti
 
 # clipboard syncing
 autocutsel &
