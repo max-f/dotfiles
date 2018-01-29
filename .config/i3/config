@@ -72,17 +72,18 @@ bindsym $mod+b bar mode toggle
 
 floating_modifier $mod
 
-font pango:iosevka heavy 10
+font pango:iosevka medium 11
+#font -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
 #
 # Windowing Rules
 #
 
 assign [class="Firefox"] 1
-assign [class="Pentadactyl"] 1
 assign [class="Chromium"] 1
 assign [class="pidgin"] 9
 assign [class="Pidgin"] 9
+assign [class="Signal"] 10
 
 assign [instance="tmux"] 2
 
@@ -108,28 +109,6 @@ for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
 
-## Base16 Solarized Dark
-# Author: Ethan Schoonover (http://ethanschoonover.com/solarized)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #002b36
-set $base01 #073642
-set $base02 #586e75
-set $base03 #657b83
-set $base04 #839496
-set $base05 #93a1a1
-set $base06 #eee8d5
-set $base07 #fdf6e3
-set $base08 #dc322f
-set $base09 #cb4b16
-set $base0A #b58900
-set $base0B #859900
-set $base0C #2aa198
-set $base0D #268bd2
-set $base0E #6c71c4
-set $base0F #d33682
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # Color configuration using the Base16 variables.
@@ -137,25 +116,21 @@ bar {
     mode dock
     status_command i3status --config ~/.config/i3/i3status.conf
 
-    colors {
-        background $base00
-        separator  $base01
-        statusline $base04
-
-        # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
+	colors {
+		background #080808
+		statusline #808080
+		separator #404040
+		#                  border  backgr  text
+		focused_workspace  #a6a6de #080808 #ffffff
+		active_workspace   #404040 #080808 #a6a6de
+		inactive_workspace #404040 #080808 #808080
+		urgent_workspace   #ea8484 #080808 #ffffff
+	}
 }
 
-# Basic color configuration using the Base16 variables for windows and borders.
-# Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0D
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+# class                 border  backgr  text    indicator
+client.focused          #a6a6de #a6a6de #000000 #a6a6de
+client.focused_inactive #404040 #404040 #808080 #404040
+client.unfocused        #202020 #202020 #808080 #404040
+client.urgent           #ea8484 #ea8484 #000000
+client.background #080808
