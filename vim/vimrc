@@ -102,7 +102,7 @@ nnoremap <Up> <C-w>k
 nnoremap <Down> <C-w>j
 
 " space bar un-highligts search
-:noremap <silent> <Space> :silent noh<Bar>echo<CR>
+nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 "'\' is a bit far away for <leader>
 let mapleader = ','
