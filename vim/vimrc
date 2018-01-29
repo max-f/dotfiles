@@ -102,7 +102,7 @@ nnoremap <Up> <C-w>k
 nnoremap <Down> <C-w>j
 
 " space bar un-highligts search
-:noremap <silent> <Space> :silent noh<Bar>echo<CR>
+nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 "'\' is a bit far away for <leader>
 let mapleader = ','
@@ -141,7 +141,7 @@ else
     " colorscheme neverland-darker
   set t_Co=256
   let base16colorspace=256
-  colorscheme base16-solarized-dark
+  colorscheme base16-ocean
   "set background=dark
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
