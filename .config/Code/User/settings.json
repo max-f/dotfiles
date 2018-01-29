@@ -1,0 +1,22 @@
+{
+    "editor.fontFamily": "'Iosevka Medium'",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "workbench.colorTheme": "RealGithub",
+    "python.pythonPath": "python3.6",
+    "keyboard.dispatch": "keyCode",
+    "workbench.iconTheme": "material-icon-theme",
+
+    // VIM Emulation
+    "vim.history": 1000,
+    "vim.leader": ",",
+    "vim.statusBarColorControl": true
+}
