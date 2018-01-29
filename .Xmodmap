@@ -26,6 +26,7 @@ keysym u            = u            U            udiaeresis     Udiaeresis
 keysym i            = i            I            U21D2          ifonlyif
 keysym o            = o            O            odiaeresis     Odiaeresis
 keysym p            = p            P            U03C0          paragraph
+keysym q            = q            Q            U00F8
 keysym bracketleft  = bracketleft  braceleft    U201E          U201A
 keysym bracketright = bracketright braceright   U201D          U2019
 

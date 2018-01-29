@@ -138,10 +138,10 @@ if $TERM == 'linux'
     hi CursorLine term=none cterm=none ctermbg=none
 else
 "    hi Cursorline term=none cterm=none ctermbg=17
-    " colorscheme neverland-darker
+  " colorscheme neverland-darker
   set t_Co=256
   let base16colorspace=256
-  colorscheme base16-solarized-dark
+  colorscheme base16-ocean
   "set background=dark
 endif
 highlight MatchParen cterm=bold ctermfg=cyan

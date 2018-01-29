@@ -9,8 +9,22 @@
 if [[ $HOSTNAME == 'mehl' ]]; then
 	# unclutter -idle 4 &
 	xset m 1 1 &
+
     # pulseaudio control
     pasystray &
+
+    # notification daemon
+    dunst \
+      -fn "Dejavu 12" \
+      -follow keyboard \
+      -format "<b>%s</b>\n\n%b" \
+      -geometry "300x5-30+20" \
+      -horizontal_padding 16 \
+      -markup \
+      -padding 18 \
+      -separator_height 1 \
+      -word_wrap &
+
     # adjust light spectrum for better sleeping
 	#/usr/bin/redshift &
 elif [[ $HOSTNAME == 'brei' ]]; then
@@ -45,11 +59,11 @@ autocutsel &
 autocutsel -s PRIMARY & 
 
 # dwm
-#while true; do
-#	$HOME/devel/bash/dwm_status.sh
-#	sleep 2s
-#done &
-#exec $HOME/bin/dwm
+# while true; do
+# 	$HOME/devel/bash/dwm_status.sh
+# 	sleep 2s
+# done &
+# exec $HOME/bin/dwm
 
 # i3
 exec i3
