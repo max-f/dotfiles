@@ -3,7 +3,9 @@ set $mod Mod4
 set $exec exec --no-startup-id
 
 bindsym $mod+Return $exec urxvt
-bindsym $mod+p $exec dmenu_run -fn 'iosevka heavy-11'
+bindsym $mod+p exec dmenu_run -i -l 10 -p "$" -fn "iosevka medium-12" -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
+# bindsym $mod+p exec dmenu_run -i -l 10 -h 18 -p "$" -fn "-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*" -x 690 -w 300 -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
+
 bindsym Mod1+Tab $exec rofi -show window
 
 bindsym $mod+BackSpace kill

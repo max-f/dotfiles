@@ -15,8 +15,8 @@
 
 ! fonts {{{
 ! # defines
-!#define FONT_NORMAL -misc-termsyn-medium-r-normal--14-101-100-100-c-70-iso8859-1*
-!#define FONT_BOLD -misc-termsyn-bold-r-normal--14-101-100-100-c-70-iso8859-1*
+!#define FONT_NORMAL -xos4-terminesspowerline-medium-r-normal--16-160-72-72-c-80-iso10646-1
+!#define FONT_BOLD -xos4-terminesspowerline-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !#define FONT_NORMAL -gohu-gohufont-medium-r-normal--14-100-100-100-c-80-iso8859-1
 !#define FONT_BOLD -gohu-gohufont-bold-r-normal--14-100-100-100-c-80-iso8859-1
 !#define FONT_NORMAL -misc-proggycleanttszbp-medium-r-normal--0-0-0-0-c-0-iso8859-1
@@ -42,15 +42,16 @@
 !#define FONT_BOLD xft:ProggySquare:pixelsize=14:bold
 !#define FONT_NORMAL xft:ProggyCleanTT:pixelsize=16
 !#define FONT_BOLD xft:ProggyCleanTTP:pixelsize=16
-#define FONT_NORMAL xft:Iosevka:pixelsize=16
-#define FONT_BOLD xft:Iosevka Medium :pixelsize=16
+!#define FONT_NORMAL xft:Iosevka:pixelsize=16
+!#define FONT_BOLD xft:Iosevka Medium :pixelsize=16
 !#define FONT_NORMAL xft:DejaVu Sans Mono for Powerline:pixelsize=15
 !#define FONT_BOLD xft:DejaVu Sans Mono for Powerline:pixelsize=15
 !#define FONT_NORMAL xft:Inconsolata-dz for Powerline:pixelsize=16
 !#define FONT_BOLD xft:Inconsolata-dz for Powerline:pixelsize=16:bold
 !#define FONT_NORMAL xft:Ubuntu Mono derivative Powerline:pixelsize=16
 !#define FONT_BOLD xft:Ubuntu Mono derivative Powerline:pixelsize=16:bold
-
+#define FONT_NORMAL xft:Fira Mono for Powerline:pixelsize=15:medium
+#define FONT_BOLD xft:Fira Mono for Powerline:pixelsize=15:bold
 
 !}}}
 ! vte {{{
