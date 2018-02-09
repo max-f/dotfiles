@@ -151,9 +151,9 @@ UXTerm*font: 9x15
 /* leaving urxvt country */
 
 /* cursor settings */
-Xcursor*theme: Vanilla-DMZ-AA
+!Xcursor*theme: Vanilla-DMZ-AA
 !Xcursor*theme: Vanilla-DMZ
-Xcursor*size: 24
+!Xcursor*size: 24
 
 /* Xft settings */
 Xft.dpi: 96
