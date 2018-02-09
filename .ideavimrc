@@ -4,11 +4,14 @@ set ignorecase smartcase
 set showmode
 set history=1000
 
+" Configure leader
+let mapleader = ','
+
 " easy system clipboard copy/paste
-noremap <space>y "*y
-noremap <space>Y "*Y
-noremap <space>p "*p
-noremap <space>P "*P
+noremap <leader>y "*y
+noremap <leader>Y "*Y
+noremap <leader>p "*p
+noremap <leader>P "*P
 
 " easy window navigation
 nnoremap <c-l> <c-w>l
@@ -21,7 +24,7 @@ nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 
 " code refactoring
-nnoremap <space>rr :action RenameElement<cr>
+nnoremap <leader>rr :action RenameElement<cr>
 
 " space bar un-highligts search
 nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
