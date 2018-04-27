@@ -165,7 +165,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
+Plug 'Glench/Vim-Jinja2-Syntax'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -243,5 +243,4 @@ highlight link ALEErrorSign Title
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
 " }}}
