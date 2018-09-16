@@ -1,26 +1,45 @@
 #!/usr/bin/env zsh
-#
+
+# check if $1 exists
+function command_exists() {
+    type -p "$1" &> /dev/null
+}
+
+
 #alias startx='startx > ~/.startx.log 2>&1'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias ls='ls -lh --group-directories-first --color=auto'
-# list visible directories
-alias lsd='ls -d *(-/N)'
-# list visible files
-alias lsf='ls *(-.N)'
-# list symlinks
-alias lsl='ls -l *(@)'
-# list the ten newest files
-alias lsnew='ls -rtlh *(D.om[1,10])' 
+if command_exists exa; then
+    alias ls='exa'
+    alias ll='exa -l --git --group-directories-first'
+    alias lsd='exa -ld *(-/N)'
+    #alias lsf='exa -l *(-.N)'
+    alias lsl='exa -l *(@)'
+    alias lal='exa -al --group-directories-first'
+    alias lsnew='exa -l -s modified --git *(D.om[1,10])'
+    alias tree='exa --tree --color-scale'
+else
+    #alias ls='ls -lh --group-directories-first --color=auto'
+    alias ls='ls -sh --group-directories-first --color=auto'
+    # list visible directories
+    alias lsd='ls -d *(-/N)'
+    # list visible files
+    alias lsf='ls *(-.N)'
+    # list symlinks
+    alias lsl='ls -l *(@)'
+    # list the ten newest files
+    alias lsnew='ls -rtlh *(D.om[1,10])' 
+fi
 
-
+alias bat='bat --theme=1337'
+alias cower='cower --color=auto'
 alias df='df -H'
 alias zshrc='. ~/.zshrc && echo "reload ~/.zshrc								${txtblu}[${txtwht}DONE${txtblu}]"'
 alias dmtail='dmesg | tail -n 15'
-alias netcfg-menu='sudo netcfg-menu'
-alias netcfg='sudo netcfg'
-alias sumc='su -c mc'
+#alias netcfg-menu='sudo netcfg-menu'
+#alias netcfg='sudo netcfg'
+#alias sumc='su -c mc'
 alias startssh='/usr/local/bin/startssh'
 alias mtr='mtr --curses'
 alias grep='grep --colour=auto'
@@ -63,6 +82,7 @@ alias -s {djvu,pdf}=evince
 alias -s {png,jpg,JPG,JPEG,PNG}='feh -dF --auto-rotate'
 
 alias -g L='|less'
-alias -g G='|rg'
+alias -g G='|grep'
 
-eval $(thefuck --alias wut) 
+# thefuck
+eval $(thefuck --alias wut)

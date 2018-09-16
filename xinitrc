@@ -29,8 +29,9 @@ if [[ $HOSTNAME == 'mehl' ]]; then
 #      -word_wrap &
     dunst &
 
-    # adjust light spectrum for better sleeping
-	redshift &
+    # adjust light spectrum for better sleeping (disabled until flicker is
+    # resolved)
+	#redshift &
 
     # Automount removeable media
     udiskie -2 -s &

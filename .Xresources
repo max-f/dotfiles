@@ -42,16 +42,16 @@
 !#define FONT_BOLD xft:ProggySquare:pixelsize=14:bold
 !#define FONT_NORMAL xft:ProggyCleanTT:pixelsize=16
 !#define FONT_BOLD xft:ProggyCleanTTP:pixelsize=16
-!#define FONT_NORMAL xft:Iosevka:pixelsize=16
-!#define FONT_BOLD xft:Iosevka Medium :pixelsize=16
+#define FONT_NORMAL xft:Iosevka:pixelsize=16
+#define FONT_BOLD xft:Iosevka Medium :pixelsize=16
 !#define FONT_NORMAL xft:DejaVu Sans Mono for Powerline:pixelsize=15
 !#define FONT_BOLD xft:DejaVu Sans Mono for Powerline:pixelsize=15
 !#define FONT_NORMAL xft:Inconsolata-dz for Powerline:pixelsize=16
 !#define FONT_BOLD xft:Inconsolata-dz for Powerline:pixelsize=16:bold
 !#define FONT_NORMAL xft:Ubuntu Mono derivative Powerline:pixelsize=16
 !#define FONT_BOLD xft:Ubuntu Mono derivative Powerline:pixelsize=16:bold
-#define FONT_NORMAL xft:Fira Mono for Powerline:pixelsize=15:medium
-#define FONT_BOLD xft:Fira Mono for Powerline:pixelsize=15:bold
+!#define FONT_NORMAL xft:Fira Mono for Powerline:pixelsize=15:medium
+!#define FONT_BOLD xft:Fira Mono for Powerline:pixelsize=15:bold
 
 !}}}
 ! vte {{{
