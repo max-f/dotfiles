@@ -44,6 +44,8 @@
 !#define FONT_BOLD xft:ProggyCleanTTP:pixelsize=16
 #define FONT_NORMAL xft:Iosevka:pixelsize=16
 #define FONT_BOLD xft:Iosevka Medium :pixelsize=16
+!#define FONT_NORMAL xft:Input Mono Condensed:pixelsize=16
+!#define FONT_BOLD xft:Input Mono Condensed:pixelsize=16:bold
 !#define FONT_NORMAL xft:DejaVu Sans Mono for Powerline:pixelsize=15
 !#define FONT_BOLD xft:DejaVu Sans Mono for Powerline:pixelsize=15
 !#define FONT_NORMAL xft:Inconsolata-dz for Powerline:pixelsize=16

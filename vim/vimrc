@@ -44,7 +44,6 @@ set winminwidth=40
 " NerdTree specific
 let g:NERDTreeWinSize = 40
 
-
 " searching
 set incsearch hlsearch
 set ignorecase
@@ -121,6 +120,9 @@ map <F4> <Esc>:TagbarToggle<CR>
 vmap <F5> :!xclip -f -sel clip<CR>
 map <F6> mz:-1r !xclip -o -sel clip<CR>`z
 
+"Gundo
+nnoremap <F7> :GundoToggle<CR>
+
 " }}}
 
 set nomore
@@ -152,7 +154,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'klen/python-mode'
+Plug 'sjl/gundo.vim'
 Plug 'vim-scripts/sudo.vim'
 Plug 'ervandew/supertab'
 Plug 'w0rp/ale'
@@ -166,6 +168,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'terryma/vim-multiple-cursors'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -181,16 +184,6 @@ let g:SuperTabLongestHighlight=1
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$']
-
-" python-mode
-" Enable python 3 syntax checking:
-let g:pymode_python = 'python3'
-" just use ALE linting
-let g:pymode_lint = 0
-" Disable doc popup for autocompletion
-set completeopt=menu
-" Try to solve hang-up with rope when saving
-let g:pymode_rope_regenerate_on_write = 0
 
 " Airline
 if has("gui_running")
