@@ -171,6 +171,8 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'terryma/vim-multiple-cursors'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Color
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -236,4 +238,30 @@ highlight link ALEErrorSign Title
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" }}}
+
+" {{{ Final stuff
+set nomore
+
+source ~/.vim/functions.vim
+
+syntax on
+
+if $TERM == 'linux'
+    let &t_Co = 8
+    color peachpuff
+    set nolist
+    set colorcolumn+=81
+    hi ColorColumn term=none cterm=none ctermbg=3
+    hi CursorLine term=none cterm=none ctermbg=none
+else
+"    hi Cursorline term=none cterm=none ctermbg=17
+  " colorscheme neverland-darker
+  set t_Co=256
+  "let base16colorspace=256
+  "colorscheme base16-ocean
+  "set background=dark
+  color dracula
+endif
+highlight MatchParen cterm=bold ctermfg=cyan
 " }}}
