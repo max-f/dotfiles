@@ -18,3 +18,7 @@ setlocal comments+=b:#:
 highlight BadWhitespace ctermbg=red guibg=red
 match BadWhitespace /^\t\+/
 match BadWhitespace /\s\+$/
+
+"ALE (https://github.com/w0rp/ale)
+let b:ale_linters = ['flake8']
+let b:ale_fixers = ['yapf']

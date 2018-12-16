@@ -169,6 +169,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'justinmk/vim-sneak'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Color
@@ -238,6 +239,10 @@ highlight link ALEErrorSign Title
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_fix_on_save = 1
+
+" Vim sneak
+let g:sneak#label = 1
 " }}}
 
 " {{{ Final stuff
