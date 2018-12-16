@@ -56,9 +56,9 @@ nnoremap [e :action GotoPreviousError<cr>
 nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 " AceJump (https://github.com/acejump/AceJump)
-" Press `f` to activate AceJump
-map f :action AceAction<CR>
-" Press `F` to activate Target Mode
-map F :action AceTargetAction<CR>
-" Press `g` to activate Line Mode
-map g :action AceLineAction<CR>
+" Press `Space+f` to activate AceJump
+map <Space>f :action AceAction<CR>
+" Press `Space+F` to activate Target Mode
+map <Space>F :action AceTargetAction<CR>
+" Press `Space+g` to activate Line Mode
+map <Space>g :action AceLineAction<CR>
