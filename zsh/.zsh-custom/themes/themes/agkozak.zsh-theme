@@ -1,0 +1,1 @@
+/home/mfischer/.zsh-custom/themes/agkozak/agkozak-zsh-prompt.plugin.zsh

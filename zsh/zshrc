@@ -7,8 +7,10 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# POWERLEVEL9K_MODE='awesome-fontconfig'
-ZSH_THEME="spaceship"
+#ZSH_THEME="mitsuhiko"
+ZSH_THEME="agkozak"
+# Pure prompt used (see below)
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,7 +54,7 @@ ZSH_CUSTOM=${HOME}/.zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git-prompt history-substring-search vi-mode)
+plugins=(git-prompt vi-mode zsh-autosuggestions history-substring-search safe-paste)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,7 +90,8 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-source "/home/mfischer/.zsh-custom/themes/spaceship.zsh-theme"
+# cht.sh tab completion
+fpath+=("${HOME}/.zsh-custom/plugins")
