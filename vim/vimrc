@@ -18,6 +18,9 @@ set relativenumber  "show numbers  relative to current line
 " The PC is fast enough, do syntax highlight syncing from start
 autocmd BufEnter * :syntax sync fromstart
 
+" mourse
+set mouse=a
+
 " no backup
 set noswapfile
 "set backupdir=/tmp
