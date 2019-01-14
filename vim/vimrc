@@ -25,6 +25,10 @@ set mouse=a
 set noswapfile
 "set backupdir=/tmp
 
+" limitless undoing
+set undofile
+set undodir=~/.vim/undodir
+
 " text layout
 set cursorline      " highlight cursor line
 set colorcolumn=+1,+2
