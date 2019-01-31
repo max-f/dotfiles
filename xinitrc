@@ -5,11 +5,14 @@
 # File:         .xinitrc
 #----------------------------------------------------
 
-# mouse stuff
 if [[ $HOSTNAME == 'mehl' ]]; then
+    # Don't need to enter ssh key pass every time
+    eval "$(ssh-agent)"
+
     # monitor s***
 	xrandr --output DVI-D-1 --mode 1920x1080 --output DP-1 --primary --mode 2560x1440 --right-of DVI-D-1
 
+    # mouse stuff
 	# unclutter -idle 4 &
 	xset m 1 1 &
 
@@ -31,7 +34,7 @@ if [[ $HOSTNAME == 'mehl' ]]; then
 
     # adjust light spectrum for better sleeping (disabled until flicker is
     # resolved)
-	#redshift &
+	redshift &
 
     # Automount removeable media
     udiskie -2 -s &
