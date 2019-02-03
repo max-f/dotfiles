@@ -72,6 +72,11 @@ bindsym $mod+space scratchpad show
 
 bindsym $mod+b bar mode toggle
 
+# Audio controls
+bindsym $mod+equal exec --no-startup-id amixer sset Master 5%+ # increase sound volume
+bindsym $mod+minus exec --no-startup-id amixer sset Master 5%- # decrease sound volume
+bindsym $mod+F12 exec --no-startup-id amixer set Master 1+ toggle # toggle mute sound
+
 floating_modifier $mod
 
 font pango:iosevka medium 11

@@ -207,7 +207,7 @@ if has("gui_running")
   "let g:airline_left_sep = ''
 endif
 "let g:airline_powerline_fonts=1
-let g:airline_theme='base16'
+let g:airline_theme='tomorrow'
 let g:airline_mode_map = {
   \ '__' : '-',
   \ 'n' : 'N',
