@@ -32,7 +32,12 @@ else
     alias lsnew='ls -rtlh *(D.om[1,10])' 
 fi
 
-alias bat='bat --theme=1337'
+# better ask before we lose data
+alias rm='rm -Iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
+
+alias bat='bat --theme=Monokai Extended'
 alias cower='cower --color=auto'
 alias df='df -H'
 alias zshrc='. ~/.zshrc && echo "reload ~/.zshrc								${txtblu}[${txtwht}DONE${txtblu}]"'
