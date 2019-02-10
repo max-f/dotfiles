@@ -7,6 +7,9 @@
 " vim > vi settings
 set nocompatible
 
+" Include my custom functions
+source ~/.vim/functions.vim
+
 " encoding
 set enc=utf-8
 
@@ -31,7 +34,7 @@ set undodir=~/.vim/undodir
 
 " text layout
 set cursorline      " highlight cursor line
-set colorcolumn=+1,+2
+"set colorcolumn=+1,+2
 set showmatch       " jump briefly to matching brace
 set showmode        " show current mode
 set tabstop=4       " tabs have 4 spaces
@@ -97,7 +100,7 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-"Reselect visual block after indent/outdent 
+"Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
 
@@ -114,7 +117,7 @@ nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
 let mapleader = ','
 
 "nerdtree
-map <F3> <Esc>:NERDTreeToggle<CR> 
+map <F3> <Esc>:NERDTreeToggle<CR>
 
 "tagbar
 map <F4> <Esc>:TagbarToggle<CR>
@@ -130,30 +133,9 @@ map <F6> mz:-1r !xclip -o -sel clip<CR>`z
 "Gundo
 nnoremap <F7> :GundoToggle<CR>
 
+nmap <unique> <leader>e <Plug>PickerEdit
+
 " }}}
-
-set nomore
-
-source ~/.vim/functions.vim
-
-syntax on
-
-if $TERM == 'linux'
-    let &t_Co = 8
-    color peachpuff
-    set nolist
-    set colorcolumn+=81
-    hi ColorColumn term=none cterm=none ctermbg=3
-    hi CursorLine term=none cterm=none ctermbg=none
-else
-"    hi Cursorline term=none cterm=none ctermbg=17
-  " colorscheme neverland-darker
-  set t_Co=256
-  let base16colorspace=256
-  colorscheme base16-ocean
-  "set background=dark
-endif
-highlight MatchParen cterm=bold ctermfg=cyan
 
 " {{{ Specify plugins
 
@@ -177,12 +159,18 @@ Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-sneak'
+Plug 'ryanoasis/vim-devicons'
+Plug 'srstevenson/vim-picker'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Color
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chriskempson/base16-vim'
 Plug 'crusoexia/vim-monokai'
+Plug 'plan9-for-vimspace/acme-colors'
+Plug 'andreypopp/vim-colors-plain'
+Plug 'noahfrederick/vim-hemisu'
+Plug 'KKPMW/sacredforest-vim'
 
 call plug#end()
 
@@ -254,10 +242,13 @@ let g:ale_fix_on_save = 1
 let g:sneak#label = 1
 " }}}
 
+" vim-picker
+let g:picker_selector_executable = 'fzf'
+let g:picker_selector_flags = '--preview "bat {} --style=numbers,changes --color always"'
+let g:picker_height = 20
+
 " {{{ Final stuff
 set nomore
-
-source ~/.vim/functions.vim
 
 syntax on
 
@@ -273,8 +264,9 @@ else
   " colorscheme neverland-darker
   set t_Co=256
   "let base16colorspace=256
-  colorscheme monokai
-  "set background=dark
+  set termguicolors
+  set background=dark
+  colorscheme hemisu
   "color dracula
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
