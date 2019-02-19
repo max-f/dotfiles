@@ -21,8 +21,8 @@
 !#define FONT_BOLD -gohu-gohufont-bold-r-normal--14-100-100-100-c-80-iso8859-1
 !#define FONT_NORMAL -misc-proggycleanttszbp-medium-r-normal--0-0-0-0-c-0-iso8859-1
 !#define FONT_BOLD -misc-proggycleanttszbp-medium-r-normal--0-0-0-0-c-0-iso8859-1
-!#define FONT_NORMAL -misc-tamzenforpowerline-medium-r-normal--14-101-100-100-c-70-iso8859-1
-!#define FONT_BOLD -misc-tamzenforpowerline-bold-r-normal--14-101-100-100-c-70-iso8859-1
+!#define FONT_NORMAL -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
+!#define FONT_BOLD -misc-fixed-bold-r-normal--15-140-75-75-c-90-iso8859-1
 !#define FONT_NORMAL xft:terminus:pixelsize=14,xft:icomoon:style=Regular,xft:octicons:style=Medium
 !#define FONT_NORMAL xft:xos4 Terminus:pixelsize=14, xft:FontAwesome:pixelsize=14
 !#define FONT_BOLD xft:xos4 Terminus:pixelsize=14:bold
@@ -32,26 +32,30 @@
 !#define FONT_BOLD xft:Meslo LG S for Powerline:pixelsize=15
 !#define FONT_NORMAL xft:Hack:pixelsize=14
 !#define FONT_BOLD xft:Hack:pixelsize=14:bold
-!#define FONT_NORMAL xft:proggyclean:pixelsize=11
-!#define FONT_BOLD xft:proggyclean:pixelsize=11:bold
+!#define FONT_NORMAL xft:Fixedsys Excelsior:pixelsize=16
+!#define FONT_BOLD xft:Fixedsys Excelsior:pixelsize=16
 !#define FONT_NORMAL xft:xos4 Terminess Powerline:pixelsize=14
-!#define FONT_BOLD xft:xos4 Terminess Powerline:pixelsize=14
+!#define FONT_BOLD xft:xos4 Terminess Powerline:pixelsize=14:bold
+!#define FONT_NORMAL xft:Misc Tamsyn:pixelsize=15
+!#define FONT_BOLD xft:Misc Tamsyn:pixelsize=15:bold
 !#define FONT_NORMAL xft:Envy Code R:pixelsize=14
 !#define FONT_BOLD xft:Envy Code R:pixelsize=14:bold
-!#define FONT_NORMAL xft:ProggySquare:pixelsize=14
-!#define FONT_BOLD xft:ProggySquare:pixelsize=14:bold
-!#define FONT_NORMAL xft:ProggyCleanTT:pixelsize=16
-!#define FONT_BOLD xft:ProggyCleanTTP:pixelsize=16
+!#define FONT_NORMAL xft:ProggyVector:pixelsize=14
+!#define FONT_BOLD xft:ProggyVector:pixelsize=14:bold
+!#define FONT_NORMAL xft:ProggySquareTT:pixelsize=16
+!#define FONT_BOLD xft:ProggySquareTT:pixelsize=16:bold
+!#define FONT_NORMAL xft:ProggyCleanTTSZ:pixelsize=16
+!#define FONT_BOLD xft:ProggyCleanTTSZ:pixelsize=16
 !#define FONT_NORMAL xft:Iosevka:pixelsize=16
 !#define FONT_BOLD xft:Iosevka Medium :pixelsize=16
-#define FONT_NORMAL xft:Operator Mono Medium:pixelsize=15
-#define FONT_BOLD xft:Operator Mono Medium:pixelsize=15
-!#define FONT_NORMAL xft:Input Mono Condensed:pixelsize=16
-!#define FONT_BOLD xft:Input Mono Condensed:pixelsize=16:bold
+!#define FONT_NORMAL xft:Operator Mono Medium:pixelsize=15
+!#define FONT_BOLD xft:Operator Mono Medium:pixelsize=15
+!#define FONT_NORMAL xft:InputMono Medium:pixelsize=14
+!#define FONT_BOLD xft:InputMono Medium:pixelsize=14
+#define FONT_NORMAL xft:Dina:pixelsize=12
+#define FONT_BOLD xft:Dina:pixelsize=12:bold
 !#define FONT_NORMAL xft:DejaVu Sans Mono for Powerline:pixelsize=15
 !#define FONT_BOLD xft:DejaVu Sans Mono for Powerline:pixelsize=15
-!#define FONT_NORMAL xft:Inconsolata-dz for Powerline:pixelsize=16
-!#define FONT_BOLD xft:Inconsolata-dz for Powerline:pixelsize=16:bold
 !#define FONT_NORMAL xft:Ubuntu Mono derivative Powerline:pixelsize=16
 !#define FONT_BOLD xft:Ubuntu Mono derivative Powerline:pixelsize=16:bold
 !#define FONT_NORMAL xft:Fira Mono for Powerline:pixelsize=15:medium
@@ -98,6 +102,8 @@ URxvt.italicFont: FONT_ITALIC
 URxvt.boldItalicFont: FONT_BOLDITALIC
 URxvt*boldItalicFont: xft:fixed:antialias=true:hinting=true:hintstyle=hintslight
 URxvt.termName: 			rxvt-256color
+URxvt.lineSpace: 2
+URxvt.letterSpace: 0
 
 /* matches */
 URxvt.underlineURLs:        false
@@ -122,7 +128,6 @@ URxvt.perl-ext-common:      default,matcher
 URxvt.perl-eval:            $^O
 
 /* perl magic */
-URxvt.letterSpace: 0
 URxvt.selection.pattern-0:        ( at .*? line \\d+[,.])
 URxvt.selection-autotransform.0:  s/^ at (.*?) line (\\d+)[,.]$/:e \\Q$1\E\\x0d:$2\\x0d/
 

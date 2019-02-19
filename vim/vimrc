@@ -162,6 +162,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-sneak'
 Plug 'ryanoasis/vim-devicons'
 Plug 'srstevenson/vim-picker'
+" Reading / note taking
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Color

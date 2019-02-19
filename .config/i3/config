@@ -130,10 +130,12 @@ for_window [title="^Steam Keyboard$"] floating enable
 # finds out, if available)
 # Color configuration using the Base16 variables.
 bar {
+    font pango:Iosevka Medium, FontAwesome 11
     mode dock
 	position top
 	tray_output DVI-D-1
-    status_command i3status --config ~/.config/i3/i3status.conf
+    #status_command i3status --config ~/.config/i3/i3status.conf
+    status_command i3blocks -c ~/.config/i3blocks/config
 
 
 	colors {
