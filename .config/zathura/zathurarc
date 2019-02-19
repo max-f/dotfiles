@@ -1,0 +1,11 @@
+set recolor true
+# Dark
+#set recolor-darkcolor "#dcdccc"
+#set recolor-lightcolor "#1f1f1f"
+
+# Solarized
+set recolor-lightcolor "#fdf6e3"
+set recolor-darkcolor "#657b83"
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"

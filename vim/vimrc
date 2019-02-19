@@ -99,7 +99,7 @@ set printdevice=HP_LaserJet_1022
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 "Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -160,7 +160,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-sneak'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 Plug 'srstevenson/vim-picker'
 " Reading / note taking
 Plug 'junegunn/goyo.vim'
