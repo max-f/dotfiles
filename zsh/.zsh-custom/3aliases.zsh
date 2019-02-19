@@ -84,7 +84,7 @@ alias -s {c,cpp,py,java,cfg}=$EDITOR
 #alias -s h=$EDITOR
 #alias -s hs=$EDITOR
 alias -s {djvu,pdf}=evince
-alias -s {png,jpg,JPG,JPEG,PNG}='feh -dF --auto-rotate'
+alias -s {png,jpg,jpeg,JPG,JPEG,PNG}='feh -dF --auto-rotate'
 
 alias -g L='|less'
 alias -g G='|grep'
