@@ -1,0 +1,14 @@
+rofi.show-icons:            false
+rofi.modi:                  drun,run,window,ssh
+rofi.lines:                 8
+rofi.line-padding:          10
+rofi.matching:              fuzzy
+rofi.bw:                    0
+rofi.padding:               0
+rofi.separator-style:       none
+rofi.hide-scrollbar:        true
+rofi.line-margin:           0
+#rofi.font:                  sans-serif 10
+#rofi.font:                  sq 10.5
+rofi.font:                  xos4 Terminus 12
+rofi.theme: .config/rofi/themes/sidebar-solarized-light.rasi
