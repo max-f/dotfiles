@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+#----------------------------------------------------
+# File:         .xinitrc
+#----------------------------------------------------
+
+cd "$HOME" || exit 1
+
+# Set correct $PATH for dmenu
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# Monitor s***
+#xrandr --output eDP1 --mode 1920x1080 --left-of DP2-2 \
+#    --output DP2-2 --primary --mode 1920x1200 \
+#    --output DP2-3 --mode 1920x1200 --right-of DP2-2 --rotate left &
+#xrandr --output eDP1 --mode 1920x1080
+
+# unclutter -idle 4 &
+#xset m 1 1 &
+
+# pulseaudio control
+pasystray &
+
+# notification daemon
+#    dunst \
+#      -fn "Dejavu 12" \
+#      -follow keyboard \
+#      -format "<b>%s</b>\n\n%b" \
+#      -geometry "300x5-30+20" \
+#      -horizontal_padding 16 \
+#      -markup \
+#      -padding 18 \
+#      -separator_height 1 \
+#      -word_wrap &
+# quickfix for start issue (see https://github.com/dunst-project/dunst/issues/347)
+systemctl --user set-environment DISPLAY=:0
+dunst &
+
+    # adjust light spectrum for better sleeping (disabled until flicker is
+    # resolved)
+	#redshift &
+
+# Automount removeable media
+udiskie -2 -s &
+
+# Disable touchpad
+# (configure somehow via libinput)
+#synclient TouchpadOff=1
+
+# keyboard stuff
+#setxkbmap us altgr-intl
+setxkbmap -option terminate:ctrl_alt_bksp &
+(sleep 3 && xmodmap "${HOME}"/.Xmodmap) &
+
+# clipboard syncing
+#autocutsel -fork &
+#autocutsel -selection PRIMARY  -fork &
+copyq &
+
+# visual stuff
+xrdb -load "${HOME}"/.Xresources
+
+# wallpaper
+sh "${HOME}"/.fehbg &
+
+# dropbox
+#dropbox-cli start
+
+# java programs should behave sane
+wmname LG3D
+
+# compositing
+compton -bf --fade-delta=4 --sw-opti &
+#compton --config "$HOME/.config/compton.conf" -b
+
+# Network
+nm-applet &
+
+# Start up some Apps 
+keepassxc & 
+skypeforlinux &
+slack &
+
+# SSH Agent
+eval $(ssh-agent)
+#ssh-add .ssh/id_rsa
+
+# Monitor
+{ sleep 3; xrandr --output eDP-1 --mode 1920x1080 --left-of DP-2-2 \
+    --output DP-2-2 --primary --mode 1920x1200 \
+    --output DP-2-3 --mode 1920x1200 --right-of DP-2-2 --rotate left; } &
+
+# i3
+exec i3
