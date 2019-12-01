@@ -1,0 +1,165 @@
+
+set $mod Mod4
+set $exec exec --no-startup-id
+
+bindsym $mod+Return $exec termite
+bindsym $mod+p exec dmenu_run -m 1 -i -l 10 -p "$" -fn "Terminus-11" -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
+bindsym $mod+Shift+p exec clipmenu -m 1 -i -l 10 -p "$" -fn "Terminus-11" -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
+
+bindsym Mod1+Tab $exec rofi -show window
+
+bindsym $mod+BackSpace kill
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Control+j split v
+bindsym $mod+Control+l split h
+
+bindsym $mod+f fullscreen
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+c focus child
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Pause $exec i3lock -c 232323
+
+bindsym $mod+m $exec i3-input -F 'mark %s' -l 1 -P 'mark'
+bindsym $mod+grave $exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'goto'
+
+bindsym $mod+Escape move scratchpad
+bindsym $mod+space scratchpad show
+
+bindsym $mod+b bar mode toggle
+
+# Audio controls
+bindsym $mod+equal exec --no-startup-id amixer sset Master 5%+ # increase sound volume
+bindsym $mod+minus exec --no-startup-id amixer sset Master 5%- # decrease sound volume
+bindsym $mod+F12 exec --no-startup-id amixer set Master 1+ toggle # toggle mute sound
+
+floating_modifier $mod
+
+#font pango:xos4 Terminus 11
+#font -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+font pango:Dina 11
+
+#
+# Windowing Rules
+#
+workspace 1 output DisplayPort-2
+workspace 2 output HDMI-A-0
+workspace 3 output HDMI-A-0
+workspace 4 output HDMI-A-0
+workspace 5 output HDMI-A-0
+workspace 6 output HDMI-A-0
+workspace 7 output HDMI-A-0
+workspace 8 output HDMI-A-0
+workspace 9 output HDMI-A-0
+workspace 10 output HDMI-A-0
+
+assign [class="Firefox"] 1
+assign [class="Chromium"] 1
+assign [class="pidgin"] 9
+assign [class="Pidgin"] 9
+assign [class="Signal"] 10
+assign [class="Quake Live"] 2
+assign [title="Quake Live" class="Wine"] 2
+
+assign [instance="tmux"] 2
+
+assign [class="URxvt" instance="mpv"] 9
+assign [class="URxvt" instance="htop"] 3
+
+for_window [title="QUAKE LIVE Launcher" class="Wine"] floating enable
+for_window [title="Quake Live" class="Wine"] floating enable
+
+for_window [title="QUAKE LIVE Launcher" class="PlayOnLinux"] floating enable
+for_window [title="Quake Live" class="PlayOnLinux"] floating enable
+
+# from https://github.com/z3ntu/dotfiles/blob/master/i3/.config/i3/config
+# https://github.com/ValveSoftware/steam-for-linux/issues/1040
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# Color configuration using the Base16 variables.
+# bar {
+#     font pango: Dina, FontAwesome 11
+#     #font pango:xos4 Terminus, FontAwesome 11
+#     mode dock
+# 	position top
+# 	tray_output DisplayPort-2
+#     #status_command i3status --config ~/.config/i3/i3status.conf
+#     #status_command i3blocks -c ~/.config/i3blocks/config
+#     status_command i3status
+# 
+# 
+# 	colors {
+# 		background #080808
+# 		statusline #808080
+# 		separator #404040
+# 		#                  border  backgr  text
+# 		focused_workspace  #a6a6de #080808 #ffffff
+# 		active_workspace   #404040 #080808 #a6a6de
+# 		inactive_workspace #404040 #080808 #808080
+# 		urgent_workspace   #ea8484 #080808 #ffffff
+# 	}
+# }
+
+exec_always --no-startup-id $HOME/.config/polybar/launch-polybar.sh
+
+# class                 border  backgr  text    indicator
+client.focused          #a6a6de #a6a6de #000000 #a6a6de
+client.focused_inactive #404040 #404040 #808080 #404040
+client.unfocused        #202020 #202020 #808080 #404040
+client.urgent           #ea8484 #ea8484 #000000
+client.background #080808

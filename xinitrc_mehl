@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# monitors
+xrandr --output DisplayPort-2 --mode 1920x1080 --output HDMI-A-0 --primary --mode 2560x1440 --right-of DisplayPort-2
+
+# keyboard stuff
+setxkbmap -option terminate:ctrl_alt_bksp &
+(sleep 3 && xmodmap "${HOME}"/.xmodmaprc) &
+
+# automount
+udiskie -2 -t &
+
+# sound
+#pnmixer &
+pasystray &
+
+# wallpaper
+sh "${HOME}"/.fehbg &
+
+# compositing
+compton -bf --fade-delta=4 --sw-opti
+
+# better sleep
+redshift &
+
+# java programs should behave sane
+wmname LG3D
+
+# clipboard manager
+clipmenud &
+
+# Gnome keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+exec i3
