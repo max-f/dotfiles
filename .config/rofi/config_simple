@@ -1,0 +1,6 @@
+#rofi.theme: /usr/share/rofi/themes/solarized.rasi
+
+rofi.theme: themes/simple_nord.rasi
+#rofi.show-icons: true
+rofi.matching: fuzzy
+rofi.sort: true
