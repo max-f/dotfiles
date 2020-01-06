@@ -43,7 +43,7 @@ set shiftwidth=4    " intending 4 spaces
 set expandtab       " for discussion
 set textwidth=79    " readable line length
 set list            " show these 'invisible' chars
-set listchars=eol:$,tab:>-
+set listchars=tab:>-,trail:·
 set wrap
 
 " window layout
@@ -160,14 +160,16 @@ Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-sneak'
-"Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'srstevenson/vim-picker'
 " Reading / note taking
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Color
+" Intellisense autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Colors
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chriskempson/base16-vim'
 Plug 'crusoexia/vim-monokai'
@@ -175,6 +177,8 @@ Plug 'plan9-for-vimspace/acme-colors'
 Plug 'andreypopp/vim-colors-plain'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'KKPMW/sacredforest-vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'andreasvc/vim-256noir'
 
 call plug#end()
 
@@ -198,26 +202,8 @@ if has("gui_running")
   "let g:airline_right_sep = ''
   "let g:airline_left_sep = ''
 endif
-"let g:airline_powerline_fonts=1
-let g:airline_theme='tomorrow'
-let g:airline_mode_map = {
-  \ '__' : '-',
-  \ 'n' : 'N',
-  \ 'i' : 'I',
-  \ 'R' : 'R',
-  \ 'c' : 'C',
-  \ 'v' : 'V',
-  \ 'V' : 'V',
-  \ '' : 'V',
-  \ 's' : 'S',
-  \ 'S' : 'S',
-  \ '' : 'S',
-  \ }
-let g:airline#extensions#whitespace#checks = []
-"let g:airline_section_y = airline#section#create_right(['%{printf("%s%s",&fenc,&ff!="unix"?":".&ff:"")}'])
-"let g:airline_section_z = airline#section#create_right(['%3l:%2c'])
-"let g:airline#extensions#hunks#non_zero_only = 1
-"let g:airline#extensions#ctrlp#color_template = 'replace'
+let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
 " Smart tab line
 let g:airline#extensions#tabline#enabled = 1
 " For combination with ALE
@@ -270,8 +256,9 @@ else
   "let base16colorspace=256
   set termguicolors
   set background=dark
-  colorscheme hemisu
+  colorscheme solarized8
   "color dracula
 endif
 highlight MatchParen cterm=bold ctermfg=cyan
 " }}}
+
