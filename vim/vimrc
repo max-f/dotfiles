@@ -2,7 +2,7 @@
 " Author:       Max "keks" Fischer
 "
 " File:         .vimrc
-"----------------------------------------------------
+"<Plug>----------------------------------------------------
 
 " vim > vi settings
 set nocompatible
@@ -134,7 +134,10 @@ map <F6> mz:-1r !xclip -o -sel clip<CR>`z
 "Gundo
 nnoremap <F7> :GundoToggle<CR>
 
-nmap <unique> <leader>e <Plug>PickerEdit
+" fzf-preview
+nmap <unique> <leader>pe :FzfPreviewProjectFiles<CR>
+nmap <unique> <leader>pg :FzfPreviewProjectGrep<CR>
+nmap <unique> <leader>pf :FzfPreviewDirectoryFiles<CR>
 
 " }}}
 
@@ -154,17 +157,20 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
+Plug 'yuki-ycino/fzf-preview.vim'
+
 Plug 'vimwiki/vimwiki'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-sneak'
 Plug 'ryanoasis/vim-devicons'
-Plug 'srstevenson/vim-picker'
 " Reading / note taking
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'godlygeek/tabular' " This belongs to vim-markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Intellisense autocompletion
@@ -189,6 +195,7 @@ call plug#end()
 " SuperTab
 let g:SuperTabLongestEnhanced=1
 let g:SuperTabLongestHighlight=1
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$']
@@ -226,16 +233,23 @@ highlight link ALEErrorSign Title
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+
+" fzf-preview
+" Specify the color of fzf
+let g:fzf_preview_fzf_color_option = 'light'
+let g:fzf_preview_command = 'bat --theme="ansi-dark" --color=always --style=grid {-1}' " Installed bat
 
 " Vim sneak
 let g:sneak#label = 1
-" }}}
 
-" vim-picker
-let g:picker_selector_executable = 'fzf'
-let g:picker_selector_flags = '--preview "bat {} --style=numbers,changes --color always"'
-let g:picker_height = 20
+" vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" disable the <tab> mapping provided by vimwiki, which interferes with SuperTab
+let g:vimwiki_table_mappings = 0
+
+" }}}
 
 " {{{ Final stuff
 set nomore
@@ -255,7 +269,7 @@ else
   set t_Co=256
   "let base16colorspace=256
   set termguicolors
-  set background=dark
+  set background=light
   colorscheme solarized8
   "color dracula
 endif
