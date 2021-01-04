@@ -1,0 +1,31 @@
+add_newline = false
+
+[character]
+success_symbol = "[\\$](bold yellow)"
+error_symbol = "[\\$](bold yellow)"
+use_symbol_for_status = true
+style_success = "fg:yellow"
+
+[directory]
+truncation_length = 100
+style = "bold fg:blue"
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[username]
+#style_user = 'bold fg:black'
+style_user = 'bold dimmed blue'
+show_always = true
+format = "[$user@]($style)"
+
+[hostname]
+ssh_only = false
+style = "bold fg:green "
+format = "[$hostname]($style) "
+
+[shlvl]
+disabled = false
+threshold = 4
+
+[status]
+disabled = false
+format = "[$status ]($style)"
