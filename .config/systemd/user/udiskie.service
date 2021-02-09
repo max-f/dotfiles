@@ -2,7 +2,7 @@
 Description=Removable disk automounter using udisks
 
 [Service]
-ExecStart=/usr/bin/udiskie -ant2
+ExecStart=/usr/bin/udiskie -ant
 
 [Install]
 WantedBy=default.target
