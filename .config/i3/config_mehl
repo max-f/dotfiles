@@ -1,12 +1,21 @@
-
 set $mod Mod4
 set $exec exec --no-startup-id
 
 bindsym $mod+Return $exec termite
-bindsym $mod+p exec dmenu_run -m 1 -i -l 10 -p "$" -fn "Terminus-11" -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
-bindsym $mod+Shift+p exec clipmenu -m 1 -i -l 10 -p "$" -fn "Terminus-11" -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
+#bindsym $mod+p exec dmenu_run -m 1 -i -l 10 -p "$" -fn "Terminus-11" -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
+bindsym $mod+p exec --no-startup-id "rofi-pass"
+bindsym $mod+shift+f exec wmfocus
 
-bindsym Mod1+Tab $exec rofi -show window
+#bindsym $mod+Shift+p exec clipmenu -m 1 -i -l 10 -p "$" -fn "Iosevka Medium-13" -nb "#080808" -nf "#808080" -sb "#080808" -sf "#ea8484"
+bindsym $mod+Shift+p exec clipmenu -m 1 -i -l 10 -p "$" -fn "Iosevka Medium-13" -nb "#222" -nf "#808080" -sb "#222" -sf "#ea8484"
+bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run'"
+bindsym $mod+Shift+e exec --no-startup-id "rofi -show emoji -modi emoji"
+
+
+bindsym $mod+d exec --no-startup-id termite -t 'fzf-menu' -e 'i3-dmenu-desktop --dmenu=fzf'
+for_window [title="fzf-menu"] floating enable
+
+#bindsym Mod1+Tab $exec rofi -show window
 
 bindsym $mod+BackSpace kill
 
@@ -62,20 +71,21 @@ bindsym $mod+Shift+Tab move container to workspace back_and_forth
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-bindsym $mod+Pause $exec i3lock -c 232323
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock -k --ignore-empty-password -f -c 444444 --time-pos="ix:iy + 300" --time-color=FFFFFFDD --time-font="Input Mono" --time-size=40 --date-str="%F" --date-color=FFFFFFAA --date-font="Input Mono" --date-size=25 --redraw-thread
+
 
 bindsym $mod+m $exec i3-input -F 'mark %s' -l 1 -P 'mark'
 bindsym $mod+grave $exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'goto'
 
-bindsym $mod+Escape move scratchpad
-bindsym $mod+space scratchpad show
+#bindsym $mod+Escape move scratchpad
+#bindsym $mod+space scratchpad show
 
 bindsym $mod+b bar mode toggle
 
 # Audio controls
-bindsym $mod+equal exec --no-startup-id amixer sset Master 5%+ # increase sound volume
-bindsym $mod+minus exec --no-startup-id amixer sset Master 5%- # decrease sound volume
-bindsym $mod+F12 exec --no-startup-id amixer set Master 1+ toggle # toggle mute sound
+bindsym $mod+Shift+F10 exec "ponymix decrease 10"
+bindsym $mod+Shift+F11 exec "ponymix increase 10"
+bindsym $mod+Shift+F12 exec "ponymix toggle"
 
 floating_modifier $mod
 
@@ -86,7 +96,7 @@ font pango:Dina 11
 #
 # Windowing Rules
 #
-workspace 1 output DisplayPort-2
+workspace 1 output DisplayPort-1
 workspace 2 output HDMI-A-0
 workspace 3 output HDMI-A-0
 workspace 4 output HDMI-A-0
@@ -156,6 +166,9 @@ for_window [title="^Steam Keyboard$"] floating enable
 # }
 
 exec_always --no-startup-id $HOME/.config/polybar/launch-polybar.sh
+
+#exec --no-startup-id /usr/lib/kdeconnectd
+#exec --no-startup-id kdeconnect-indicator
 
 # class                 border  backgr  text    indicator
 client.focused          #a6a6de #a6a6de #000000 #a6a6de
