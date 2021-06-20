@@ -52,8 +52,6 @@ if !exists('g:vscode')
     set winfixheight
     set winwidth=80
     set winminwidth=40
-    " NerdTree specific
-    let g:NERDTreeWinSize = 40
 
     " searching
     set incsearch hlsearch
@@ -118,8 +116,8 @@ if !exists('g:vscode')
     "'\' is a bit far away for <leader>
     let mapleader = ','
 
-    "nerdtree
-    map <F3> <Esc>:NERDTreeToggle<CR>
+    "CHADtree
+    map <F3> <Esc>:CHADopen<CR>
 
     "tagbar
     map <F4> <Esc>:TagbarToggle<CR>
@@ -136,9 +134,16 @@ if !exists('g:vscode')
     nnoremap <F7> :GundoToggle<CR>
 
     "Use fzf more convenient
-    nnoremap <C-T> :Files<cr>
-    nnoremap <Leader>b :Buffers<cr>
-    nnoremap <Leader>s :BLines<cr>
+    "nnoremap <C-T> :Files<cr>
+    "nnoremap <Leader>b :Buffers<cr>
+    "nnoremap <Leader>s :BLines<cr>
+
+    " Telescope
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
     " }}}
 
@@ -160,6 +165,11 @@ if !exists('g:vscode')
     Plug 'jremmen/vim-ripgrep'
     Plug 'udalov/kotlin-vim'
 
+    " Telescope bla
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+
     Plug 'vimwiki/vimwiki'
     Plug 'Glench/Vim-Jinja2-Syntax'
     Plug 'terryma/vim-multiple-cursors'
@@ -171,9 +181,7 @@ if !exists('g:vscode')
     Plug 'godlygeek/tabular' " This belongs to vim-markdown
     Plug 'plasticboy/vim-markdown'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
-    " On-demand loading
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
     " Intellisense autocompletion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Colors
@@ -196,9 +204,6 @@ if !exists('g:vscode')
     let g:SuperTabLongestEnhanced=1
     let g:SuperTabLongestHighlight=1
     let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-    " NERDTree
-    let NERDTreeIgnore = ['\.pyc$']
 
     " Airline
     if has("gui_running")
@@ -247,7 +252,6 @@ if !exists('g:vscode')
     " suda
     let g:suda_smart_edit = 1
 
-
     " }}}
 
     " {{{ Final stuff
@@ -271,6 +275,7 @@ if !exists('g:vscode')
       "let g:selenized_green_keywords=1
       colorscheme iceberg
       "color dracula
+      highlight Cursor guifg=white guibg=black
     endif
     highlight MatchParen cterm=bold ctermfg=cyan
     " }}}
