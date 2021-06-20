@@ -144,6 +144,12 @@ if !exists('g:vscode')
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+    " Autcompletion via compe
+    inoremap <silent><expr> <C-Space> compe#complete()
+    inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+    inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+    "inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+    "inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
     " }}}
 
@@ -155,17 +161,16 @@ if !exists('g:vscode')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'sjl/gundo.vim'
     Plug 'lambdalisue/suda.vim'
-    Plug 'ervandew/supertab'
+    "Plug 'ervandew/supertab'
     Plug 'w0rp/ale'
     Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'jremmen/vim-ripgrep'
     Plug 'udalov/kotlin-vim'
 
-    " Telescope bla
+    " Telescope stuff 
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -182,8 +187,13 @@ if !exists('g:vscode')
     Plug 'plasticboy/vim-markdown'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
     Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+
     " Intellisense autocompletion
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Language server
+    Plug 'neovim/nvim-lspconfig'
+    " Autocompletion
+    Plug 'hrsh7th/nvim-compe'
     " Colors
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'crusoexia/vim-monokai'
@@ -200,10 +210,38 @@ if !exists('g:vscode')
 
     " {{{ Plugin stuff
 
+    " Language server
+    " Needs to install language server
+    " e.g. npm i -g pyright
+    lua require'lspconfig'.pyright.setup{}
+    let g:compe = {}
+    let g:compe.enabled = v:true
+    let g:compe.autocomplete = v:true
+    let g:compe.debug = v:false
+    let g:compe.min_length = 1
+    let g:compe.preselect = 'enable'
+    let g:compe.throttle_time = 80
+    let g:compe.source_timeout = 200
+    let g:compe.resolve_timeout = 800
+    let g:compe.incomplete_delay = 400
+    let g:compe.max_abbr_width = 100
+    let g:compe.max_kind_width = 100
+    let g:compe.max_menu_width = 100
+    let g:compe.documentation = v:true
+
+    let g:compe.source = {}
+    let g:compe.source.path = v:true
+    let g:compe.source.buffer = v:true
+    let g:compe.source.calc = v:true
+    let g:compe.source.nvim_lsp = v:true
+    let g:compe.source.nvim_lua = v:true
+    let g:compe.source.vsnip = v:true
+    let g:compe.source.ultisnips = v:true
+
     " SuperTab
-    let g:SuperTabLongestEnhanced=1
-    let g:SuperTabLongestHighlight=1
-    let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+    "let g:SuperTabLongestEnhanced=1
+    "let g:SuperTabLongestHighlight=1
+    "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
     " Airline
     if has("gui_running")
