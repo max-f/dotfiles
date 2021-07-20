@@ -130,8 +130,8 @@ if !exists('g:vscode')
     vmap <F5> :!xclip -f -sel clip<CR>
     map <F6> mz:-1r !xclip -o -sel clip<CR>`z
 
-    "Gundo
-    nnoremap <F7> :GundoToggle<CR>
+    "Undotree
+    nnoremap <F7> :UndotreeToggle<CR>
 
     "Use fzf more convenient
     "nnoremap <C-T> :Files<cr>
@@ -159,8 +159,9 @@ if !exists('g:vscode')
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'sjl/gundo.vim'
+    Plug 'mbbill/undotree'
     Plug 'lambdalisue/suda.vim'
+    Plug 'preservim/nerdcommenter'
     "Plug 'ervandew/supertab'
     Plug 'w0rp/ale'
     Plug 'majutsushi/tagbar'
@@ -242,6 +243,14 @@ if !exists('g:vscode')
     "let g:SuperTabLongestEnhanced=1
     "let g:SuperTabLongestHighlight=1
     "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+    
+    " NerdCommenter Settings
+    " Create default mappings
+    let g:NERDCreateDefaultMappings = 1
+    " Add spaces after comment delimiters by default
+    let g:NERDSpaceDelims = 1
+    " Use compact syntax for prettified multi-line comments
+    let g:NERDCompactSexyComs = 1
 
     " Airline
     if has("gui_running")
