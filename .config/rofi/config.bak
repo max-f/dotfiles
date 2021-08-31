@@ -1,35 +1,14 @@
-#include /home/carnager/.config/rofi/colors/base16
-rofi.display-drun:      
-rofi.display-run:       
-rofi.display-ssh:       
-rofi.display-window:    
-rofi.color-enabled: true
-rofi.scrollbar-width:       0
-rofi.borderwidth:	        3
-rofi.levenshtein-sort:      true
-rofi.monitor                -4
-rofi.font:                  Fira Mono Medium 11
-rofi.padding:	            3
-rofi.threads:               8
-rofi.ssh-client:            mosh
-rofi.modi:                  window,run,drun,ssh
-rofi.ssh-command:           termite -e '{ssh-client} {host}'
-rofi.run-command:           {cmd}
-rofi.run-shell-command:     {terminal} -e '{cmd}'
-rofi.terminal:              termite
-rofi.lazy-filter-limit:     400
-rofi.fg-active:             #FF22FF
-rofi.kb-custom-1:           Alt+1
-rofi.kb-custom-2:           Alt+2
-rofi.separator-style:       solid
-rofi.case-insensitive:      true
-rofi.kb-custom-3:           Alt+3
-rofi.kb-custom-4:           Alt+4
-rofi.kb-custom-5:           Alt+5
-rofi.kb-custom-6:           Alt+6
-rofi.kb-custom-7:           Alt+7
-rofi.kb-custom-8:           Alt+8
-rofi.kb-custom-9:           Alt+9
-rofi.key-run:               F2
-!rofi.kb-accept-alt:         Tab
-!rofi.color-enabled: true
+rofi.show-icons:            false
+rofi.modi:                  drun,run,window,ssh
+rofi.lines:                 8
+rofi.line-padding:          10
+rofi.matching:              fuzzy
+rofi.bw:                    0
+rofi.padding:               0
+rofi.separator-style:       none
+rofi.hide-scrollbar:        true
+rofi.line-margin:           0
+#rofi.font:                  sans-serif 10
+#rofi.font:                  sq 10.5
+rofi.font:                  xos4 Terminus 12
+rofi.theme: .config/rofi/themes/sidebar-solarized-light.rasi
