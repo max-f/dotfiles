@@ -35,6 +35,7 @@
 window {
     transparency: "screenshot";
 	location: center;
+    y-offset: -15%;
 	background-color: #282c34;
 	width: 40%;
 }
