@@ -3,5 +3,6 @@ configuration {
 	sorting-method: "fzf";
 	matching: "fuzzy";
 	//theme: "themes/simple_nord.rasi";
-    theme: "themes/onedark.rasi";
 }
+
+@theme "themes/onedark.rasi"
