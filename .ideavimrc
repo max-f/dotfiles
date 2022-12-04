@@ -63,3 +63,7 @@ map <Space>f :action AceAction<CR>
 map <Space>F :action AceTargetAction<CR>
 " Press `Space+g` to activate Line Mode
 map <Space>g :action AceLineAction<CR>
+    
+# https://plugins.jetbrains.com/plugin/19417-ideavim-quickscope
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
