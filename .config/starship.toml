@@ -1,10 +1,10 @@
 add_newline = false
 
 [character]
-success_symbol = "[\\$](bold yellow)"
-error_symbol = "[\\$](bold yellow)"
-use_symbol_for_status = true
-style_success = "fg:yellow"
+success_symbol = "[\\$](bold blue)"
+error_symbol = "[\\$](bold red)"
+#use_symbol_for_status = true
+#style_success = "fg:yellow"
 
 [directory]
 truncation_length = 100
