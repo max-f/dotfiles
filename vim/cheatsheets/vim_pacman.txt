@@ -1,8 +1,0 @@
-local/gvim 7.3.434-1
-    Vi Improved, a highly configurable, improved version of the vi text editor (with advanced features, such as a GUI)
-local/vim-runtime 7.3.434-1
-    Runtime for vim and gvim
-local/vimpager 1.6.7-1
-    A vim-based script to use as a PAGER.
-local/flake8 108-1
-    Flake8
