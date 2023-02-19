@@ -30,5 +30,10 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+
+-- show these 'invisible' chars
+vim.opt.list = true
+vim.opt.listchars:append({ trail = '·' })
 
 vim.g.mapleader = ","
