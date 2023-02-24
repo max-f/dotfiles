@@ -77,4 +77,7 @@ return require('packer').startup(function(use)
             }
         end
     }
+    use {
+        "ray-x/lsp_signature.nvim",
+    }
 end)
