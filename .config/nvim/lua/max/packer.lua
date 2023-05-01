@@ -47,6 +47,9 @@ return require('packer').startup(function(use)
 		}
 	}
 	use('vimwiki/vimwiki')
+    use('ray-x/lsp_signature.nvim')
+    use('github/copilot.vim')
+
     -- optic stuff
 	use ({
 		'folke/tokyonight.nvim',
@@ -77,7 +80,7 @@ return require('packer').startup(function(use)
             }
         end
     }
-    use {
-        "ray-x/lsp_signature.nvim",
-    }
+    use('aktersnurra/no-clown-fiesta.nvim')
+    use('davidosomething/vim-colors-meh')
+    use('drsooch/gruber-darker-vim')
 end)
