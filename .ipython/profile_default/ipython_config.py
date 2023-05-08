@@ -39,7 +39,7 @@ c.InteractiveShellApp.exec_lines = ['%autoreload 2']
 
 ## A list of dotted module names of IPython extensions to load.
 #  Default: []
-c.InteractiveShellApp.extensions = ['autoreload', 'memory_profiler']
+c.InteractiveShellApp.extensions = ['autoreload']
 
 ## Dotted module name(s) of one or more IPython extensions to load.
 #  
@@ -278,7 +278,7 @@ c.InteractiveShellApp.extensions = ['autoreload', 'memory_profiler']
 c.TerminalIPythonApp.extensions = [
         'autoreload',
         #'line_profiler',
-        'memory_profiler',
+        #'memory_profiler',
 ]
 
 ## Path to an extra config file to load.
