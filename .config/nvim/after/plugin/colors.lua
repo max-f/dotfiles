@@ -1,6 +1,6 @@
 
 function ColorStuff(color)
-	color = color or "GruberDarker"
+	color = color or "zenbones"
 	vim.cmd.colorscheme(color)
 
 	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

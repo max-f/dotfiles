@@ -1,3 +1,7 @@
+-- disable netrw at the very start of your init.lua (strongly advised) - from nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -20,6 +24,8 @@ vim.opt.clipboard = "unnamed"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 
@@ -37,3 +43,4 @@ vim.opt.list = true
 vim.opt.listchars:append({ trail = '·' })
 
 vim.g.mapleader = ","
+vim.o.background = "dark"

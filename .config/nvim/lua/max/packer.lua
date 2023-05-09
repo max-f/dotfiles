@@ -11,13 +11,6 @@ return require('packer').startup(function(use)
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	use ({
-		'folke/tokyonight.nvim',
-		as = "tokyonight",
-		config = function()
-			vim.cmd('colorscheme tokyonight')
-		end
-	})
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
@@ -48,6 +41,12 @@ return require('packer').startup(function(use)
 	}
 	use('vimwiki/vimwiki')
     use('ray-x/lsp_signature.nvim')
+    use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end
+    }
     use('github/copilot.vim')
 
     -- optic stuff
@@ -80,7 +79,9 @@ return require('packer').startup(function(use)
             }
         end
     }
-    use('aktersnurra/no-clown-fiesta.nvim')
-    use('davidosomething/vim-colors-meh')
+    use('rktjmp/lush.nvim')
     use('drsooch/gruber-darker-vim')
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use('mcchrish/zenbones.nvim')
+    use('EdenEast/nightfox.nvim')
 end)

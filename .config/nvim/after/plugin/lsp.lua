@@ -2,7 +2,7 @@ local lsp = require('lsp-zero').preset({
   name = 'minimal',
   set_lsp_keymaps = true,
   manage_nvim_cmp = true,
-  suggest_lsp_servers = false,
+  suggest_lsp_servers = true,
 })
 
 lsp.ensure_installed({
@@ -11,6 +11,7 @@ lsp.ensure_installed({
 	'lua_ls',
 	'rust_analyzer',
 	'pylsp',
+    'pyright',
 	'kotlin_language_server',
 	'bashls',
 })
