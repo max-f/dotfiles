@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		'nvim-telescope/telescope.nvim', tag = '0.1.4',
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
@@ -53,9 +53,6 @@ return require('packer').startup(function(use)
 	use ({
 		'folke/tokyonight.nvim',
 		as = "tokyonight",
-		config = function()
-			vim.cmd('colorscheme tokyonight')
-		end
 	})
     use {
       'nvim-lualine/lualine.nvim',
@@ -79,9 +76,24 @@ return require('packer').startup(function(use)
             }
         end
     }
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "*",
+        requires = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require('bufferline').setup{}
+        end
+    }
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require('ibl').setup()
+        end
+    }
     use('rktjmp/lush.nvim')
     use('drsooch/gruber-darker-vim')
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
     use('mcchrish/zenbones.nvim')
-    use('EdenEast/nightfox.nvim')
+    use('ellisonleao/gruvbox.nvim')
+    use('rebelot/kanagawa.nvim')
+    use('projekt0n/github-nvim-theme')
 end)

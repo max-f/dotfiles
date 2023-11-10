@@ -43,4 +43,4 @@ vim.opt.list = true
 vim.opt.listchars:append({ trail = '·' })
 
 vim.g.mapleader = ","
-vim.o.background = "dark"
+-- vim.o.background = "dark"

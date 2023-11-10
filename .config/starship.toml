@@ -1,19 +1,27 @@
 add_newline = false
 
 [character]
-success_symbol = "[\\$](bold blue)"
-error_symbol = "[\\$](bold red)"
+success_symbol = "[\\$](bold yellow)"
+error_symbol = "[\\$](bold yellow)"
 #use_symbol_for_status = true
 #style_success = "fg:yellow"
 
 [directory]
+home_symbol = "󰋜 "
 truncation_length = 100
 style = "bold fg:blue"
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 
+[directory.substitutions]
+#"" = "📄 "
+"downloads" = "󰉍 "
+#"var/music" = "🎵 "
+"var/music" = "󱝟 "
+"var/pictures" = "󰉏 "
+
 [username]
 #style_user = 'bold fg:black'
-style_user = 'bold dimmed blue'
+style_user = 'bold fg:cyan'
 show_always = true
 format = "[$user@]($style)"
 
