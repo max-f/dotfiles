@@ -40,7 +40,7 @@ vim.opt.cursorline = true
 
 -- show these 'invisible' chars
 vim.opt.list = true
-vim.opt.listchars:append({ trail = '·' })
+vim.opt.listchars:append({ trail = '·', tab = '» ', nbsp = '␣', extends = '»', precedes = '«' , eol = '⤶' })
 
 vim.g.mapleader = ","
 -- vim.o.background = "dark"
