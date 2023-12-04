@@ -84,12 +84,7 @@ return require('packer').startup(function(use)
             require('bufferline').setup{}
         end
     }
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require('ibl').setup()
-        end
-    }
+
     use('rktjmp/lush.nvim')
     use('drsooch/gruber-darker-vim')
     use('mcchrish/zenbones.nvim')
