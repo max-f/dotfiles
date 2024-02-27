@@ -25,7 +25,12 @@ local M = {
     {
         "drsooch/gruber-darker-vim"
     },
-    "mcchrish/zenbones.nvim",
+    {
+        "mcchrish/zenbones.nvim",
+        -- config = function()
+        --     vim.cmd('colorscheme seoulbones')
+        -- end,
+    },
     "ellisonleao/gruvbox.nvim",
     "rebelot/kanagawa.nvim",
     {
@@ -37,9 +42,10 @@ local M = {
           -- ...
         })
 
-        vim.cmd('colorscheme github_dark')
+        -- vim.cmd('colorscheme github_dark')
       end,
-    }
+    },
+    "sainnhe/sonokai"
 }
 
 return M
