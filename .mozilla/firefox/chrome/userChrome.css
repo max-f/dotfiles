@@ -1,0 +1,23 @@
+/*
+Windows
+    Location: C:\Users\<YourUsername>\AppData\Roaming\Mozilla\Firefox\Profiles\<YourFirefoxProfile>\chrome
+    Notes:
+        If minimize, maximize, and close buttons are no longer visible, enable the Title Bar or Menu Bar in Firefox Customize.
+
+macOS
+    Location: /Users/<YourUsername>/Library/Application Support/Firefox/Profiles/<YourFirefoxProfile>/chrome
+    Notes:
+        If minimize, maximize, and close buttons overlap other controls, add the Flexible Space in Firefox Customize.
+*/
+
+/* /@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul); */
+
+/* Hide horizontal tab toolbar */
+#TabsToolbar {
+    visibility:collapse!important;
+}
+
+/* Hide "Tree Style Tabs" sidebar header */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display:none;
+}
