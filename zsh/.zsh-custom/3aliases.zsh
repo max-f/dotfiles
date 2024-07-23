@@ -10,17 +10,17 @@ function command_exists() {
 alias ..='cd ..'
 alias ...='cd ../..'
 
-if command_exists exa; then
-    alias e='exa -F'
-    alias ee='exa -lgF --git'
-    alias els='exa'
-    alias ell='exa -l --git --group-directories-first'
-    alias elsd='exa -ld *(-/N)'
-    #alias lsf='exa -l *(-.N)'
-    alias elsl='exa -l *(@)'
-    alias elal='exa -al --group-directories-first'
-    alias elsnew='exa -l -s modified --git *(D.om[1,10])'
-    alias etree='exa --tree --color-scale -L 5'
+if command_exists eza; then
+    alias e='eza -F'
+    alias ee='eza -lgF --git --group-directories-first'
+    alias els='eza'
+    alias ell='eza -l --git --group-directories-first'
+    alias elsd='eza -ld *(-/N)'
+    #alias lsf='eza -l *(-.N)'
+    alias elsl='eza -l *(@)'
+    alias elal='eza -al --group-directories-first'
+    alias elsnew='eza -l -s modified --git *(D.om[1,10])'
+    alias etree='eza --tree --color-scale -L 5'
 fi
 
 #alias ls='ls -lh --group-directories-first --color=auto'
@@ -36,10 +36,13 @@ alias lsnew='ls -rtlh *(D.om[1,10])'
 
 # better ask before we lose data
 alias rm='rm -Iv'
-alias cp='cp -iv'
+alias cp='cp -riv'
 alias mv='mv -iv'
+alias mkdir='mkdir -vp'
 
-alias bat='bat --theme="base16"'
+#alias gitui='gitui -t macchiato'
+alias bat='bat --theme="Solarized (light)"'
+alias glow='glow --style light'
 alias cower='cower --color=auto'
 alias df='df -H'
 alias zshrc='. ~/.zshrc && echo "reload ~/.zshrc								${txtblu}[${txtwht}DONE${txtblu}]"'
@@ -57,6 +60,10 @@ alias qldelay-on='S tc qdisc add dev eth0 root netem delay 15ms'
 alias qldelay-off='S tc qdisc del dev eth0 root'
 alias ipython='ipython3'
 
+# SSH with alacritty (no need for terminfo on remote)
+alias ssh='TERM=xterm-256color ssh'
+
+
 # pacman
 alias pacman='sudo pacman'
 
@@ -68,9 +75,10 @@ alias pacl='pacman -Ql'
 alias pacr='pacman -Rs'
 alias pacy='pacman -Sy'
 alias pacu='pacman -Syu'
- 
+
 alias S='sudo'
-alias v='vim'
+alias v='nvim'
+alias protonvpn='sudo protonvpn'
 
 # dropbox
 alias dropup="sh $HOME/devel/bash/dropbox.sh up"
@@ -90,4 +98,15 @@ alias -g L='|less'
 alias -g G='|grep'
 
 # thefuck
-eval $(thefuck --alias wut)
+#eval $(thefuck --alias wut)
+
+# yazi terminal file manager
+# https://yazi-rs.github.io/docs/quick-start
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
