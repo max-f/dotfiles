@@ -19,7 +19,7 @@ if command_exists eza; then
     #alias lsf='eza -l *(-.N)'
     alias elsl='eza -l *(@)'
     alias elal='eza -al --group-directories-first'
-    alias elsnew='eza -l -s modified --git *(D.om[1,10])'
+    alias lsnew='eza -l -s modified --git *(D.om[1,20])'
     alias etree='eza --tree --color-scale -L 5'
 fi
 
@@ -32,7 +32,7 @@ alias lsf='ls *(-.N)'
 # list symlinks
 alias lsl='ls -l *(@)'
 # list the ten newest files
-alias lsnew='ls -rtlh *(D.om[1,10])' 
+#alias lsnew='ls -rtlh *(D.om[1,10])' 
 
 # better ask before we lose data
 alias rm='rm -Iv'
@@ -99,14 +99,3 @@ alias -g G='|grep'
 
 # thefuck
 #eval $(thefuck --alias wut)
-
-# yazi terminal file manager
-# https://yazi-rs.github.io/docs/quick-start
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}

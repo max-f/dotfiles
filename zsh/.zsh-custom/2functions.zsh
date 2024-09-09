@@ -74,7 +74,7 @@ show-archive() {
     		*.tar)         tar -tf $1 ;;
     		*.tgz)         tar -ztf $1 ;;
             *.rar)         unrar l $1 ;;
-    		*.zip)         unzip -l $1 ;;
+    		*.zip)         7z l $1 ;;
     		*.bz2)         bzless $1 ;;
             *.7z)          7z l $1 ;;
     		*)             echo "'$1' Error. Please go away" ;;
@@ -104,10 +104,10 @@ password() {
 }
 
 # idea by Gigamo http://bbs.archlinux.org/viewtopic.php?pid=478094#p478094
-ls () {
-  /bin/ls -rhbtF --color=auto $@ &&
-  echo "${MAGENTA}Files: ${BLUE}$(/bin/ls -l $@ | grep -v "^[l|d|total]" | wc -l) ${GREEN}--- ${MAGENTA}Directories: ${BLUE}$(/bin/ls -l $@ | grep "^d" | wc -l)${NC}"
-}
+#ls () {
+#  /bin/ls -rhbtF --color=auto $@ &&
+#  echo "${MAGENTA}Files: ${BLUE}$(/bin/ls -l $@ | grep -v "^[l|d|total]" | wc -l) ${GREEN}--- ${MAGENTA}Directories: ${BLUE}$(/bin/ls -l $@ | grep "^d" | wc -l)${NC}"
+#}
 
 # Help for zsh's extglob, probably from grml zshrc
 hglob () {
@@ -169,4 +169,43 @@ any() {
 # Use curl with some default options to receive file
 cget() {
     curl -fJOL --compressed "$@"
+}
+
+# Cheatsheets and help
+cheat() {
+ curl "http://cheat.sh/$1?style=algol_nu"
+}
+
+man2txt() {
+  man "$1" | col -bx
+}
+
+manflags(){
+  man "$1" | awk '{$1=$1;print}' | grep "^\-"
+} #man pages just the flags more or less, captures some extra
+
+explain () {
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/v2/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+    done
+    echo "Bye!"
+  elif [ "$#" -eq 1 ]; then
+    curl -Gs "https://www.mankier.com/api/v2/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+    echo "Usage"
+    echo "explain                  interactive mode."
+    echo "explain 'cmd -o | ...'   one quoted command to explain it."
+  fi
+}
+
+# yazi terminal file manager
+# https://yazi-rs.github.io/docs/quick-start
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
