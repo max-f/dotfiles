@@ -28,13 +28,26 @@ local M = {
         end
     },
     { 'neovim/nvim-lspconfig' },
-    {'hrsh7th/cmp-nvim-lsp'},
+    { 'hrsh7th/cmp-nvim-lsp' },
     {
         "hrsh7th/nvim-cmp",
         event = { "InsertEnter", "CmdlineEnter" },
         config = function()
             local cmp = require("cmp")
             cmp.setup({
+                window = {
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
+                },
+                -- requires lspkind
+                -- formatting = {
+                --     format = require('lspkind').cmp_format({
+                --         mode = "symbol",
+                --         maxwidth = 50,
+                --         ellipsis_char = '...',
+                --         symbol_map = { Codeium = "", }
+                --     })
+                -- },
                 mapping = {
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
@@ -48,8 +61,11 @@ local M = {
                         end
                     end, { "i", "s", "c", }),
                     -- You can add more mappings here if needed
-                }
-                -- Add other cmp settings here if necessary
+                },
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = "codeium" }
+                },
             })
         end
     },
