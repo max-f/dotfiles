@@ -1,8 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/sh
 #----------------------------------------------------
 # File:         .xinitrc
 #----------------------------------------------------
+# copy & mod of /etc/X11/xinit/xinitrc
 
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
+
+# Begin my stuff
 cd "$HOME" || exit 1
 
 # Set correct $PATH for dmenu
@@ -37,12 +46,12 @@ pasystray &
 systemctl --user set-environment DISPLAY=:0
 dunst &
 
-    # adjust light spectrum for better sleeping (disabled until flicker is
-    # resolved)
-	#redshift &
+# adjust light spectrum for better sleeping (disabled until flicker is
+# resolved)
+redshift &
 
 # Automount removeable media
-udiskie -2 -s &
+udiskie -t &
 
 # Disable touchpad
 # (configure somehow via libinput)
@@ -54,15 +63,10 @@ setxkbmap -option terminate:ctrl_alt_bksp &
 (sleep 3 && xmodmap "${HOME}"/.Xmodmap) &
 
 # clipboard syncing
-#autocutsel -fork &
-#autocutsel -selection PRIMARY  -fork &
-copyq &
+clipmenud &
 
 # visual stuff
 xrdb -load "${HOME}"/.Xresources
-
-# wallpaper
-sh "${HOME}"/.fehbg &
 
 # dropbox
 #dropbox-cli start
@@ -71,16 +75,14 @@ sh "${HOME}"/.fehbg &
 wmname LG3D
 
 # compositing
-compton -bf --fade-delta=4 --sw-opti &
 #compton --config "$HOME/.config/compton.conf" -b
+picom &
 
 # Network
 nm-applet &
 
 # Start up some Apps 
-keepassxc & 
-skypeforlinux &
-slack &
+#keepassxc & 
 
 # SSH Agent
 #eval $(ssh-agent)
@@ -90,10 +92,39 @@ slack &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# Polkit agent (VIA & Co)
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+
 # Monitor
-{ sleep 3; xrandr --output eDP-1 --mode 1920x1080 --left-of DP-2-2 \
-    --output DP-2-2 --primary --mode 1920x1200 \
-    --output DP-2-3 --mode 1920x1200 --right-of DP-2-2 --rotate left; } &
+#{ sleep 3; xrandr --output eDP-1 --mode 1920x1080 --left-of DP-2-2 \
+#    --output DP-2-2 --primary --mode 1920x1200 \
+#    --output DP-2-3 --mode 1920x1200 --right-of DP-2-2 --rotate left; } &
+
+# At home
+#{ sleep 3; xrandr --output HDMI-1 --primary --output DP-1 --left-of HDMI-1 --output eDP-1 --off; } &
+#{ sleep 3; xrandr --output HDMI-0 --mode 2560x2880 --left-of DP-2 --primary --output DP-2 --right-of HDMI-0; } &
+{ sleep 3; xrandr --output HDMI-0 --mode 2560x2880 --left-of DP-0 --output DP-0 --primary --output DP-2 --right-of DP-0; } &
+
+
+# Office MUC
+#{ sleep 3; xrandr --output HDMI-0 --primary --output DP-2 --left-of HDMI-0; } &
+#{ sleep 3; xrandr --output HDMI-0 --primary --output DP-0.2 --left-of HDMI-0 --output DP-2 --left-of DP-0.2; } &
+#{ sleep 3; xrandr --output DP-0.2 --output DP-0.1 --primary --right-of DP-0.2 --output DP-2 --left-of DP-0.2; } &
+
+
+# KA
+#{ sleep 3; xrandr --output DP-0.1.5 --primary --mode 3440x1440 --output DP-2 --left-of DP-0.1.5; } &
+
+# Stuggi
+#{ sleep 3; xrandr --output DP-0.3 --mode 1920x1080 --left-of DP-0.1 --output DP-0.1 --primary --mode 1920x1080 --output DP-2 --right-of DP-0.1; } &
+
+
+
+# Single
+#xrandr --output DP-2 --primary &
+
+# wallpaper
+{ sleep 3; sh "${HOME}"/.fehbg; } &
 
 # i3
 exec i3
