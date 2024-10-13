@@ -126,5 +126,6 @@ export SSH_AUTH_SOCK
 # wallpaper
 { sleep 3; sh "${HOME}"/.fehbg; } &
 
+# Test
 # i3
 exec i3
