@@ -29,6 +29,9 @@ local M = {
     },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'hrsh7th/cmp-cmdline' },
     {
         "hrsh7th/nvim-cmp",
         event = { "InsertEnter", "CmdlineEnter" },
@@ -39,6 +42,11 @@ local M = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
                 },
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = "codeium" }
+                },
+
                 -- requires lspkind
                 -- formatting = {
                 --     format = require('lspkind').cmp_format({
@@ -48,24 +56,45 @@ local M = {
                 --         symbol_map = { Codeium = "", }
                 --     })
                 -- },
-                mapping = {
-                    ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            local entry = cmp.get_selected_entry()
-                            if not entry then
-                                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                            end
-                            cmp.confirm()
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s", "c", }),
-                    -- You can add more mappings here if needed
-                },
-                sources = {
-                    { name = 'nvim_lsp' },
-                    { name = "codeium" }
-                },
+                -- mapping = {
+                --     ["<Tab>"] = cmp.mapping(function(fallback)
+                --         if cmp.visible() then
+                --             local entry = cmp.get_selected_entry()
+                --             if not entry then
+                --                 cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                --             end
+                --             cmp.confirm()
+                --         else
+                --             fallback()
+                --         end
+                --     end, { "i", "s" })
+                -- },
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort(),
+                    ['<CR>'] = cmp.mapping.confirm({ select = true })
+                })
+            })
+
+            -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+            cmp.setup.cmdline({ '/', '?' }, {
+              mapping = cmp.mapping.preset.cmdline(),
+              sources = {
+                { name = 'buffer' }
+              }
+            })
+
+            -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+            cmp.setup.cmdline(':', {
+              mapping = cmp.mapping.preset.cmdline(),
+              sources = cmp.config.sources({
+                { name = 'path' }
+              }, {
+                { name = 'cmdline' }
+              }),
+              matching = { disallow_symbol_nonprefix_matching = false }
             })
         end
     },
