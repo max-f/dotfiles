@@ -23,6 +23,7 @@ local M = {
         vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
         vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+        vim.keymap.set('n', '<leader>fu', builtin.lsp_references, {})
 
 		return {
 			pickers = {
