@@ -14,13 +14,14 @@ local M = {
                 hover = {
                     enabled = true,
                     delay = 0,
-                    reveal = { "close" }, },
+                    reveal = { "close" },
+                },
             },
         }
     },
     {
         'lewis6991/gitsigns.nvim',
-        config = function ()
+        config = function()
             require('gitsigns').setup()
         end
     },
@@ -37,21 +38,22 @@ local M = {
         --     vim.cmd('colorscheme seoulbones')
         -- end,
     },
-    "ellisonleao/gruvbox.nvim",
-    "rebelot/kanagawa.nvim",
     {
-      'projekt0n/github-nvim-theme',
-      lazy = false, -- make sure we load this during startup if it is your main colorscheme
-      priority = 1000, -- make sure to load this before all the other start plugins
-      config = function()
-        require('github-theme').setup({
-          -- ...
-        })
+        'projekt0n/github-nvim-theme',
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require('github-theme').setup({
+                -- ...
+            })
 
-        -- vim.cmd('colorscheme github_dark')
-      end,
+            -- vim.cmd('colorscheme github_dark')
+        end,
     },
-    "sainnhe/sonokai"
+    "sainnhe/sonokai",
+    "kvrohit/rasmus.nvim",
+    { "rose-pine/neovim",   name = "rose-pine" },
+    "Verf/deepwhite.nvim",
 }
 
 return M
