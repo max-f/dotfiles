@@ -74,6 +74,15 @@ local M = {
             },
         },
         opts = {}, -- for default options, refer to the configuration section for custom setup.
+    },
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
     }
 }
 
