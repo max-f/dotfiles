@@ -3,7 +3,7 @@
 vim.o.background = "dark"
 if os.getenv("DISPLAY") ~= nil then
     -- Commands to set the colorscheme for graphical terminal
-    vim.cmd [[colorscheme neobones]]
+    vim.cmd [[colorscheme gruber-darker]]
 else
    -- Commands to set the colorscheme for TTY terminal
     vim.cmd [[colorscheme torte]]

@@ -29,9 +29,7 @@ local M = {
     "rktjmp/lush.nvim",
 
     -- colorschemes
-    {
-        "drsooch/gruber-darker-vim"
-    },
+    { "blazkowolf/gruber-darker.nvim" },
     {
         "mcchrish/zenbones.nvim",
         -- config = function()
