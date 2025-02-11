@@ -51,7 +51,8 @@ local M = {
     "sainnhe/sonokai",
     "kvrohit/rasmus.nvim",
     { "rose-pine/neovim",   name = "rose-pine" },
-    "Verf/deepwhite.nvim",
+	"axvr/photon.vim",
+	'santos-gabriel-dario/darcula-solid.nvim',
 }
 
 return M

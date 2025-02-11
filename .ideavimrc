@@ -1,11 +1,28 @@
 let mapleader = ','
 
+" plugins
+set multiple-cursors
+set commentary
+set NERDTree
+" display possible keys
+set which-key
+set notimeout
+Plug 'machakann/vim-highlightedyank'
+
+set relativenumber
+set number
 set hlsearch
 set scrolloff=3
 set ignorecase smartcase
 set showmode
+set so=5
 set history=1000
 set clipboard+=unnamed
+set clipboad+=ideaput
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
 
 " easy system clipboard copy/paste
 noremap <space>y "*y
@@ -23,8 +40,32 @@ nnoremap <a-l> gt
 nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 
+" Window splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Display options
+map <leader>df <Action>(ToggleDistractionFreeMode)
+map <leader>dz <Action>(ToggleZenMode)
+
+"collapse stuff
+nnoremap <leader>zc :action CollapseAllRegions<CR>
+nnoremap <leader>zo :action ExpandAllRegions<CR>
+
+" open NERDTree (use q to exit)
+map <leader>pe :NERDTreeToggle<CR>
+
+" which-key settings
+let g:WhichKey_FontSize = 14
+"let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
 " code refactoring
-nnoremap <leader>ff :action FindInPath<cr>
+nnoremap <leader>fg :action FindInPath<cr>
+nnoremap <leader>ff :action GotoFile<cr>
 nnoremap <leader>fu :action FindUsages<cr>
 nnoremap <leader>su :action ShowUsages<cr>
 nnoremap <leader>cv :action ChangeView<cr>
@@ -48,10 +89,13 @@ nnoremap <leader>gd :action GotoDeclaration<cr>
 nnoremap <leader>gt :action GotoTest<cr>
 nnoremap <leader>gr :action GotoRelated<cr>
 nnoremap <leader>gb :action Annotate<cr>
+nnoremap <leader>zm :action ToggleZenMode<cr>
 nnoremap <leader>tl Vy<cr>:action ActivateTerminalToolWindow<cr>
 vnoremap <leader>tl y<cr>:action ActivateTerminalToolWindow<cr>
 nnoremap ]e :action GotoNextError<cr>
 nnoremap [e :action GotoPreviousError<cr>
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
 
 " space bar un-highligts search
 nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
@@ -64,6 +108,6 @@ map <Space>F :action AceTargetAction<CR>
 " Press `Space+g` to activate Line Mode
 map <Space>g :action AceLineAction<CR>
     
-# https://plugins.jetbrains.com/plugin/19417-ideavim-quickscope
+" https://plugins.jetbrains.com/plugin/19417-ideavim-quickscope
 set quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
