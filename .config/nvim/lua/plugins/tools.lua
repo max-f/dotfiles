@@ -92,7 +92,10 @@ local M = {
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons"
         },
-    }
+    },
+	{
+		"lambdalisue/vim-suda"
+	}
 }
 
 return M
