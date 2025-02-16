@@ -31,7 +31,7 @@ local M = {
 		'neovim/nvim-lspconfig',
 		config = function()
 			vim.diagnostic.config({
-				virtual_text = true,
+				virtual_text = false, -- stuff is displayed in hover window, c.f. below
 				signs = true,
 				underline = true,
 				update_in_insert = false,
@@ -42,7 +42,20 @@ local M = {
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
-
+			vim.api.nvim_create_autocmd("CursorHold", {
+				buffer = bufnr,
+				callback = function()
+					local opts = {
+						focusable = false,
+						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+						border = 'rounded',
+						source = 'always',
+						prefix = ' ',
+						scope = 'cursor',
+					}
+					vim.diagnostic.open_float(nil, opts)
+				end
+			})
 		end
 	},
 	{ 'hrsh7th/cmp-nvim-lsp' },
