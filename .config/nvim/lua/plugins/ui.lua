@@ -53,6 +53,8 @@ local M = {
     { "rose-pine/neovim",   name = "rose-pine" },
 	"axvr/photon.vim",
 	'santos-gabriel-dario/darcula-solid.nvim',
+	'p00f/alabaster.nvim',
+	'gmr458/cold.nvim'
 }
 
 return M
