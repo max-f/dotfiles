@@ -30,18 +30,24 @@ local M = {
 	{
 		'neovim/nvim-lspconfig',
 		config = function()
+			local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+
 			vim.diagnostic.config({
 				virtual_text = false, -- stuff is displayed in hover window, c.f. below
-				signs = true,
+				signs = {
+					active = true,
+					text = {
+						[vim.diagnostic.severity.ERROR] = signs.Error,
+						[vim.diagnostic.severity.WARN] = signs.Warn,
+						[vim.diagnostic.severity.HINT] = signs.Hint,
+						[vim.diagnostic.severity.INFO] = signs.Info,
+					},
+				},
 				underline = true,
 				update_in_insert = false,
 				severity_sort = false,
 			})
-			local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-			for type, icon in pairs(signs) do
-				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-			end
+
 			vim.api.nvim_create_autocmd("CursorHold", {
 				buffer = bufnr,
 				callback = function()
