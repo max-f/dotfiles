@@ -12,11 +12,16 @@ end
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = 'zenbones_dark'
+config.color_scheme = 'zenwritten_dark'
 config.font = wezterm.font_with_fallback({
-    {family='Iosevka Nerd Font', weight='Medium'},
-    'Noto Color Emoji'
+    {family='Iosevka', weight='Medium'},
+    'Symbols Nerd Font Mono'
 })
+-- 'Noto Color Emoji'
+--
+-- important for some neovim themes:
+-- config.force_reverse_video_cursor = true
+
 config.font_size = 14.0
 config.hide_tab_bar_if_only_one_tab = true
 
