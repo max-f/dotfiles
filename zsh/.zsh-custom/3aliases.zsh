@@ -11,28 +11,54 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 if command_exists eza; then
-    alias e='eza -F'
-    alias ee='eza -lgF --git --group-directories-first'
-    alias els='eza'
-    alias ell='eza -l --git --group-directories-first'
-    alias elsd='eza -ld *(-/N)'
-    #alias lsf='eza -l *(-.N)'
-    alias elsl='eza -l *(@)'
-    alias elal='eza -al --group-directories-first'
-    alias lsnew='eza -l -s modified --git *(D.om[1,20])'
-    alias etree='eza --tree --color-scale -L 5'
+    # Basic listing with file type indicators
+    alias l='eza -F --group-directories-first --icons'
+    # Long format with git info and grouped directories
+    alias ll='eza -lgF --git --group-directories-first --icons'
+    # All files including hidden, long format
+    alias la='eza -lagF --git --group-directories-first'
+    # Tree view with limited depth and color scale
+    alias lt='eza --tree --color-scale -L 3'
+    alias ltl='eza --tree --long --color-scale -L 3 --icons'
+    # Show only directories
+    alias ld='eza -lDF --git'
+    # Sort by modification time (newest first)
+    alias lm='eza -lgF --git --sort=modified --reverse'
+    # Sort by size (largest first)  
+    alias ls='eza -lgF --git --group-directories-first --sort=size --reverse'
+
+	# Show recent files (last 20 modified, non-hidden only)
+    #alias lr='eza -lgF --git --sort=modified --icons *(om[1,20])'
+    # Show recent files including hidden (last 20 modified, all files)
+    #alias lra='eza -lgF --git --sort=modified *(D.om[1,20])'
+	# Show recent files (last 20 modified, non-hidden only)
+	alias lr='eza -lgF --git --sort=none --icons *(.om[1,20])'
+    # Show recent files including hidden (last 20 modified, all files)
+	alias lra='eza -lgF --git --sort=none --icons *(D.om[1,20])'
+
+    # Quick file count in directory
+    alias lc='eza -1 | wc -l'
+    # Show file permissions clearly
+    alias lp='eza -lgF --git --no-user --no-time'
 fi
 
-#alias ls='ls -lh --group-directories-first --color=auto'
-alias ls='ls -sh --group-directories-first --color=auto'
-# list visible directories
-alias lsd='ls -d *(-/N)'
-# list visible files
-alias lsf='ls *(-.N)'
-# list symlinks
-alias lsl='ls -l *(@)'
-# list the ten newest files
-#alias lsnew='ls -rtlh *(D.om[1,10])' 
+# Fallback ls aliases (when eza not available)
+if ! command_exists eza; then
+    alias l='ls -hF --group-directories-first --color=auto'
+    alias ll='ls -lhF --group-directories-first --color=auto'
+    alias la='ls -lahF --group-directories-first --color=auto'
+    alias lt='tree -C -L 3'  # requires tree command
+    alias ld='ls -lhd */ 2>/dev/null'
+    alias lm='ls -lhFt --group-directories-first --color=auto'
+fi
+
+# Universal aliases (work with both ls and eza)
+# List only visible directories
+alias lsd='ls -d *(-/N) 2>/dev/null'
+# List only visible files
+alias lsf='ls *(-.N) 2>/dev/null'
+# List symlinks
+alias lsl='ls -l *(@) 2>/dev/null'
 
 # better ask before we lose data
 alias rm='rm -Iv'
@@ -42,7 +68,7 @@ alias mkdir='mkdir -vp'
 
 #alias gitui='gitui -t macchiato'
 alias bat='bat --theme="Solarized (light)"'
-alias glow='glow --style light'
+alias glow='glow --style dark'
 alias cower='cower --color=auto'
 alias df='df -H'
 alias zshrc='. ~/.zshrc && echo "reload ~/.zshrc								${txtblu}[${txtwht}DONE${txtblu}]"'
