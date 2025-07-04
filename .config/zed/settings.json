@@ -1,0 +1,54 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+    // "model_parameters": [],
+    "always_allow_tool_actions": true,
+    "version": "2"
+  },
+  // "language_models": {
+  // "ollama": {
+  //   "api_url": "https://cais-dev.divae-ai.com/v1/api/chat/completions",
+  //   "available_models": [
+  //     {
+  //       "name": "openai-gpt-41-global",
+  //       "display_name": "diva-e GPT 4.1 (dev)",
+  //       "max_tokens": 128000
+  //     }
+  //   ]
+  //   // "version": "1"
+  // }
+  //   "openai": {
+  //     "api_url": "https://cais-dev.divae-ai.com/v1/api",
+  //     "available_models": [
+  //       {
+  //         "name": "openai-gpt-41-global",
+  //         "display_name": "Custom GPT-4.1",
+  //         "max_tokens": 4096
+  //       }
+  //     ],
+  //     "version": "1"
+  //   }
+  // },
+  "base_keymap": "JetBrains",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 17,
+  "buffer_font_family": "Iosevka",
+  "buffer_font_weight": 400,
+  "theme": {
+    "mode": "system",
+    "light": "JetBrains Dark",
+    "dark": "One Dark"
+  }
+}
