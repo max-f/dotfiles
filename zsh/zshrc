@@ -1,3 +1,25 @@
+# SPEED UP
+# just use "omz update"
+DISABLE_AUTO_UPDATE=true
+# URL auto-escaping (URLs get automatically quoted when pasted)
+# Some enhanced copy/paste behaviors
+# Automatic bracketed paste mode handling
+DISABLE_MAGIC_FUNCTIONS=true
+# Lost functionality: Security checks for completion system
+# Oh-my-zsh normally verifies that completion directories have secure permissions
+# Prevents potential security issues from world-writable completion directories
+DISABLE_COMPFIX=true
+
+# The completion system (compinit) is zsh’s built-in command completion - it’s what shows possible completions when you hit tab.
+# Trick from https://scottspence.com/posts/speeding-up-my-zsh-shell
+# Instead of rebuilding the completion cache every time, we only do it once a day:
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+    compinit
+else
+    compinit -C
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -121,12 +143,9 @@ export SDKMAN_DIR="/home/mfischer/.sdkman"
 #source /home/mfischer/.config/broot/launcher/bash/br
 
 # For pyenv
-#export PYENV_DEBUG=1
-#if command -v pyenv 1>/dev/null 2>&1; then
-#  eval "$(pyenv init -)"
-#fi
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init - --no-rehash zsh)"
+# Using uv for now
+#export PATH="$HOME/.pyenv/bin:$PATH"
+#eval "$(pyenv init - --no-rehash zsh)"
 
 # Starship prompt
 eval "$(starship init zsh)"
@@ -143,7 +162,7 @@ eval "$(zoxide init zsh)"
 
 # atuin shell history
 #eval "$(atuin init zsh)"
-# If autin is installed, enable it.
+# If atuin is installed, enable it.
 # see GH issue: https://github.com/atuinsh/atuin/issues/1826
 if command -v atuin &> /dev/null; then
     # Note: Since zsh-vi-mode lazy-loads keybinds, it will overwrite

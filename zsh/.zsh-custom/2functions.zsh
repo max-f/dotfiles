@@ -150,6 +150,7 @@ hglob () {
 
 # grep zsh history in ~/.history
 histgrep () {
+	[[ -z "$1" ]] && { echo "Usage: histgrep <pattern>"; return 1; }
 	grep -r "$@" ~/.zsh_history
 	history | grep "$@"
 }
@@ -168,12 +169,14 @@ any() {
 
 # Use curl with some default options to receive file
 cget() {
-    curl -fJOL --compressed "$@"
+	[[ -z "$1" ]] && { echo "Usage: cget <url>"; return 1; }
+	curl -fJOL --compressed --progress-bar "$@"
 }
 
 # Cheatsheets and help
 cheat() {
- curl "http://cheat.sh/$1?style=algol_nu"
+	[[ -z "$1" ]] && { echo "Usage: cheat <command>"; return 1; }
+	curl -s "http://cheat.sh/$1?style=algol_nu" || echo "Failed to fetch cheatsheet for: $1"
 }
 
 man2txt() {
