@@ -108,6 +108,9 @@ export WINIT_HIDPI_FACTOR=1.0
 # For pyright @ neovim
 # See https://fabiorosado.dev/blog/pyright-worker-threads-missing
 export NODE_OPTIONS=--experimental-worker
+
+# fix flameshot
+export QT_QPA_PLATFORM=xcb 
 # }}}
 
 #-----------------------------------
