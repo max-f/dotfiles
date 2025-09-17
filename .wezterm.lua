@@ -14,7 +14,7 @@ end
 
 config.color_scheme = 'zenwritten_dark'
 config.font = wezterm.font_with_fallback({
-    {family='Iosevka', weight='Medium'},
+    {family='Iosevka SS18', weight='Medium'},
     'Symbols Nerd Font Mono'
 })
 -- 'Noto Color Emoji'

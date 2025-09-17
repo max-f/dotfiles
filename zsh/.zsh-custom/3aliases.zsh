@@ -50,6 +50,7 @@ if ! command_exists eza; then
     alias lt='tree -C -L 3'  # requires tree command
     alias ld='ls -lhd */ 2>/dev/null'
     alias lm='ls -lhFt --group-directories-first --color=auto'
+	alias lr='ls -lgF --group-directories-first *(.om[1,20])'
 fi
 
 # Universal aliases (work with both ls and eza)
