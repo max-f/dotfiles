@@ -8,94 +8,80 @@ capslock = esc
 # Right Alt becomes the mode switch layer trigger
 rightalt = layer(modeswitch)
 
-# Level 1 mappings (normal key presses) - most are default
-# Only defining keys that differ from defaults or need explicit Level 2 (shift) mappings
-
-[shift]
-# Level 2 mappings (Shift + key) - only defining non-standard ones
-# Most are handled by default shift behavior
-
-# Standard shift mappings for numbers (in case of custom layer interference)
-1 = !
-2 = @
-3 = #
-4 = $
-5 = %
-6 = ^
-7 = &
-8 = *
-9 = (
-0 = )
-minus = _
-equal = +
-
 [modeswitch]
-# Level 3 mappings (Mode_switch + key)
-grave = ≈
-1 = ¹
-2 = ²
-3 = ³
-4 = ⁴
-5 = ‰
-6 = ⊻
-7 = ∧
-8 = ∙
-9 = «
-0 = »
-minus = –
-equal = ≠
+# Level 3 mappings (Mode_switch + key) using XKB keysym names
+# These are the actual key symbol names that work on Wayland
 
-e = €
-r = ®
-t = ™
-u = ü
-i = ⇒
-o = ö
-p = π
-q = ø
-bracketleft = „
-bracketright = "
+# Approximate equal
+grave = approxeq
 
-a = ä
-s = ß
-d = °
-f = ∀
-apostrophe = '
-backslash = ∨
+# Superscripts and special symbols
+1 = onesuperior
+2 = twosuperior
+3 = threesuperior
+4 = foursuperior
+5 = U2030
+6 = U22BB
+7 = logicaland
+8 = U2219
+9 = guillemotleft
+0 = guillemotright
+minus = endash
+equal = notequal
 
-c = ©
-n = ¬
-m = µ
-k = 卍
-comma = ≤
-period = …
-slash = ÷
+# Letters with special characters
+e = EuroSign
+r = registered
+t = trademark
+u = udiaeresis
+i = U21D2
+o = odiaeresis
+p = U03C0
+q = oslash
+bracketleft = U201E
+bracketright = U201D
+
+a = adiaeresis
+s = ssharp
+d = degree
+f = U2200
+apostrophe = U2019
+backslash = logicalor
+
+c = copyright
+n = notsign
+m = mu
+k = U534D
+comma = lessthanequal
+period = ellipsis
+slash = division
 
 [modeswitch+shift]
 # Level 4 mappings (Mode_switch + Shift + key)
-2 = ½
-3 = ⅓
-4 = ¼
-7 = ⊼
-8 = ×
-9 = ‹
-0 = ›
-minus = —
-equal = ±
 
-e = ∃
-r = ♻
-u = Ü
-i = ⇔
-o = Ö
-bracketleft = ‚
-bracketright = '
+2 = onehalf
+3 = onethird
+4 = onequarter
+7 = U22BC
+8 = multiply
+9 = U2039
+0 = U203A
+minus = emdash
+equal = plusminus
 
-a = Ä
-s = §
+e = U2203
+r = U267B
+u = Udiaeresis
+i = U21D4
+o = Odiaeresis
+bracketleft = U201A
+bracketright = U2019
 
-c = ¢
-n = ♫
-m = ☭
-k = 卐
-period = ≥
+a = Adiaeresis
+s = section
+
+c = cent
+n = U266B
+m = U262D
+k = U5350
+period = greaterthanequal
