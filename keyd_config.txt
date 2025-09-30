@@ -1,0 +1,101 @@
+[ids]
+*
+
+[main]
+# Caps Lock becomes Escape
+capslock = esc
+
+# Right Alt becomes the mode switch layer trigger
+rightalt = layer(modeswitch)
+
+# Level 1 mappings (normal key presses) - most are default
+# Only defining keys that differ from defaults or need explicit Level 2 (shift) mappings
+
+[shift]
+# Level 2 mappings (Shift + key) - only defining non-standard ones
+# Most are handled by default shift behavior
+
+# Standard shift mappings for numbers (in case of custom layer interference)
+1 = !
+2 = @
+3 = #
+4 = $
+5 = %
+6 = ^
+7 = &
+8 = *
+9 = (
+0 = )
+minus = _
+equal = +
+
+[modeswitch]
+# Level 3 mappings (Mode_switch + key)
+grave = ≈
+1 = ¹
+2 = ²
+3 = ³
+4 = ⁴
+5 = ‰
+6 = ⊻
+7 = ∧
+8 = ∙
+9 = «
+0 = »
+minus = –
+equal = ≠
+
+e = €
+r = ®
+t = ™
+u = ü
+i = ⇒
+o = ö
+p = π
+q = ø
+bracketleft = „
+bracketright = "
+
+a = ä
+s = ß
+d = °
+f = ∀
+apostrophe = '
+backslash = ∨
+
+c = ©
+n = ¬
+m = µ
+k = 卍
+comma = ≤
+period = …
+slash = ÷
+
+[modeswitch+shift]
+# Level 4 mappings (Mode_switch + Shift + key)
+2 = ½
+3 = ⅓
+4 = ¼
+7 = ⊼
+8 = ×
+9 = ‹
+0 = ›
+minus = —
+equal = ±
+
+e = ∃
+r = ♻
+u = Ü
+i = ⇔
+o = Ö
+bracketleft = ‚
+bracketright = '
+
+a = Ä
+s = §
+
+c = ¢
+n = ♫
+m = ☭
+k = 卐
+period = ≥
