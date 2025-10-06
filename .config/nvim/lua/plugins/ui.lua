@@ -48,14 +48,11 @@ local M = {
 			-- vim.cmd('colorscheme github_dark')
 		end,
 	},
-	"sainnhe/sonokai",
-	"kvrohit/rasmus.nvim",
 	{ "rose-pine/neovim",             name = "rose-pine" },
 	"axvr/photon.vim",
 	'santos-gabriel-dario/darcula-solid.nvim',
 	'p00f/alabaster.nvim',
 	'gmr458/cold.nvim',
-	'chrsm/paramount-ng.nvim',
 	{
 		"vague2k/vague.nvim",
 		config = function()
@@ -65,6 +62,8 @@ local M = {
 			})
 		end
 	},
+	-- "endel/vim-github-colorscheme",
+	"shaunsingh/solarized.nvim"
 }
 
 return M
