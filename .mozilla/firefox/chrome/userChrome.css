@@ -1,4 +1,12 @@
 /*
+Linux
+	Location: $HOME/.mozilla/firefox/<profile>/chrome/userChrome.css
+	Notes:
+	active profile can be found by going to about:profiles
+	For the styling to work you also have to set
+	toolkit.legacyUserProfileCustomizations.stylesheets to true in about:config
+
+
 Windows
     Location: C:\Users\<YourUsername>\AppData\Roaming\Mozilla\Firefox\Profiles\<YourFirefoxProfile>\chrome
     Notes:
@@ -13,6 +21,11 @@ macOS
 /* /@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul); */
 
 /* Hide horizontal tab toolbar */
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
+  opacity: 0;
+  pointer-events: none;
+}
+
 #TabsToolbar {
     visibility:collapse!important;
 }
@@ -21,3 +34,35 @@ macOS
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
     display:none;
 }
+
+/* /* Hide horizontal tabbar */ */
+/* #main-window #TabsToolbar { */
+/*   visibility: collapse; */
+/* } */
+/**/
+/* /* Collapse in default state and add transition */ */
+/* #sidebar-box { */
+/*   overflow: hidden; */
+/*   min-width: 40px !important; */
+/*   max-width: 40px !important; */
+/*   transition: all 0.3s ease; */
+/*   border-right: 1px solid #0c0c0d; */
+/*   z-index: 2; */
+/* } */
+/**/
+/* /* Expand to 260px on hover */ */
+/* #sidebar-box:hover, #sidebar-box #sidebar { */
+/*   min-width: 260px !important; */
+/*   max-width: 260px !important; */
+/*   z-index: 1; */
+/* } */
+/**/
+/* /* Don't display the sidebar splitter */ */
+/* #sidebar-box + #sidebar-splitter { */
+/*   display: none !important; */
+/* } */
+/**/
+/* /* Slight padding to not show text when collapsed */ */
+/* #sidebar-box #sidebar-header #sidebar-switcher-target #sidebar-icon { */
+/*   margin-right: 2px; */
+/* } */
