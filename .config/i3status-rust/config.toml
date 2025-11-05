@@ -1,59 +1,56 @@
-theme = "plain"
-icons = "awesome"
+[icons]
+icons = "awesome6"
+
+[theme]
+theme = "space-villain"
 
 [[block]]
 block = "disk_space"
+path = "/"
 info_type = "available"
-unit = "GB"
-format = "{icon} {used}/{total} ({available} free)"
+alert = 8.0
+warning = 15.0
+format = " $icon $available "
+format_alt = " $icon $used/$total ($available free) "
 interval = 20
 
-[[block]]
-block = "net"
-format = "{ssid} {signal_strength} {frequency} {ip} {speed_down;K*B} {speed_up;K*B}"
-hide_missing = true
-hide_inactive = true
-interval = 1
+# [[block]]
+# block = "net"
+# format = " $icon $ssid $signal_strength $ip {$speed_down(w:2) $speed_up(w:2)} "
+# interval = 1
 
 [[block]]
 block = "battery"
-format = "{percentage} {time}h {power}"
-device = "/sys/class/power_supply/BAT0"
-if_command = "test -e /sys/class/power_supply/BAT0"
+format = " $icon $percentage {$time} "
+device = "BAT0"
+missing_format = ""
 
 [[block]]
 block = "battery"
-format = "{percentage} {time}h {power}"
-device = "/sys/class/power_supply/BAT1"
-if_command = "test -e /sys/class/power_supply/BAT1"
+format = " $icon $percentage {$time} "
+device = "BAT1"
+missing_format = ""
 
 [[block]]
 block = "temperature"
-collapsed = false
+format = " $icon $max "
 interval = 10
-format = "{max}"
-good = 35
-idle = 50
-info = 60
-warning = 70
 
 [[block]]
 block = "cpu"
-format = "CPU {utilization:5#100}"
+format = " $icon $utilization "
+format_alt = " $icon $barchart $frequency "
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "MEM {mem_used_percents:5#100}"
-format_swap = "MEM {swap_used_percents:5#100}"
+format = " $icon $mem_used_percents.eng(w:2) "
+format_alt = " $icon $mem_used.eng(w:3)/$mem_total.eng(w:3) $swap_used_percents "
 
 [[block]]
 block = "sound"
-format = "{volume} {volume:10#100}"
-on_click = "ponymix toggle"
-headphones_indicator = true
+format = " $icon {$volume.eng(w:2) |} "
 
 [[block]]
 block = "time"
 interval = 5
-format = "%F %R"
+format = " $icon $timestamp.datetime(f:'%F %R') "
