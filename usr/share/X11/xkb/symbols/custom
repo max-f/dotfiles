@@ -1,0 +1,52 @@
+partial alphanumeric_keys
+xkb_symbols "us_extended" {
+    include "us(basic)"
+    name[Group1] = "English (US, extended)";
+
+    // Mode_switch on Right Alt
+    key <RALT> { [ Mode_switch ] };
+
+    // Number row
+    key <TLDE> { [ grave, asciitilde, U2248 ] }; // ≈
+    key <AE01> { [ 1, exclam, onesuperior ] };
+    key <AE02> { [ 2, at, twosuperior, onehalf ] };
+    key <AE03> { [ 3, numbersign, threesuperior, onethird ] };
+    key <AE04> { [ 4, dollar, foursuperior, onequarter ] };
+    key <AE05> { [ 5, percent, U2030 ] }; // ‰
+    key <AE06> { [ 6, asciicircum, U22BB ] }; // ⊻
+    key <AE07> { [ 7, ampersand, logicaland, U22BC ] };
+    key <AE08> { [ 8, asterisk, U2219, multiply ] };
+    key <AE09> { [ 9, parenleft, guillemotleft, U2039 ] };
+    key <AE10> { [ 0, parenright, guillemotright, U203A ] };
+    key <AE11> { [ minus, underscore, endash, emdash ] };
+    key <AE12> { [ equal, plus, notequal, plusminus ] };
+
+    // Top row
+    key <AD04> { [ r, R, registered, U267B ] }; // ®, ♻
+    key <AD05> { [ t, T, trademark ] };
+    key <AD07> { [ u, U, udiaeresis, Udiaeresis ] }; // ü, Ü
+    key <AD08> { [ i, I, U21D2, ifonlyif ] }; // ⇒
+    key <AD09> { [ o, O, odiaeresis, Odiaeresis ] }; // ö, Ö
+    key <AD10> { [ p, P, U03C0, paragraph ] }; // π
+    key <AD03> { [ e, E, EuroSign, U2203 ] }; // €, ∃
+    key <AD01> { [ q, Q, U00F8 ] }; // ø
+    key <AD11> { [ bracketleft, braceleft, U201E, U201A ] }; // „, ‚
+    key <AD12> { [ bracketright, braceright, U201D, U2019 ] }; // ", '
+
+    // Home row
+    key <AC01> { [ a, A, adiaeresis, Adiaeresis ] }; // ä, Ä
+    key <AC02> { [ s, S, ssharp, section ] }; // ß, §
+    key <AC03> { [ d, D, degree ] };
+    key <AC04> { [ f, F, U2200 ] }; // ∀
+    key <AC08> { [ k, K, U534D, U5350 ] }; // Chinese characters
+    key <AC11> { [ apostrophe, quotedbl, U2019 ] }; // '
+    key <BKSL> { [ backslash, bar, logicalor, U22BD ] };
+
+    // Bottom row
+    key <AB03> { [ c, C, copyright, cent ] };
+    key <AB06> { [ n, N, notsign, U266B ] }; // ¬, ♫
+    key <AB07> { [ m, M, mu, U262D ] }; // μ, ☭
+    key <AB08> { [ comma, less, lessthanequal ] };
+    key <AB09> { [ period, greater, ellipsis, greaterthanequal ] };
+    key <AB10> { [ slash, question, division ] };
+};
