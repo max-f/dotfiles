@@ -1,0 +1,198 @@
+/* === Sway-matching color palette === */
+@define-color bg_dark #080808;
+@define-color bg_module #202020;
+@define-color bg_inactive #404040;
+@define-color accent #a6a6de;
+@define-color urgent #ea8484;
+@define-color text_light #a0a0a0;
+@define-color text_dark #000000;
+@define-color text_muted #808080;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(8, 8, 8, 0.9);
+    color: @text_light;
+}
+
+tooltip {
+    background: @bg_module;
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @accent;
+    opacity: 0.95;
+}
+
+tooltip label {
+    color: @text_light;
+}
+
+/* === Workspaces === */
+#workspaces {
+    background: @bg_module;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 0px 4px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @text_muted;
+    border-radius: 4px;
+    min-width: 28px;
+    padding: 2px 6px;
+    margin: 2px;
+}
+
+#workspaces button.visible {
+    color: @text_light;
+    border-bottom: 2px solid @accent;
+}
+
+#workspaces button.focused {
+    background: @accent;
+    color: @text_dark;
+}
+
+#workspaces button.urgent {
+    background: @urgent;
+    color: @text_dark;
+}
+
+#workspaces button:hover {
+    background: @bg_inactive;
+    color: @text_light;
+}
+
+/* === Taskbar === */
+#taskbar {
+    background: @bg_module;
+    border-radius: 4px;
+    margin: 2px 4px;
+    padding: 0px 4px;
+}
+
+#taskbar button {
+    padding: 0px 4px;
+    margin: 0px 2px;
+    border-radius: 4px;
+}
+
+#taskbar button.active {
+    background: @bg_inactive;
+}
+
+#taskbar button:hover {
+    background: @bg_inactive;
+}
+
+/* === All Modules Base Style === */
+#custom-rofi,
+#custom-lock_screen,
+#custom-power,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#temperature,
+#backlight,
+#custom-notification {
+    background: @bg_module;
+    color: @text_light;
+    padding: 0px 8px;
+    margin: 2px 0px;
+    border-radius: 4px;
+}
+
+#tray {
+    background: @bg_module;
+    border-radius: 4px;
+    margin: 2px 4px;
+    padding: 0px 8px;
+}
+
+/* === Left modules === */
+#custom-rofi {
+    color: @accent;
+    margin-left: 2px;
+    font-size: 18px;
+}
+
+#clock {
+    border-left: 2px solid @accent;
+    margin-right: 2px;
+}
+
+/* === Right modules === */
+#battery {
+    margin-left: 4px;
+}
+
+#battery.charging {
+    color: @text_light;
+}
+
+#battery.warning:not(.charging) {
+    color: @urgent;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+    background: @urgent;
+    color: @text_dark;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#pulseaudio.muted {
+    color: @text_muted;
+}
+
+#disk.warning {
+    color: @urgent;
+}
+
+#disk.critical {
+    background: @urgent;
+    color: @text_dark;
+}
+
+#temperature.critical {
+    background: @urgent;
+    color: @text_dark;
+}
+
+#custom-notification {
+    font-size: 16px;
+}
+
+#custom-power {
+    color: @urgent;
+    margin-right: 2px;
+}
+
+@keyframes blink {
+    to {
+        background-color: @bg_inactive;
+        color: @text_light;
+    }
+}

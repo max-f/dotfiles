@@ -1,0 +1,20 @@
+# Current desktop setup:
+## display manager
+[ly](https://wiki.archlinux.org/title/Ly)
+```bash
+S systemctl enable ly@tty1.service
+S systemctl disable getty@tty1.service
+```
+pkg xinit-xsession for xinitrc alternative session (i3..)
+
+## desktop env
+DE: sway + waybar
+
+
+## additional wayland spec programs
+-> see sway config exec block
+
+- nwg-displays (graphical output definition)
+- kanshi (automatic output mgmt)
+- cliphist 
+- swaync

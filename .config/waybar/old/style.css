@@ -1,0 +1,34 @@
+* {
+    font-family: JetBrains Mono, FontAwesome;
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: #080808;
+    color: #a0a0a0;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: #404040;
+    color: #a0a0a0;
+    border: none;
+}
+
+#workspaces button.focused {
+    background-color: #a6a6de;
+    color: #1a1a1a;
+}
+
+#workspaces button.urgent {
+    background-color: #e60053;
+    color: #ffffff;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #notification, #tray {
+    padding: 0 10px;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
