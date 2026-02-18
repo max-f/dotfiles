@@ -63,7 +63,10 @@ local M = {
 		end
 	},
 	-- "endel/vim-github-colorscheme",
-	"shaunsingh/solarized.nvim"
+	"shaunsingh/solarized.nvim",
+	"cvigilv/patana.nvim",
+	"sjl/badwolf",
+	"AlexvZyl/nordic.nvim",
 }
 
 return M
