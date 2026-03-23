@@ -67,6 +67,7 @@ local M = {
 	"cvigilv/patana.nvim",
 	"sjl/badwolf",
 	"AlexvZyl/nordic.nvim",
+	"aktersnurra/no-clown-fiesta.nvim",
 }
 
 return M

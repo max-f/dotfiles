@@ -18,6 +18,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
+-- clipboard stuff for wayland
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.hlsearch = false

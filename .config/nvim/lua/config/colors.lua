@@ -1,9 +1,9 @@
 -- splitted from options.lua due to being loaded after lazy
 -- -> colorschemes have to be present
-vim.o.background = "dark"
+vim.o.background = "light"
 if os.getenv("DISPLAY") ~= nil then
     -- Commands to set the colorscheme for graphical terminal
- 	vim.cmd [[colorscheme kanagawabones]]
+ 	vim.cmd [[colorscheme seoulbones]]
 --	vim.cmd [[SolarizedLight]]
 	--
 	vim.o.termguicolors = true
